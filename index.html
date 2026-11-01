@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#020b05">
+  <link rel="icon" href="assets/icons/favicon.ico">
+  <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
+  <link rel="icon" sizes="96x96" type="image/png" href="assets/icons/favicon-96x96.png">
+  <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+  <link rel="manifest" href="assets/manifest.json">
+  <link rel="stylesheet" href="assets/css/status.css?v=29">
+  <title>Runicore (Мониторинг)</title>
+  <style>
+    /* Index page styles */
+    h1 { font-size: 2.2rem; }
+    h1 .logo { width: 36px; height: 36px; vertical-align: -6px; margin-right: 12px; -webkit-text-fill-color: initial; }
+    .sub { color: var(--muted); margin-bottom: 28px; }
+    .updated { margin-bottom: 24px; }
+
+    /* Server groups */
+    .group-head {
+      display: flex; align-items: center; gap: 12px;
+      background: rgba(10, 40, 20, 0.65); border: 1px solid var(--border);
+      border-radius: 12px; padding: 14px 20px; margin: 26px 0 12px;
+      font-weight: 700; backdrop-filter: blur(8px);
+      text-decoration: none; color: var(--text);
+      transition: border-color .25s, background .25s;
+    }
+    .group-head:hover { border-color: rgba(46, 204, 113, 0.55); background: rgba(6, 36, 16, 0.85); }
+    .group-head .favicon { width: 18px; height: 18px; border-radius: 4px; flex-shrink: 0; }
+    .group-head .favicon.emoji { font-size: 18px; line-height: 1; display: inline-flex; align-items: center; justify-content: center; }
+    .group-head .dot { width: 10px; height: 10px; }
+    .group-head .name { flex: 1; color: var(--text); }
+    .group-head .group-status { display: flex; flex-direction: column; align-items: flex-end; font-size: .8rem; color: var(--muted); font-weight: 500; line-height: 1.3; }
+    .group-head .group-status b { color: var(--text); font-weight: 600; }
+    .group-head .group-status .ms { color: var(--muted); font-size: .74rem; }
+
+    /* Compact service rows */
+    .row {
+      display: flex; align-items: center; gap: 12px;
+      background: var(--card); border: 1px solid var(--border); border-radius: 12px;
+      padding: 14px 20px; margin-bottom: 12px; cursor: pointer;
+      transition: border-color .25s, background .25s;
+      backdrop-filter: blur(8px);
+      text-decoration: none;
+      color: var(--text);
+    }
+    .row.nested { margin-left: 20px; width: calc(100% - 20px); }
+    .row:hover { border-color: rgba(46, 204, 113, 0.55); background: rgba(6, 36, 16, 0.85); }
+    /* The first group sits right under the "🦄 Все сервисы" title: drop its own
+       26px top margin so the gap matches the other sections (14px). */
+    #rows > :first-child { margin-top: 0; }
+    .row .favicon { width: 18px; height: 18px; border-radius: 4px; flex-shrink: 0; }
+    .row .favicon.emoji { font-size: 18px; line-height: 1; display: inline-flex; align-items: center; justify-content: center; }
+    .row .dot { width: 10px; height: 10px; }
+    .row .name { font-weight: 600; flex: 1; color: var(--text); }
+    .row .uptime { display: flex; flex-direction: column; align-items: flex-end; line-height: 1.3; font-size: .82rem; color: var(--muted); }
+    .row .uptime b { color: var(--text); font-weight: 600; }
+    .row .uptime .ms { color: var(--muted); font-size: .74rem; }
+    /* Service card glow by status — same colour as the dot */
+    .group-head.up, .row.up { box-shadow: 0 0 14px -8px var(--ok); }
+    .group-head.down, .row.down { box-shadow: 0 0 14px -8px var(--fail); }
+    /* Maintenance/RKN override up/down (declared later) — same as the dots */
+    .group-head.maint, .row.maint { box-shadow: 0 0 14px -8px var(--warn); }
+    .group-head.rkn, .row.rkn { box-shadow: 0 0 14px -8px var(--rkn); }
+    /* Event card edge glow by mode — see status.css (.incident.<mode>) */
+
+    /* Past events pager */
+    .pager { display: flex; gap: 6px; justify-content: center; flex-wrap: wrap; margin: 20px 0 8px; position: relative; }
+    .pager button {
+      background: transparent; border: 1px solid var(--border); color: var(--muted);
+      min-width: 36px; padding: 6px 12px; border-radius: 8px; cursor: pointer;
+      font-size: .85rem; transition: border-color .2s, background .2s, color .2s;
+    }
+    .pager button:hover:not(:disabled):not(.active) { border-color: rgba(46, 204, 113, .5); color: var(--text); }
+    .pager button.active { border-color: var(--accent); color: var(--text); background: rgba(46, 204, 113, .15); }
+    .pager button:disabled { opacity: .35; cursor: default; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1><img class="logo" src="assets/icons/favicon.svg" alt="Runicore">Мониторинг сети Runicore</h1>
+    <p class="sub">Нажмите на сервис — откроется страница со статистикой.</p>
+    <div class="updated" id="updated"></div>
+    <div class="banner ok" id="banner">⏳ Загрузка…</div>
+    <div class="inc-title" id="incTitle" style="display:none">⚡️ Активные события</div>
+    <div id="incidents"></div>
+    <div class="inc-title" id="rowsTitle" style="display:none">🦄 Все сервисы</div>
+    <div id="rows"></div>
+    <div class="inc-title" id="pastTitle" style="display:none">✅ Прошлые события</div>
+    <div id="past"></div>
+    <div class="pager" id="pastPager" style="display:none"></div>
+    <footer>© 2024–<span id="year"></span> Runicore. Все права защищены.</footer>
+  </div>
+
+  <script src="assets/js/common.js?v=28"></script>
+  <script src="assets/js/app.js?v=31"></script>
+</body>
+</html>

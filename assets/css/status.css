@@ -1,0 +1,201 @@
+/* Runicore Status — shared styles for all pages */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --bg: #020b05;
+  --card: rgba(4, 26, 12, 0.75);
+  --border: rgba(46, 204, 113, 0.2);
+  --accent: #2ecc71;
+  --ok: #00ff88;
+  --fail: #ff4f6d;
+  --warn: #f1c40f;
+  --gray: #8a9b8f;
+  --rkn: #37b6ff;
+  --text: #ffffff;
+  --muted: rgba(255, 255, 255, 0.65);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  background-color: var(--bg);
+  background-image:
+    linear-gradient(to right, rgba(46, 204, 113, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(46, 204, 113, 0.04) 1px, transparent 1px),
+    radial-gradient(circle at 10% 20%, rgba(16, 185, 129, 0.15) 0%, transparent 40%),
+    radial-gradient(circle at 90% 80%, rgba(46, 204, 113, 0.08) 0%, transparent 50%);
+  background-size: 50px 50px, 50px 50px, auto, auto;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  color: var(--text);
+  min-height: 100vh;
+  padding: 60px 20px;
+}
+.wrap { max-width: 760px; margin: 0 auto; }
+.back { color: var(--muted); text-decoration: none; font-size: .88rem; display: inline-block; margin-bottom: 18px; transition: color 0.2s; }
+.back:hover { color: var(--accent); }
+h1 {
+  font-size: 2rem; font-weight: 800; margin-bottom: 6px;
+  background: linear-gradient(135deg, #ffffff 40%, #2ecc71 100%);
+  -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+}
+.banner {
+  border-radius: 14px; padding: 16px 22px; margin-bottom: 18px;
+  background: var(--card); border: 1px solid var(--border);
+  font-weight: 600; font-size: .95rem;
+}
+.banner.ok { border-color: rgba(46, 204, 113, .4); box-shadow: 0 0 18px -6px rgba(46, 204, 113, .45); }
+.banner.fail { border-color: var(--fail); box-shadow: 0 0 18px -6px rgba(255, 79, 109, .45); }
+.banner-dot { display: inline-block; width: 12px; height: 12px; border-radius: 50%; vertical-align: -1px; margin-right: 6px; background: var(--ok); box-shadow: 0 0 10px var(--ok); }
+.banner-dot.fail { background: var(--fail); box-shadow: 0 0 10px var(--fail); }
+.banner-dot.warn { background: var(--warn); box-shadow: 0 0 10px var(--warn); }
+/* Maintenance banner: status on the left (green/red), yellow on the right */
+.banner-dot.maint { background: linear-gradient(to right, var(--ok) 0 50%, var(--warn) 50% 100%); box-shadow: 0 0 10px var(--ok); }
+.banner-dot.fail.maint { background: linear-gradient(to right, var(--fail) 0 50%, var(--warn) 50% 100%); box-shadow: 0 0 10px var(--fail); }
+/* RKN banner: status on the left (green/red), blue on the right */
+.banner-dot.rkn { background: linear-gradient(to right, var(--ok) 0 50%, var(--rkn) 50% 100%); box-shadow: 0 0 10px var(--ok); }
+.banner-dot.fail.rkn { background: linear-gradient(to right, var(--fail) 0 50%, var(--rkn) 50% 100%); box-shadow: 0 0 10px var(--fail); }
+.dot { display: inline-block; border-radius: 50%; flex-shrink: 0; }
+.dot.up { background: var(--ok); box-shadow: 0 0 10px var(--ok); }
+.dot.down { background: var(--fail); box-shadow: 0 0 10px var(--fail); }
+.dot.warn { background: var(--warn); box-shadow: 0 0 10px var(--warn); }
+/* Maintenance: the dot is split in half — actual status (green/red) on the left,
+   yellow on the right. Without maintenance the dot is a single colour. */
+.dot.up.maint { background: linear-gradient(to right, var(--ok) 0 50%, var(--warn) 50% 100%); box-shadow: 0 0 10px var(--ok); }
+.dot.down.maint { background: linear-gradient(to right, var(--fail) 0 50%, var(--warn) 50% 100%); box-shadow: 0 0 10px var(--fail); }
+/* RKN restrictions: the dot is split — actual status on the left, blue on the right */
+.dot.up.rkn { background: linear-gradient(to right, var(--ok) 0 50%, var(--rkn) 50% 100%); box-shadow: 0 0 10px var(--ok); }
+.dot.down.rkn { background: linear-gradient(to right, var(--fail) 0 50%, var(--rkn) 50% 100%); box-shadow: 0 0 10px var(--fail); }
+.updated { text-align: left; color: var(--muted); font-size: .78rem; margin-bottom: 16px; }
+/* Section titles: consistent rhythm — larger gap above, smaller below */
+.inc-title { margin: 26px 0 14px; font-weight: 700; font-size: .95rem; }
+/* Event card in lists (index/site). .evt is excluded: that is the card on
+   incident.html (there the "incident" class means a mode) and it has its own
+   block layout, so no flex row. */
+.incident:not(.evt) {
+  display: flex; align-items: center; gap: 14px;
+  text-decoration: none; color: var(--text); position: relative;
+  background: var(--card); border: 1px solid var(--border); border-radius: 10px;
+  padding: 12px 16px; margin-bottom: 12px; font-size: .88rem;
+  border-left-width: 3px;
+  transition: border-color .25s, transform .15s;
+}
+.incident:hover { border-color: rgba(46, 204, 113, .5); transform: translateX(2px); }
+/* An active event card carries the status pill on its top border (overhang ~9px).
+   Compensate in the layout: 23px on top keeps the visual gap to the previous
+   card at ~14px, and 16px padding-top keeps ~7px between the pill and the text. */
+.incident.active:not(.evt-sub) { margin-top: 23px; padding-top: 16px; }
+.incident .t { color: var(--muted); font-size: .8rem; }
+/* Status colour bar plus a matching glow (all modes, not only active) */
+.incident.incident { border-left-color: var(--fail); box-shadow: -3px 0 12px -6px var(--fail); }
+.incident.maintenance { border-left-color: var(--warn); box-shadow: -3px 0 12px -6px var(--warn); }
+.incident.annulled { opacity: .6; border-left-color: var(--gray); box-shadow: -3px 0 12px -6px var(--gray); }
+.incident.hidden { border-left-color: var(--gray); box-shadow: -3px 0 12px -6px var(--gray); }
+.incident.rkn { border-left-color: var(--rkn); box-shadow: -3px 0 12px -6px var(--rkn); }
+/* Card left column: mode label, icon, name, status, comment counter.
+   The start/resolve meta goes on its own line (.ev-meta). */
+.incident .ev-body { flex: 1 1 auto; min-width: 0; line-height: 1.45; }
+.incident .ev-meta { display: block; margin-top: 2px; }
+/* Card right column: duration label on top, comment counter "💬 N" below.
+   Everything is right-aligned (align-items: flex-end). A separate flex block
+   (not a float): vertically centred and never overlaps the text on the left. */
+.incident .ev-right {
+  flex: 0 0 auto; display: inline-flex; flex-direction: column; align-items: flex-end;
+  gap: 3px; margin-left: auto;
+}
+/* Status pill of an active event: small, uppercase, tight letter-spacing.
+   Sits on the card's top border, centred (position: absolute). */
+.incident .ev-status {
+  position: absolute; top: -1px; left: 50%; transform: translate(-50%, -50%); z-index: 1;
+  display: inline-block; padding: 1px 8px; border-radius: 999px;
+  font-size: .6rem; font-weight: 700; letter-spacing: 0; line-height: 1.4;
+  border: 1px solid; white-space: nowrap;
+}
+.incident .ev-status.st-incident { color: var(--fail); border-color: rgba(255,79,109,.45); background: rgba(255,79,109,.12); }
+.incident .ev-status.st-maintenance { color: var(--warn); border-color: rgba(241,196,15,.45); background: rgba(241,196,15,.12); }
+.incident .ev-status.st-annulled { color: var(--gray); border-color: rgba(138,155,143,.45); background: rgba(138,155,143,.12); }
+.incident .ev-status.st-rkn { color: var(--rkn); border-color: rgba(55,182,255,.45); background: rgba(55,182,255,.12); }
+/* Nested services of a group: no duplicate pill — the status is on the main card */
+.evt-sub .ev-status { display: none; }
+.incident .ev-dur {
+  display: inline-block; padding: 1px 8px; border-radius: 999px;
+  border: 1px solid var(--border); background: rgba(255, 255, 255, 0.05);
+  color: var(--text); font-size: .74rem; font-weight: 700; line-height: 1.5;
+  white-space: nowrap;
+}
+.incident .comment-badge {
+  color: var(--muted); font-size: .78rem; font-weight: 600;
+  white-space: nowrap; user-select: none; transition: color .2s;
+}
+.incident:hover .comment-badge { color: var(--accent); }
+/* Narrow screens (phone): tighter card, more compact labels/counter so the
+   long meta and the right column fit */
+@media (max-width: 480px) {
+  .incident:not(.evt) { padding: 10px 12px; gap: 10px; }
+  .incident .ev-dur { font-size: .72rem; padding: 1px 7px; }
+  .incident .comment-badge { font-size: .75rem; }
+}
+
+/* Service favicon/emoji on the event card */
+.incident .ev-fav { width: 16px; height: 16px; border-radius: 4px; vertical-align: -3px; margin-right: 8px; }
+.incident .ev-fav.emoji { width: auto; height: auto; font-size: 15px; vertical-align: -2px; }
+
+/* Priority mode label shown as a badge before the service name */
+.incident .lb {
+  /* inline-block (not inline-flex): the chip baseline is its text baseline, so
+     the label text and the service name line up exactly */
+  display: inline-block; margin-right: 8px; padding: 1px 8px;
+  border-radius: 999px; font-size: .72rem; font-weight: 700; line-height: 1.5;
+  border: 1px solid; background: rgba(255,255,255,0.04);
+  vertical-align: baseline;
+  white-space: nowrap;
+}
+/* Service favicon/emoji lives inside the status label */
+.incident .lb .ev-fav { width: 14px; height: 14px; border-radius: 3px; margin-right: 6px; vertical-align: -3px; }
+.incident .lb .ev-fav.emoji { width: auto; height: auto; font-size: 13px; line-height: 1; margin-right: 5px; vertical-align: baseline; }
+.incident .lb-incident { color: var(--fail); border-color: rgba(255,79,109,.45); background: rgba(255,79,109,.12); }
+.incident .lb-maintenance { color: var(--warn); border-color: rgba(241,196,15,.45); background: rgba(241,196,15,.12); }
+.incident .lb-annulled { color: var(--gray); border-color: rgba(138,155,143,.45); background: rgba(138,155,143,.12); }
+.incident .lb-rkn { color: var(--rkn); border-color: rgba(55,182,255,.45); background: rgba(55,182,255,.12); }
+/* Service name in the card — plain text, not a label */
+.incident b { font-weight: 700; }
+
+/* One issue group: main card plus a collapsible list of affected services.
+   Hovering shifts the whole group (like a single card) — one animation. */
+.evt-group { margin-bottom: 12px; transition: transform .15s; }
+.evt-group:hover { transform: translateX(2px); }
+.evt-group > .incident { margin-bottom: 0; border-radius: 10px 10px 0 0; }
+/* Do not cover the status colour bar on the left: hover shifts the whole group,
+   while the card border keeps the mode colour (border transition disabled here) */
+.evt-group > .incident:hover { transform: none; }
+.evt-notch {
+  display: flex; align-items: center; gap: 6px; width: 100%; text-align: left;
+  background: rgba(4, 26, 12, 0.5); border: 1px solid var(--border); border-top: none;
+  border-left-width: 3px; border-radius: 0 0 10px 10px; color: var(--muted);
+  padding: 10px 16px; font-size: .8rem; cursor: pointer;
+  transition: color .2s, background .2s, border-color .25s;
+}
+.evt-notch[data-mode="incident"] { border-left-color: var(--fail); box-shadow: -3px 0 12px -6px var(--fail); }
+.evt-notch[data-mode="maintenance"] { border-left-color: var(--warn); box-shadow: -3px 0 12px -6px var(--warn); }
+.evt-notch[data-mode="annulled"] { border-left-color: var(--gray); box-shadow: -3px 0 12px -6px var(--gray); }
+.evt-notch[data-mode="hidden"] { border-left-color: var(--gray); box-shadow: -3px 0 12px -6px var(--gray); }
+.evt-notch[data-mode="rkn"] { border-left-color: var(--rkn); box-shadow: -3px 0 12px -6px var(--rkn); }
+.evt-notch:hover { color: var(--text); background: rgba(6, 36, 16, 0.7); }
+.evt-notch-arrow { display: inline-block; width: 14px; }
+.evt-subs { padding: 10px 0 6px 14px; display: flex; flex-direction: column; gap: 8px; }
+.evt-subs .evt-sub { font-size: .84rem; }
+
+/* Page-jump input in the pager — pinned to the right edge so the page
+   numbers stay exactly centred */
+.pager .pager-jump {
+  position: absolute; right: 0; top: 50%; transform: translateY(-50%);
+}
+.pager .pager-jump input {
+  background: transparent; border: 1px solid var(--border); color: var(--text);
+  width: 54px; padding: 6px 8px; border-radius: 8px; font-size: .85rem;
+  text-align: center; transition: border-color .2s;
+}
+.pager .pager-jump input::placeholder { color: var(--muted); }
+.pager .pager-jump input:focus { outline: none; border-color: var(--accent); }
+footer {
+  text-align: center; margin-top: 50px; padding-top: 24px;
+  border-top: 1px solid rgba(255,255,255,.05);
+  color: var(--muted); font-size: .82rem;
+}

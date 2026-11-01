@@ -1,0 +1,59 @@
+name: Static Site CI
+
+on:
+  push:
+    paths:
+      - "assets/**"
+      - "index.html"
+      - "config.json"
+  repository_dispatch:
+    types: [site]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+  actions: read
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    name: Deploy to GitHub Pages
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Fetch latest data (branch 'data')
+        run: |
+          # Data (api/, history/) lives only in the 'data' branch and is overlaid
+          # onto the code from main. No fallback: if the data branch is missing the
+          # build fails and Pages keeps the last working deployment.
+          git fetch --depth 1 origin data
+          git checkout origin/data -- api history
+          echo "Данные взяты из ветки data"
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Prune unnecessary files
+        run: |
+          rm -rf .git .github scripts .env .env.example .gitignore README.md monitor.py
+
+      - name: Upload site
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

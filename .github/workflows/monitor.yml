@@ -1,0 +1,87 @@
+name: Monitor
+# Check sites every 5 minutes on a schedule + manual runs
+
+on:
+  schedule:
+    - cron: "*/5 * * * *"
+  repository_dispatch:
+    types: [monitor]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  issues: write
+  actions: write
+
+concurrency:
+  group: ${{ github.repository }}-monitor
+  cancel-in-progress: false
+
+jobs:
+  check:
+    name: Check status
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref || github.ref_name }}
+          token: ${{ secrets.FINE_GRAINED_TOKEN || github.token }}
+
+      - name: Restore data (branch 'data')
+        run: |
+          # api/ and history/ live only in the 'data' branch: restore the previous
+          # snapshot before the run, otherwise every run would start from scratch
+          # and overwrite the accumulated history.
+          git fetch --depth 1 origin data
+          git checkout origin/data -- api history || echo "No data branch yet"
+
+      - name: Run monitor
+        run: python monitor.py
+        env:
+          SECRETS_CONTEXT: ${{ toJson(secrets) }}
+          GH_TOKEN: ${{ secrets.FINE_GRAINED_TOKEN || github.token }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+
+      - name: Publish data (branch 'data', ~7 days of history)
+        env:
+          GH_TOKEN: ${{ secrets.FINE_GRAINED_TOKEN || github.token }}
+        run: |
+          git config user.name "Runicore Bot"
+          git config user.email "Freidzher@users.noreply.github.com"
+          git add -f history/ api/
+          if git diff --cached --quiet; then
+            echo "No changes"
+          else
+            # Data-only tree: the 'data' branch must never contain the code.
+            git read-tree --empty
+            git add -f api/ history/
+            tree=$(git write-tree)
+            if [ "$(date -u +%u)" = "7" ] && [ "$(date -u +%H)" = "03" ]; then
+              # Weekly rotation (Sunday 03:xx UTC): reset to a single commit so the
+              # repository keeps ~7 days of data history (2016 commits), not years.
+              commit=$(git commit-tree "$tree" -m "Data snapshot (weekly reset)")
+              git push -f origin "$commit:data"
+            else
+              parent=$(git rev-parse origin/data 2>/dev/null || true)
+              if [ -n "$parent" ]; then
+                commit=$(git commit-tree "$tree" -p "$parent" -m "Data snapshot")
+              else
+                commit=$(git commit-tree "$tree" -m "Data snapshot")
+              fi
+              for i in 1 2 3; do
+                if git push origin "$commit:data"; then break; fi
+                sleep $((i * 5))
+                git fetch --depth 1 origin data
+                commit=$(git commit-tree "$tree" -p "$(git rev-parse origin/data)" -m "Data snapshot")
+              done
+            fi
+            git read-tree HEAD
+          fi
+          # Trigger site deploy
+          curl -sS -X POST \
+            -H "Authorization: Bearer ${GH_TOKEN}" \
+            -H "Accept: application/vnd.github+json" \
+            -H "User-Agent: runicore-monitor" \
+            "https://api.github.com/repos/${GITHUB_REPOSITORY}/dispatches" \
+            -d '{"event_type": "site"}'

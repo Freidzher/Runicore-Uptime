@@ -1,0 +1,1296 @@
+#!/usr/bin/env python3
+"""Runicore Monitor — a self-hosted availability monitor.
+
+Storage layout:
+  history/{slug}.yml      — last check of the site (YAML)
+  history/summary.json    — aggregated summary (uptime/response for day/week/month/year)
+  api/{slug}/points.json  — raw points {ts, ok, code, ms} (for charts)
+  api/{slug}/favicon.ico  — site icon (fetched during checks; the domain is never published)
+  api/{slug}/uptime*.json, api/{slug}/response-time*.json — shields-style badges
+  api/incidents.json      — open incidents (list; several events per service allowed)
+  api/incidents-log.json  — journal of closed incidents
+
+Config: config.json (owner, repo, names, interval_minutes, history_days, timeout).
+Secrets come via SECRETS_CONTEXT (Actions) or .env (local).
+Secret format (separator '|', no spaces):
+  '[ID|]target[|icon-url]', where target is:
+    'https://site'                   — HTTP/HTTPS site;
+    '1.2.3.4' or 'host.example.com'  — machine: TCP check of SSH port 22 (no auth);
+  ID — optional numeric id for sorting/grouping:
+    integer ('1') — group/VM (header), fractional ('1.1') — a service nested into it.
+Service keys (FINE_GRAINED_TOKEN, GH_TOKEN) are excluded. URLs/IPs are never published.
+Author: Freidzher
+"""
+import json
+import os
+import re
+import sys
+import time
+import urllib.request
+import urllib.error
+import urllib.parse
+import ssl
+import socket
+from datetime import datetime, timezone, timedelta
+from pathlib import Path
+
+ROOT = Path(__file__).parent
+CONFIG_FILE = ROOT / "config.json"
+HISTORY_DIR = ROOT / "history"
+API_DIR = ROOT / "api"
+ENV_FILE = ROOT / ".env"
+
+SERVICE_KEYS = {"FINE_GRAINED_TOKEN", "GH_TOKEN", "GITHUB_TOKEN"}
+ctx = ssl.create_default_context()
+
+# Safe console output: never crash on non-CP1251 characters on Windows
+try:
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+except Exception:
+    pass
+
+
+def repo_slug(config: dict) -> str:
+    if not config.get("owner") or not config.get("repo"):
+        raise SystemExit("Укажите owner и repo в config.json")
+    return f"{config['owner']}/{config['repo']}"
+
+
+def load_env() -> None:
+    if not ENV_FILE.exists():
+        return
+    for line in ENV_FILE.read_text(encoding="utf-8").splitlines():
+        line = line.strip()
+        if not line or line.startswith("#") or "=" not in line:
+            continue
+        key, _, value = line.partition("=")
+        os.environ.setdefault(key.strip(), value.strip())
+
+
+def load_secrets() -> dict:
+    raw = os.environ.get("SECRETS_CONTEXT")
+    if raw:
+        try:
+            data = json.loads(raw)
+            return {k: v for k, v in data.items() if v}
+        except json.JSONDecodeError:
+            pass
+    return dict(os.environ)
+
+
+def pretty_name(key: str) -> str:
+    return key.replace("_", " ").strip().title()
+
+
+def slugify(key: str) -> str:
+    return key.strip().lower().replace("_", "-")
+
+
+EMOJI_RE = re.compile(
+    "[\U0001F000-\U0001FAFF\u2600-\u27BF\u2B00-\u2BFF\u2190-\u21FF]"
+    "(?:\uFE0F|\u200D[\U0001F000-\U0001FAFF\u2600-\u27BF])*")
+
+
+# Host without a scheme: domain or IPv4 (letters/digits/dots/dashes, no spaces or slashes)
+HOST_RE = re.compile(r"^[a-zA-Z0-9](?:[a-zA-Z0-9.-]*[a-zA-Z0-9])?$")
+# Numeric sort/group id: '1', '1.1', '2.10'
+GROUP_ID_RE = re.compile(r"^\d+(?:\.\d+)?$")
+# Service keys in a maintenance title: 'SERVER1 - Update', 'SERVER1,SERVER3 Update'
+MAINT_KEY_RE = re.compile(r"(SERVER\d+(?:_\d+)?)", re.IGNORECASE)
+
+
+def discover_sites(config: dict, secrets: dict) -> dict:
+    """Формат секрета — '[ID|]цель[|icon-url]', разделитель '|' (без пробелов):
+      'https://site|https://icon-url'  — HTTP/HTTPS-сайт (+ необязательная иконка);
+      '1.2.3.4' или 'host.example.com' — машина: проверка SSH-порта 22 (TCP, без авторизации);
+      '1|https://site'                 — сервис группы '1' (целый ID = группа/ВМ),
+      '1.1|https://site'               — вложенный сервис группы '1'.
+    """
+    custom = config.get("names", {})
+    if not custom:
+        raise SystemExit("В config.json не заполнен список names — актуальный список сервисов берётся из него.")
+    sites = {}
+    for key, value in secrets.items():
+        if key in SERVICE_KEYS or key.startswith(("GITHUB_", "RUNNER_", "CI")):
+            continue
+        if not value:
+            continue
+        # The service must be declared in config.json -> names (typo guard for secrets)
+        if key not in custom:
+            print(f"Пропущен секрет '{key}': нет в config.json -> names (опечатка или лишний секрет)")
+            continue
+        parts = [p.strip() for p in value.split("|") if p.strip()]
+        if not parts:
+            continue
+        group, is_group = "", False
+        if GROUP_ID_RE.match(parts[0]) and len(parts) > 1:
+            group = parts[0]
+            is_group = "." not in group  # целый ID — группа/ВМ, дробный — вложенный сервис
+            parts = parts[1:]
+        target = parts[0]
+        icon_url = parts[1] if len(parts) > 1 and parts[1].startswith(("http://", "https://")) else ""
+        if target.startswith(("http://", "https://")):
+            kind = "http"
+        elif HOST_RE.match(target):
+            kind = "ssh"  # IP или домен без схемы -> TCP-проверка порта 22
+        else:
+            continue  # не похоже ни на URL, ни на хост — пропускаем
+        sites[key] = {
+            "slug": slugify(key),
+            "name": custom.get(key, pretty_name(key)),
+            "kind": kind,
+            "url": target,
+            "icon_url": icon_url,
+            "group": group,
+            "is_group": is_group,
+            "timeout": config.get("timeout", 10),
+        }
+    return sites
+
+
+def fetch_favicon(url: str, api_dir: Path, timeout: int = 10) -> str:
+    """Скачивает favicon (ico/png/svg) в api/{slug}/favicon.{ext}.
+
+    Возвращает имя файла ('favicon.ico'|'favicon.png'|'favicon.svg') или ''.
+    Приоритет: прямой URL > /favicon.ico > /favicon.png > /favicon.svg > DuckDuckGo.
+    Старые favicon.* с другим расширением удаляются.
+    """
+    class NoRedirect(urllib.request.HTTPRedirectHandler):
+        def redirect_request(self, req, fp, code, msg, headers, newurl):
+            return None
+
+    def save(data: bytes, ext: str) -> str:
+        # Remove stale icons with a different extension
+        for old in api_dir.glob("favicon.*"):
+            if old.name != f"favicon.{ext}":
+                old.unlink(missing_ok=True)
+        (api_dir / f"favicon.{ext}").write_bytes(data)
+        return f"favicon.{ext}"
+
+    try:
+        # If the URL already points to an icon (ico/png/svg), download it directly
+        lower = url.lower()
+        for ext in ("ico", "png", "svg"):
+            if lower.endswith("." + ext):
+                try:
+                    req = urllib.request.Request(url, headers={"User-Agent": "RunicoreMonitor/1.0"})
+                    with urllib.request.urlopen(req, timeout=timeout, context=ctx) as resp:
+                        data = resp.read()
+                    if data and len(data) > 100:
+                        return save(data, ext)
+                except Exception:
+                    pass
+                break
+
+        # Follow redirects manually to learn the final URL
+        opener = urllib.request.build_opener(NoRedirect)
+        req = urllib.request.Request(url, headers={"User-Agent": "RunicoreMonitor/1.0"})
+        try:
+            with opener.open(req, timeout=timeout) as resp:
+                if 300 <= resp.status < 400:
+                    url = resp.headers.get("Location") or url
+        except urllib.error.HTTPError as e:
+            if 300 <= e.code < 400:
+                url = e.headers.get("Location") or url
+
+        host = urllib.parse.urlparse(url).netloc
+        base = "{0.scheme}://{0.netloc}".format(urllib.parse.urlparse(url))
+        candidates = (
+            (f"{base}/favicon.ico", "ico"),
+            (f"{base}/favicon.png", "png"),
+            (f"{base}/favicon.svg", "svg"),
+            (f"https://icons.duckduckgo.com/ip3/{host}.ico", "ico"),
+        )
+        for icon_url, ext in candidates:
+            try:
+                req = urllib.request.Request(icon_url, headers={"User-Agent": "RunicoreMonitor/1.0"})
+                with urllib.request.urlopen(req, timeout=timeout, context=ctx) as resp:
+                    data = resp.read()
+                if data and len(data) > 100:
+                    return save(data, ext)
+            except Exception:
+                continue
+    except Exception:
+        pass
+    return ""
+
+
+# Browser-like headers: some reverse proxies (e.g. Caddy in front of Remnawave)
+# return 502 for requests with a non-browser Accept/User-Agent.
+BROWSER_HEADERS = {
+    "User-Agent": ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
+                   "(KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36"),
+    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+    "Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
+}
+
+
+def _single_check(url: str, timeout: int) -> tuple:
+    """Одна попытка проверки. Возвращает (ok, code)."""
+    try:
+        req = urllib.request.Request(url, headers=BROWSER_HEADERS)
+        with urllib.request.urlopen(req, timeout=timeout, context=ctx) as resp:
+            return True, resp.status
+    except urllib.error.HTTPError as e:
+        # 5xx — server-side error (502/503/504): the backend behind the gateway is down -> DOWN.
+        # 2xx-4xx (including 401/403/404/429) — the app itself responds -> UP.
+        return not (500 <= e.code < 600), e.code
+    except urllib.error.URLError as e:
+        if isinstance(getattr(e, "reason", None), ssl.SSLCertVerificationError):
+            try:
+                req2 = urllib.request.Request(url, headers=BROWSER_HEADERS)
+                with urllib.request.urlopen(req2, timeout=timeout, context=ssl._create_unverified_context()) as resp:
+                    return True, resp.status
+            except urllib.error.HTTPError as e2:
+                return not (500 <= e2.code < 600), e2.code
+            except Exception:
+                return False, 0
+        return False, 0
+    except Exception:
+        return False, 0
+
+
+def check_site(name: str, url: str, timeout: int = 10) -> dict:
+    """3 попытки проверки: если 2+ успешных — работает, если все 3 неудачные — падение."""
+    start = time.monotonic()
+    successes = 0
+    last_code = 0
+    for attempt in range(3):
+        ok, code = _single_check(url, timeout)
+        if ok:
+            successes += 1
+            last_code = code
+        if successes >= 2:
+            break  # Достаточно успехов
+    ok = successes >= 2
+    ms = round((time.monotonic() - start) * 1000)
+    print(f"{name}: {'UP' if ok else 'DOWN'} ({last_code}) {ms}ms [x{successes}/3]".encode("utf-8", "replace").decode("utf-8", "replace"))
+    return {"ts": datetime.now(timezone.utc).isoformat(timespec="seconds"), "ok": ok, "code": last_code, "ms": ms}
+
+
+def _single_ssh_check(host: str, timeout: int) -> tuple:
+    """Одна TCP-попытка на порт 22 (SSH, без авторизации). Возвращает (ok, code)."""
+    try:
+        with socket.create_connection((host, 22), timeout=timeout):
+            return True, 22  # соединение установлено -> машина активна
+    except Exception:
+        return False, 0
+
+
+def check_ssh(name: str, host: str, timeout: int = 10) -> dict:
+    """Живость машины: TCP-подключение к порту 22 (без авторизации).
+    3 попытки: 2+ успешных — работает, иначе — падение."""
+    start = time.monotonic()
+    successes = 0
+    last_code = 0
+    for attempt in range(3):
+        ok, code = _single_ssh_check(host, timeout)
+        if ok:
+            successes += 1
+            last_code = code
+        if successes >= 2:
+            break  # Достаточно успехов
+    ok = successes >= 2
+    ms = round((time.monotonic() - start) * 1000)
+    print(f"{name}: {'UP' if ok else 'DOWN'} ({last_code}) {ms}ms [x{successes}/3] [ssh]".encode("utf-8", "replace").decode("utf-8", "replace"))
+    return {"ts": datetime.now(timezone.utc).isoformat(timespec="seconds"), "ok": ok, "code": last_code, "ms": ms}
+
+
+def gh_api(path: str, method: str = "GET", payload=None):
+    token = (os.environ.get("GH_TOKEN") or os.environ.get("GITHUB_TOKEN")
+             or os.environ.get("FINE_GRAINED_TOKEN"))
+    if not token:
+        return None
+    data = json.dumps(payload).encode() if payload is not None else None
+    req = urllib.request.Request(f"https://api.github.com{path}", data=data, method=method)
+    req.add_header("Authorization", f"Bearer {token}")
+    req.add_header("Accept", "application/vnd.github+json")
+    try:
+        with urllib.request.urlopen(req) as resp:
+            body = resp.read()
+            return json.loads(body) if body else None
+    except Exception as e:
+        print("GitHub API error:", e)
+        return None
+
+
+def load_json(path: Path, default):
+    if path.exists():
+        try:
+            return json.loads(path.read_text(encoding="utf-8"))
+        except json.JSONDecodeError:
+            return default
+    return default
+
+
+def write_json(path: Path, data) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps(data, ensure_ascii=False, indent=1), encoding="utf-8")
+
+
+def load_log() -> list:
+    return load_json(API_DIR / "incidents-log.json", [])
+
+
+def load_incidents() -> list:
+    """Активные события — СПИСОМ (на сервис может быть несколько событий сразу:
+    напр. РКН + техработы). Старый формат ({KEY: entry}) мигрируется на ходу."""
+    data = load_json(API_DIR / "incidents.json", [])
+    if isinstance(data, dict):
+        return list(data.values())
+    return data if isinstance(data, list) else []
+
+
+def inc_entries(incidents) -> list:
+    """Итерация по активным событиям независимо от формата (список/словарь)."""
+    if isinstance(incidents, dict):
+        return list(incidents.values())
+    return list(incidents or [])
+
+
+def find_inc_entry(incidents: list, slug: str, issue_number=None):
+    """Запись активного события по slug (и номеру issue, если задан)."""
+    for e in inc_entries(incidents):
+        if e.get("slug") != slug:
+            continue
+        if issue_number is not None and e.get("issue_number") != issue_number:
+            continue
+        return e
+    return None
+
+
+def remove_inc_entry(incidents: list, entry: dict) -> None:
+    """Удаляет запись из списка активных событий (по ссылке на объект)."""
+    try:
+        incidents.remove(entry)
+    except ValueError:
+        pass
+
+
+def _write_log(log: list) -> None:
+    """Пишет журнал: дедупликация по (issue_number, slug), сортировка по opened,
+    хранение последних 100 записей. При дублях остаётся запись с самым поздним resolved
+    (переоткрытие issue обновляет одну запись, а не наслаивает новые)."""
+    best = {}
+    for e in log:
+        k = (e.get("issue_number"), e.get("slug"))
+        cur = best.get(k)
+        if cur is None or (e.get("resolved") or "") >= (cur.get("resolved") or ""):
+            best[k] = e
+    ordered = sorted(best.values(), key=lambda e: e.get("opened") or "")
+    write_json(API_DIR / "incidents-log.json", ordered[-100:])
+
+
+def upsert_log_entry(entry: dict) -> None:
+    """Добавляет запись в журнал или ОБНОВЛЯЕТ существующую по (issue_number, slug).
+    Закрытие-переоткрытие issue не создаёт дубль: resolved/minutes пересчитываются
+    заново (от первого opened до последнего закрытия)."""
+    log = load_log()
+    for e in log:
+        if e.get("issue_number") == entry.get("issue_number") and e.get("slug") == entry.get("slug"):
+            merged = dict(e)
+            merged.update(entry)
+            # opened never moves backwards: keep the earliest open time
+            if e.get("opened") and entry.get("opened") and e["opened"] < entry["opened"]:
+                merged["opened"] = e["opened"]
+            e.clear()
+            e.update(merged)
+            _write_log(log)
+            return
+    log.append(entry)
+    _write_log(log)
+
+
+def find_open_incident_issue(repo: str, title: str) -> int:
+    """Ищет среди открытых issues уже существующий инцидент с таким же заголовком.
+    Защита от дубликатов: если прошлый прогон создал issue, но не успел закоммитить
+    incidents.json (например, из-за отмены concurrency), issue переиспользуется."""
+    page = 1
+    while True:
+        issues = gh_api(f"/repos/{repo}/issues?state=open&per_page=100&page={page}")
+        if not issues:
+            return 0
+        for i in issues:
+            if "pull_request" not in i and i.get("title", "").strip() == title:
+                return i["number"]
+        if len(issues) < 100:
+            return 0
+        page += 1
+
+
+def open_incident(key: str, name: str, result: dict, incidents: dict, repo: str, is_maint: bool = False) -> None:
+    title = f"{name} — техработы" if is_maint else f"{name} — недоступен"
+    labels = ["maintenance"] if is_maint else ["incident"]
+    body = (
+        f"{name} — плановые работы.\n\nЗавершается закрытием issue."
+    ) if is_maint else (
+        f"- Код ошибки: {result['code']}\n"
+        f"- Время отклика: {result['ms']} мс"
+    )
+    # Dedup: reuse an already open issue with the same title
+    existing_num = find_open_incident_issue(repo, title)
+    if existing_num:
+        issue = {"number": existing_num}
+        print(f"Incident issue #{existing_num} reused for {name} (дубликат предотвращён)")
+    else:
+        issue = gh_api(f"/repos/{repo}/issues", "POST", {"title": title, "body": body, "labels": labels})
+    if issue:
+        entry = {
+            "issue_number": issue["number"],
+            "opened": result["ts"],
+            "name": name,
+            "slug": slugify(key),
+            "maintenance": is_maint,
+            "mode": "maintenance" if is_maint else "incident",
+            "title": title,
+            "desc": body,
+            "code": result.get("code", 0),
+            "ms": result.get("ms", 0),
+        }
+        # A service may have several active events — add unless this
+        # (slug, issue) pair is already tracked
+        if not find_inc_entry(incidents, entry["slug"], entry["issue_number"]):
+            incidents.append(entry)
+        print(f"Incident issue #{issue['number']} opened for {name} (mode={'maintenance' if is_maint else 'incident'})")
+
+
+def close_incident(key: str, incidents: dict, result: dict, repo: str) -> None:
+    last_ok_ts = result["ts"]
+    # Auto-close only real incidents (admin modes are closed manually)
+    info = next((e for e in inc_entries(incidents)
+                 if e.get("slug") == slugify(key) and e.get("mode") == "incident"), None)
+    if not info:
+        return
+    remove_inc_entry(incidents, info)
+    num = info["issue_number"]
+    opened = datetime.fromisoformat(info["opened"]).replace(tzinfo=timezone.utc)
+    closed = datetime.fromisoformat(last_ok_ts).replace(tzinfo=timezone.utc)
+    minutes = max(1, round((closed - opened).total_seconds() / 60))
+    is_maint = info.get("maintenance", False)
+    gh_api(f"/repos/{repo}/issues/{num}", "POST", {
+        "body": f"✅ {info.get('name', key)} {'завершены плановые работы' if is_maint else 'восстановлено'} в {last_ok_ts}. "
+                f"{'Длительность' if is_maint else 'Устранено за'} ~{minutes} мин."
+    })
+    gh_api(f"/repos/{repo}/issues/{num}", "PATCH", {"state": "closed"})
+    upsert_log_entry({
+        "name": info.get("name", key),
+        "slug": slugify(key),
+        "issue_number": num,
+        "opened": info["opened"],
+        "resolved": last_ok_ts,
+        "minutes": minutes,
+        "code": info.get("code", result.get("code", 0)),
+        "ms": info.get("ms", result.get("ms", 0)),
+        "maintenance": is_maint,
+        "mode": info.get("mode", "maintenance" if is_maint else "incident"),
+        "annulled": info.get("mode") == "annulled",
+        "hidden": info.get("mode") == "hidden",
+        "labels": info.get("labels") or _event_labels({info.get("mode", "incident")}),
+        "title": info.get("title", ""),
+        "desc": info.get("desc", ""),
+    })
+    print(f"Incident issue #{num} closed for {key} (mode={info.get('mode', 'incident')})")
+
+
+# ---------- Labels and issue sync ----------
+
+# Event modes derived from issue labels (priority: hidden > annulled > maintenance > incident > rkn).
+# Descriptions are kept in sync with scripts/sync_labels.py (GitHub limit — 100 chars).
+MAINT_LABELS = {
+    "hidden": "Скрыто: молча заметает следы, событие нигде не отображается, всё зелёное",
+    "annulled": "Аннулировано: серая окантовка вместо красной, зелёный вместо красного",
+    "maintenance": "Техработы: ручные, сбои в Issues не пишутся, только на графике",
+    "rkn": "РКН: ручное снятие, параллельно возможны сбои. Низший приоритет, голубой",
+}
+
+
+# Service labels ordered from highest to lowest priority (first match wins):
+#   annulled (manual, highest) > maintenance (manual) > incident (auto) > rkn (manual, lowest).
+# hidden is intentionally absent: such an event is fully hidden and never shown.
+EVENT_LABELS = ("annulled", "maintenance", "incident", "rkn")
+
+# Numeric mode rank for conflict resolution (higher wins)
+MODE_RANK = {"hidden": 4, "annulled": 3, "maintenance": 2, "incident": 1, "rkn": 0}
+
+
+def _event_labels(labels: set) -> list:
+    """Служебные лейблы issue в порядке приоритета (от высшего к низшему).
+    hidden скрыт по определению и в список не попадает."""
+    return [l for l in EVENT_LABELS if l in (labels or set())]
+
+
+def _event_mode(labels: set) -> str:
+    # hidden has the highest priority: the event is fully hidden
+    if "hidden" in (labels or set()):
+        return "hidden"
+    for mode in EVENT_LABELS:
+        if mode in labels:
+            return mode
+    return "incident"
+
+
+def _rewrite_points_interval(slug: str, opened_ts: str, mode: str) -> None:
+    """Ретроактивно переписывает точки в интервале [opened, сейчас] по режиму issue:
+      maintenance -> ok=True, maint=True; annulled -> ok=True, annulled=True;
+      hidden -> ok=True (и maint/annulled сняты); incident -> снять все флаги;
+      rkn -> ok НЕ меняется (реальный сбой остаётся сбоем), точки помечаются rkn=True.
+    ВАЖНО (приоритет режимов): rkn — низший, поэтому НЕ трогает точки, уже покрашенные
+    maintenance/annulled (техработы доминируют над РКН на своём периоде)."""
+    if mode not in ("hidden", "annulled", "maintenance", "rkn"):
+        return
+    path = API_DIR / slug
+    points = load_json(path / "points.json", [])
+    try:
+        cutoff = datetime.fromisoformat(opened_ts).replace(tzinfo=timezone.utc).timestamp()
+    except Exception:
+        return
+    changed = False
+    for p in points:
+        try:
+            if _ts(p) >= cutoff:
+                if mode == "maintenance":
+                    p["ok"], p["maint"], p["annulled"], p["rkn"] = True, True, False, False
+                    changed = True
+                elif mode == "annulled":
+                    p["ok"], p["maint"], p["annulled"], p["rkn"] = True, False, True, False
+                    changed = True
+                elif mode == "rkn":
+                    # RKN never masks real failures and never repaints maint/annulled points
+                    if not (p.get("maint") or p.get("annulled")):
+                        p["rkn"] = True
+                        changed = True
+                else:  # hidden
+                    p["ok"], p["maint"], p["annulled"], p["rkn"] = True, False, False, False
+                    changed = True
+        except Exception:
+            continue
+    if changed:
+        write_json(path / "points.json", points)
+        last = points[-1] if points else {"ok": True, "code": 0, "ms": 0, "ts": ""}
+        write_site_files(path.name, points, last)
+        print(f"{slug}: переписано {sum(1 for _ in points)} точек (режим {mode} ретроактивно)")
+
+
+def ensure_labels(repo: str) -> None:
+    """Создаёт служебные лейблы (если их нет), чтобы их можно было выбрать в UI Issues.
+    Приоритет от высшего к низшему: hidden > annulled > maintenance > incident > rkn."""
+    wanted = {
+        "incident": ("FF4F6D", "Падение сервиса (ставится автоматически монитором)"),
+        "maintenance": ("F1C40F", MAINT_LABELS["maintenance"]),
+        "annulled": ("8A9B8F", MAINT_LABELS["annulled"]),
+        "hidden": ("4A554D", MAINT_LABELS["hidden"]),
+        "rkn": ("37B6FF", MAINT_LABELS["rkn"]),
+    }
+    existing = gh_api(f"/repos/{repo}/labels?per_page=100") or []
+    names = {l["name"] for l in existing}
+    for name, (color, desc) in wanted.items():
+        if name not in names:
+            gh_api(f"/repos/{repo}/labels", "POST", {"name": name, "color": color, "description": desc})
+            print(f"Label created: {name} ({color})")
+
+
+def _humanize_title(title: str, sites: dict) -> str:
+    """Заменяет ключи сервисов в заголовке на человекочитаемые имена:
+    'SERVER4 - Обновление' -> '🇸🇪 1. Стокгольм — Обновление'."""
+    def repl(m: re.Match) -> str:
+        k = m.group(1).upper()
+        return (sites or {}).get(k, {}).get("name", k)
+    return MAINT_KEY_RE.sub(repl, title)
+
+
+def _resolve_maint_keys(title: str, sites: dict) -> list:
+    """Извлекает ключи сервисов из заголовка ТО: 'SERVER1 - Обновление',
+    'SERVER1,SERVER3 Обновление'. Возвращает ключи, существующие в sites."""
+    keys = []
+    for m in MAINT_KEY_RE.finditer(title):
+        k = m.group(1).upper()
+        if k in sites:
+            keys.append(k)
+    return keys
+
+
+def _expand_group_keys(keys: list, sites: dict) -> list:
+    """Наследование статуса группой: если среди ключей есть «голова» группы
+    (is_group=true, напр. SERVER7 с ID=10), автоматически добавляет все вложенные
+    сервисы этой группы (group='10.x'). Явно указанные ключи идут первыми."""
+    result = list(keys)
+    seen = set(result)
+    for key in list(result):
+        site = (sites or {}).get(key)
+        if not site or not site.get("is_group"):
+            continue
+        head = site.get("group", "")
+        if not head:
+            continue
+        prefix = head + "."
+        for k, s in (sites or {}).items():
+            g = s.get("group", "")
+            if g.startswith(prefix) and k not in seen:
+                result.append(k)
+                seen.add(k)
+    return result
+
+
+def sync_incidents(incidents: dict, repo: str, sites: dict = None) -> None:
+    """Сверяет incidents.json с реальными открытыми issues:
+      - issue закрыт вручную -> инцидент/техработы завершены (в журнал);
+      - лейбл 'maintenance' добавлен/убран -> переквалификация инцидента;
+      - открытый issue с лейблом maintenance и ключами сервисов в заголовке
+        ('SERVER1 - Обновление', 'SERVER1,SERVER3 Обновление') -> техработы
+        на этих сервисах (статус жёлтый, maint-точки на графике), без падения.
+      При закрытии issue в журнал идут реальные opened/resolved."""
+    # All open issues (paginated): otherwise only the first 100 are synced
+    issues = []
+    page = 1
+    while True:
+        batch = gh_api(f"/repos/{repo}/issues?state=open&per_page=100&page={page}") or []
+        issues.extend(batch)
+        if len(batch) < 100:
+            break
+        page += 1
+    by_num = {i["number"]: i for i in issues if "pull_request" not in i}
+    changed = False
+
+    # 1. Maintenance/annulled/hidden events from issue labels
+    for issue in issues:
+        if "pull_request" in issue:
+            continue
+        labels = {l["name"] for l in issue.get("labels", [])}
+        mode = _event_mode(labels)
+        if mode == "incident":
+            continue
+        keys = _expand_group_keys(_resolve_maint_keys(issue.get("title", ""), sites or {}), sites or {})
+        for key in keys:
+            slug = slugify(key)
+            if find_inc_entry(incidents, slug, issue["number"]):
+                continue  # это событие уже активно для сервиса
+            entry = {
+                "issue_number": issue["number"],
+                "opened": issue["created_at"],
+                "name": (sites or {}).get(key, {}).get("name", key),
+                "slug": slug,
+                "maintenance": mode == "maintenance",
+                "mode": mode,
+                "title": _humanize_title(issue.get("title", ""), sites or {}),
+                "labels": _event_labels(labels),
+                "desc": "",
+            }
+            # A service may have several active events (e.g. RKN + maintenance):
+            # add the entry; mode priority is applied when painting chart points
+            incidents.append(entry)
+            changed = True
+            print(f"{key}: {mode} по issue #{issue['number']} ({issue.get('title', '')})")
+            # Retroactively paint points in [issue created .. now]
+            _rewrite_points_interval(slug, issue["created_at"], mode)
+
+    # 2. Existing entries: manual close and label requalification
+    for info in list(inc_entries(incidents)):
+        key = info.get("name") or info.get("slug")
+        issue = by_num.get(info.get("issue_number"))
+        if issue is None:
+            num = info.get("issue_number")
+            # Missing from the open list is NOT a close: the list may have failed.
+            # Confirm with a direct issue request before finalizing (bug 28.2:
+            # an active RKN issue was moved to "past" by an incomplete open list)
+            direct = gh_api(f"/repos/{repo}/issues/{num}", "GET")
+            if direct is None or direct.get("state") == "open":
+                print(f"{info.get('slug')}: issue #{num} не в списке открытых, "
+                      f"но закрытие не подтверждено — отложено до следующего прогона")
+                continue
+            # Issue closed manually -> the event is finished (real close time)
+            now = datetime.now(timezone.utc).isoformat(timespec="seconds")
+            opened = datetime.fromisoformat(info["opened"]).replace(tzinfo=timezone.utc)
+            minutes = max(1, round((datetime.now(timezone.utc) - opened).total_seconds() / 60))
+            remove_inc_entry(incidents, info)
+            # Update the log entry (a reopened issue is recalculated,
+            # not stacked as a new duplicate)
+            upsert_log_entry({
+                "name": info.get("name", key),
+                "slug": info.get("slug") or slugify(key),
+                "issue_number": info.get("issue_number"),
+                "opened": info["opened"],
+                "resolved": now,
+                "labels": info.get("labels") or _event_labels({info.get("mode", "incident")}),
+                "minutes": minutes,
+                "code": info.get("code", 0),
+                "ms": info.get("ms", 0),
+                "maintenance": info.get("maintenance", False),
+                "mode": info.get("mode", "incident"),
+                "annulled": info.get("mode") == "annulled",
+                "hidden": info.get("mode") == "hidden",
+                "title": info.get("title", ""),
+                "desc": info.get("desc", ""),
+            })
+            changed = True
+            print(f"{info.get('slug', key)}: issue закрыт вручную — событие завершено ({minutes} мин, mode={info.get('mode', 'incident')})")
+        else:
+            labels = {l["name"] for l in issue.get("labels", [])}
+            mode = _event_mode(labels)
+            new_labels = _event_labels(labels)
+            if mode != info.get("mode") or info.get("labels") != new_labels:
+                info["mode"] = mode
+                info["maintenance"] = mode == "maintenance"
+                info["labels"] = new_labels
+                changed = True
+                print(f"{info.get('slug', key)}: режим события -> {mode} по лейблам {new_labels}")
+                # Retroactive point repaint for the issue interval
+                _rewrite_points_interval(info.get("slug", ""), info["opened"], mode)
+            raw_title = issue.get("title", "")
+            if raw_title != info.get("title_raw", raw_title):
+                info["title_raw"] = raw_title
+                info["title"] = _humanize_title(raw_title, sites or {})
+                changed = True
+    if changed:
+        write_json(API_DIR / "incidents.json", incidents)
+
+
+# ---------- Closed issues and comments ----------
+
+BOT_COMMENT_PREFIXES = ("✅", "⏱", "🔄")
+
+
+def _slug_by_name(name: str, sites: dict) -> str:
+    """Ищет slug сервиса по человекочитаемому имени (без эмодзи, регистронезависимо)."""
+    target = EMOJI_RE.sub("", name or "").strip().lower()
+    if not target:
+        return ""
+    for s in (sites or {}).values():
+        nm = EMOJI_RE.sub("", s.get("name", "")).strip().lower()
+        if nm and nm == target:
+            return s.get("slug", "")
+    return ""
+
+
+def sync_closed_incidents(repo: str, sites: dict = None) -> None:
+    """Обход закрытых issues с пагинацией и сверка с журналом:
+      - добавляет записи для релевантных закрытых issues, отсутствующих в журнале;
+      - обновляет mode/maintenance/annulled/hidden/title у существующих
+        (позволяет влиять на закрытые инциденты: повесить annulled/hidden на issue).
+    Релевантный issue: есть служебный лейбл (incident/maintenance/annulled/hidden),
+    или в заголовке ключ сервиса, или номер уже есть в журнале.
+    Журнал дедуплицируется по (issue_number, slug, opened) и сортируется по opened;
+    хранится последние 100 записей (>= отслеживаемых 50 инцидентов)."""
+    sites = sites or {}
+    our_labels = {"incident", "maintenance", "annulled", "hidden", "rkn"}
+
+    # Closed issues pagination (enough for the latest 50+ incidents)
+    issues = []
+    page = 1
+    max_pages = 4
+    while page <= max_pages:
+        batch = gh_api(f"/repos/{repo}/issues?state=closed&per_page=100&page={page}") or []
+        issues.extend(batch)
+        if len(batch) < 100:
+            break
+        page += 1
+
+    log = load_log()
+    log_by_num = {}
+    for e in log:
+        log_by_num.setdefault(e.get("issue_number"), []).append(e)
+
+    changed = False
+    for issue in issues:
+        if "pull_request" in issue:
+            continue
+        num = issue.get("number")
+        labels = {l["name"] for l in issue.get("labels", [])}
+        mode = _event_mode(labels)
+        raw_title = issue.get("title", "")
+        keys = _expand_group_keys(_resolve_maint_keys(raw_title, sites), sites)
+        existing = log_by_num.get(num, [])
+        if not (labels & our_labels or keys or existing):
+            continue
+
+        created = issue.get("created_at") or ""
+        closed = issue.get("closed_at") or issue.get("updated_at") or ""
+
+        if existing:
+            # Update mode/title/resolved/minutes of existing entries
+            # (affects closed ones; a reopened issue recalculates the same entry)
+            new_title = _humanize_title(raw_title, sites) if keys else None
+            try:
+                c_dt = datetime.fromisoformat(closed).replace(tzinfo=timezone.utc)
+            except Exception:
+                c_dt = None
+            for e in existing:
+                update = {"issue_number": num, "slug": e.get("slug")}
+                if (e.get("mode") != mode
+                        or e.get("maintenance") != (mode == "maintenance")
+                        or e.get("annulled") != (mode == "annulled")
+                        or e.get("hidden") != (mode == "hidden")
+                        or e.get("labels") != _event_labels(labels)
+                        or (new_title and e.get("title") != new_title)):
+                    update["mode"] = mode
+                    update["maintenance"] = mode == "maintenance"
+                    update["annulled"] = mode == "annulled"
+                    update["hidden"] = mode == "hidden"
+                    update["labels"] = _event_labels(labels)
+                    if new_title:
+                        update["title"] = new_title
+                    print(f"closed #{num}: обновлён режим -> {mode}")
+                # Exact close time from GitHub + minutes recomputed from the first opened
+                if c_dt and closed and e.get("resolved") != closed:
+                    update["resolved"] = closed
+                    print(f"closed #{num}: уточнено время закрытия -> {closed}")
+                if c_dt and e.get("opened"):
+                    try:
+                        o_dt = datetime.fromisoformat(e["opened"]).replace(tzinfo=timezone.utc)
+                        mins = max(1, round((c_dt - o_dt).total_seconds() / 60))
+                        if e.get("minutes") != mins:
+                            update["minutes"] = mins
+                            print(f"closed #{num}: пересчитана длительность -> {mins} мин")
+                    except Exception:
+                        pass
+                if len(update) > 2:
+                    upsert_log_entry(update)
+                    changed = True
+            continue
+
+        # New entry for a closed issue missing from the log
+        if keys:
+            targets = [(slugify(k), (sites.get(k, {}) or {}).get("name", k)) for k in keys]
+            title = _humanize_title(raw_title, sites)
+        else:
+            name = raw_title.split(" — ")[0].strip() or "Сервис"
+            targets = [(_slug_by_name(name, sites), name)]
+            title = raw_title
+
+        try:
+            o = datetime.fromisoformat(created).replace(tzinfo=timezone.utc)
+            c = datetime.fromisoformat(closed).replace(tzinfo=timezone.utc)
+            minutes = max(1, round((c - o).total_seconds() / 60))
+        except Exception:
+            minutes = 0
+
+        for slug, name in targets:
+            upsert_log_entry({
+                "name": name,
+                "slug": slug,
+                "issue_number": num,
+                "opened": created,
+                "resolved": closed,
+                "minutes": minutes,
+                "code": 0,
+                "ms": 0,
+                "maintenance": mode == "maintenance",
+                "mode": mode,
+                "annulled": mode == "annulled",
+                "hidden": mode == "hidden",
+                "labels": _event_labels(labels),
+                "title": title,
+                "desc": "",
+            })
+            changed = True
+            print(f"closed #{num}: добавлена запись ({name}, mode={mode})")
+
+    if changed:
+        # Dedupe by (issue_number, slug), sort by opened; keep 100
+        _write_log(load_log())
+
+
+def fetch_issue_comments(repo: str, num: int) -> list:
+    """Комментарии issue (с пагинацией, до 2 страниц)."""
+    comments = []
+    page = 1
+    while page <= 2:
+        batch = gh_api(f"/repos/{repo}/issues/{num}/comments?per_page=100&page={page}") or []
+        comments.extend(batch)
+        if len(batch) < 100:
+            break
+        page += 1
+    return comments
+
+
+def _is_user_comment(c: dict) -> bool:
+    """Отсекаем служебные комментарии: от ботов и авто-подтверждения (✅/⏱)."""
+    login = ((c.get("user") or {}).get("login") or "")
+    if login.endswith("[bot]"):
+        return False
+    body = (c.get("body") or "").lstrip()
+    if not body:
+        return False
+    if body.startswith(BOT_COMMENT_PREFIXES):
+        return False
+    return True
+
+
+def _issue_num_from_url(url: str) -> int:
+    """Номер issue из поля issue_url комментария (.../issues/157)."""
+    try:
+        return int(str(url).rstrip('/').rsplit('/', 1)[-1])
+    except (TypeError, ValueError):
+        return 0
+
+
+def _iso_dt(s: str):
+    try:
+        return datetime.fromisoformat(str(s).replace('Z', '+00:00'))
+    except Exception:
+        return None
+
+
+# Max issues with comments fetched per run (API budget)
+COMMENTS_BUDGET = 20
+# Force-refresh comments after N days (safety net for deletions)
+COMMENTS_STALE_DAYS = 7
+
+
+def sync_issue_comments(repo: str, incidents: dict, budget: int = COMMENTS_BUDGET) -> None:
+    """Собирает пользовательские комментарии Issues в api/issue-comments.json.
+
+    Покрытие: ВСЕ issues из журнала (до 100 записей) + активные события.
+    Инкрементальность (экономия лимита GitHub API):
+      1) один запрос — лента последних обновлённых комментариев репозитория
+         (sort=updated) — ловит и новые комментарии, и ПРАВКИ старых записей;
+      2) комментарии перезапрашиваются только у «горячих» issue (есть в ленте
+         после прошлой синхронизации), у новых и у не обновлявшихся > 7 дней;
+      3) остальные берутся из кэша api/issue-comments.json без запросов;
+      4) не более `budget` запросов на issue за прогон — хвост догружается
+         в следующих прогонах (монитор ходит каждые 5 минут).
+    Служебное состояние (время синхронизации по каждому issue + лента) —
+    в api/issue-comments-meta.json.
+    Формат api/issue-comments.json: { "<issue_number>": [ {author, login, body,
+    created_at, updated_at}, ... ] } — его читает фронтенд (app.js/incident.js/site.js).
+    """
+    prev = load_json(API_DIR / "issue-comments.json", {}) or {}
+    meta = load_json(API_DIR / "issue-comments-meta.json", {}) or {}
+    issues_meta = meta.get("issues", {}) or {}
+    feed_at = meta.get("feed_at", "")
+    now = datetime.now(timezone.utc)
+
+    # Target issues: active ones + every log entry
+    nums = set()
+    for info in inc_entries(incidents):
+        n = info.get("issue_number")
+        if n:
+            nums.add(int(n))
+    for e in load_log():
+        n = e.get("issue_number")
+        if n:
+            nums.add(int(n))
+
+    # 1) Feed of recently updated comments (1 request): which issues are hot
+    # Capture the timestamp BEFORE the request: an edit made during the run
+    # lands in the next one (its updated_at will exceed feed_ts)
+    feed_ts = datetime.now(timezone.utc).isoformat(timespec="seconds")
+    hot = set()
+    feed = gh_api(f"/repos/{repo}/issues/comments?sort=updated&direction=desc&per_page=100")
+    feed_ok = feed is not None
+    for c in (feed or []):
+        upd = c.get("updated_at") or ""
+        if feed_at and upd and upd <= feed_at:
+            continue  # уже обработано в прошлый раз
+        num = _issue_num_from_url(c.get("issue_url", ""))
+        if num:
+            hot.add(num)
+
+    # 2) What needs a refresh: hot, new and long-untouched issues
+    pending = []
+    for n in sorted(nums):
+        key = str(n)
+        m = issues_meta.get(key, {}) or {}
+        cached = key in prev
+        synced = _iso_dt(m.get("synced"))
+        stale = (not synced) or (now - synced).days >= COMMENTS_STALE_DAYS
+        if cached and n not in hot and not stale:
+            continue
+        pending.append(n)
+    # Priority: hot -> new -> the rest (stable sort)
+    pending.sort(key=lambda n: (0 if n in hot else 1, 0 if str(n) not in prev else 1, n))
+
+    # 3) Cache: keep only current issue numbers (the log is capped at 100)
+    out = {}
+    for k, v in prev.items():
+        try:
+            if int(k) in nums:
+                out[k] = v
+        except (TypeError, ValueError):
+            continue
+
+    # 4) Fetch the rest within the budget
+    done = 0
+    for n in pending:
+        if done >= budget:
+            break
+        comments = fetch_issue_comments(repo, n)
+        done += 1
+        cleaned = [{
+            "author": "Администратор",
+            "login": (c.get("user") or {}).get("login", ""),
+            "body": (c.get("body") or "").strip(),
+            "created_at": c.get("created_at", ""),
+            "updated_at": c.get("updated_at", ""),
+        } for c in (comments or []) if _is_user_comment(c)]
+        key = str(n)
+        if cleaned:
+            out[key] = cleaned
+        else:
+            out.pop(key, None)
+        issues_meta[key] = {"synced": now.isoformat(timespec="seconds")}
+
+    write_json(API_DIR / "issue-comments.json", out)
+    # Advance feed_at only when the queue is fully processed — otherwise the tail
+    # of hot issues would fall out of the feed and never be refreshed
+    if feed_ok and not pending[budget:]:
+        feed_at = feed_ts
+    write_json(API_DIR / "issue-comments-meta.json", {
+        "feed_at": feed_at,
+        "issues": issues_meta,
+    })
+    print(f"issue-comments.json: {len(out)} issues с комментариями "
+          f"(обновлено {done}, в очереди осталось {max(0, len(pending) - done)})")
+
+
+# ---------- Storage ----------
+
+def badge(label: str, message: str, color: str) -> dict:
+    return {"schemaVersion": 1, "label": label, "message": message, "color": color}
+
+
+def pct_color(p: float) -> str:
+    if p >= 99.5:
+        return "brightgreen"
+    if p >= 95:
+        return "green"
+    if p >= 90:
+        return "yellowgreen"
+    if p >= 80:
+        return "orange"
+    return "red"
+
+
+def rt_color(ms: float) -> str:
+    if ms < 300:
+        return "brightgreen"
+    if ms < 800:
+        return "green"
+    if ms < 1000:
+        return "yellow"
+    return "red"
+
+
+def window(points: list, hours: float) -> list:
+    cutoff = (datetime.now(timezone.utc) - timedelta(hours=hours)).timestamp()
+    return [p for p in points if _ts(p) > cutoff]
+
+
+def _ts(p: dict) -> float:
+    return datetime.fromisoformat(p["ts"]).timestamp()
+
+
+def uptime_pct(points: list, hours: float) -> float:
+    # annulled points are excluded; maint and hidden count as successful (ok=True is written)
+    w = [p for p in window(points, hours) if not p.get("annulled")]
+    if not w:
+        return 100.0
+    return 100.0 * sum(1 for p in w if p["ok"]) / len(w)
+
+
+def avg_ms(points: list, hours: float) -> float:
+    w = [p for p in window(points, hours) if p["ok"] and not p.get("annulled")]
+    return round(sum(p["ms"] for p in w) / len(w)) if w else 0
+
+
+def daily_minutes_down(points_list: list, interval_min: int) -> dict:
+    """Примерное время простоя по дням: failed-проверки * интервал."""
+    out = {}
+    for p in points_list:
+        if not p["ok"] and not p.get("annulled"):
+            day = p["ts"][:10]
+            out[day] = out.get(day, 0) + interval_min
+    return out
+
+
+def write_site_files(slug: str, points: list, last: dict) -> None:
+    api = API_DIR / slug
+    api.mkdir(parents=True, exist_ok=True)
+
+    # Raw points for charts (90 days retained)
+    max_points = 90 * 24 * 12
+    write_json(api / "points.json", points[-max_points:])
+
+    # Last check (history/{slug}.yml; the URL is never published)
+    start_time = points[0]["ts"] if points else last["ts"]
+    (HISTORY_DIR / f"{slug}.yml").write_text(
+        f"status: {'up' if last['ok'] else 'down'}\n"
+        f"code: {last['code']}\n"
+        f"responseTime: {last['ms']}\n"
+        f"lastUpdated: {last['ts']}\n"
+        f"startTime: {start_time}\n"
+        f"generator: Runicore\n",
+        encoding="utf-8",
+    )
+
+    # Badges
+    windows = {"": 24 * 365, "-day": 24, "-week": 24 * 7, "-month": 24 * 30, "-year": 24 * 365}
+    labels = {"": "", "-day": " 24h", "-week": " 7d", "-month": " 30d", "-year": " 1y"}
+    for suffix, hours in windows.items():
+        p = uptime_pct(points, hours) if points else 100.0
+        write_json(api / f"uptime{suffix}.json",
+                   badge(f"uptime{labels[suffix]}", f"{p:.2f}%", pct_color(p)))
+        m = avg_ms(points, hours)
+        if m:
+            write_json(api / f"response-time{suffix}.json",
+                       badge(f"response time{labels[suffix]}", f"{m} ms", rt_color(m)))
+
+
+def _group_sort_key(site: dict) -> tuple:
+    """Сортировка: сервисы с ID — по числу (целые группы перед своими 1.x),
+    без ID — в конец (в исходном порядке)."""
+    g = site.get("group", "")
+    if not g:
+        return (2, 0.0, 0)
+    whole, _, frac = g.partition(".")
+    # A group (integer id) sorts before its 1.x children: key (1, 1.0-eps) < (1, 1.1)
+    val = float(g) - (0.001 if site.get("is_group") and frac == "" else 0.0)
+    return (1, val, 0)
+
+
+def build_summary(sites: dict, history_points: dict, interval_min: int) -> list:
+    summary = []
+    updated_at = ""
+    for key, site in sites.items():
+        slug = site["slug"]
+        points = history_points.get(slug, [])
+        last = points[-1] if points else {"ok": True, "ms": 0, "code": 0, "ts": ""}
+        if last["ts"] > updated_at:
+            updated_at = last["ts"]  # когда данные реально обновлялись последний раз
+        # Actual icon: the first favicon.* found in the site folder
+        icon = ""
+        icon_dir = API_DIR / slug
+        if icon_dir.exists():
+            for old in sorted(icon_dir.glob("favicon.*")):
+                icon = old.name
+                break
+        summary.append({
+            "name": site["name"],
+            "slug": slug,
+            "icon": icon,
+            "group": site.get("group", ""),
+            "isGroup": site.get("is_group", False),
+            "status": "up" if (points and last["ok"]) else "down",
+            "uptime": f"{uptime_pct(points, 24 * 90):.2f}%",
+            "uptimeDay": f"{uptime_pct(points, 24):.2f}%",
+            "uptimeWeek": f"{uptime_pct(points, 24 * 7):.2f}%",
+            "uptimeMonth": f"{uptime_pct(points, 24 * 30):.2f}%",
+            "uptimeYear": f"{uptime_pct(points, 24 * 365):.2f}%",
+            "curMs": last["ms"],
+            "time": avg_ms(points, 24 * 90),
+            "timeDay": avg_ms(points, 24),
+            "timeWeek": avg_ms(points, 24 * 7),
+            "timeMonth": avg_ms(points, 24 * 30),
+            "timeYear": avg_ms(points, 24 * 365),
+            "dailyMinutesDown": daily_minutes_down(points, interval_min),
+        })
+    # Services with an id (ascending) first; those without go last
+    summary.sort(key=lambda s: (_group_sort_key({**next(v for v in sites.values() if v["slug"] == s["slug"])}), s["slug"]))
+    if summary:
+        summary[0]["updatedAt"] = updated_at
+    return summary
+
+
+def leading_emoji(name: str) -> str:
+    """Возвращает ведущий эмодзи имени (включая флаги 🇸🇪) или ''."""
+    m = re.match(r"^[\U0001F1E6-\U0001F1FF]{2}|\U0001F300-\U0001FAFF|\u2600-\u27BF", name)
+    return m.group(0) if m else ""
+
+
+def main() -> None:
+    load_env()
+    config = load_json(CONFIG_FILE, {})
+    secrets = load_secrets()
+    sites = discover_sites(config, secrets)
+    if not sites:
+        raise SystemExit("Не найдено ни одного сайта/сервера (секретов с URL или IP/доменом).")
+
+    interval_min = int(config.get("interval_minutes", 5))
+    incidents = load_incidents()
+    repo = repo_slug(config)
+
+    # incident/maintenance labels (created when missing) + issue sync:
+    # a manual close finishes the event, the maintenance label requalifies an incident,
+    # an issue like 'SERVER1 - Update' with the maintenance label enables maintenance
+    ensure_labels(repo)
+    sync_incidents(incidents, repo, sites)
+    sync_closed_incidents(repo, sites)
+
+    # Self-heal (bug 28.2): if an issue is open again, its entry must not
+    # stay in the past log — remove it. A re-close recalculates everything.
+    active_nums = {e.get("issue_number") for e in incidents}
+    log_now = load_log()
+    cleaned = [e for e in log_now if e.get("issue_number") not in active_nums]
+    if len(cleaned) != len(log_now):
+        _write_log(cleaned)
+        print(f"журнал: убраны записи повторно открытых issues "
+              f"({len(log_now) - len(cleaned)} шт.)")
+
+    HISTORY_DIR.mkdir(exist_ok=True)
+
+    for key, site in sites.items():
+        slug, name = site["slug"], site["name"]
+        if site["kind"] == "ssh":
+            # Machine: TCP check of SSH port 22 by IP/domain (no auth)
+            result = check_ssh(name, site["url"], site["timeout"])
+        else:
+            result = check_site(name, site["url"], site["timeout"])
+        # Chart point mode flags: a service may have several active events,
+        # the point follows the HIGHEST priority one (maintenance > RKN, etc.)
+        active_here = [e for e in incidents if e.get("slug") == slug]
+        top_mode = None
+        if active_here:
+            top_mode = max(active_here,
+                           key=lambda e: MODE_RANK.get(e.get("mode", "incident"), 1)).get("mode")
+        if top_mode == "maintenance":
+            result["maint"] = True
+        elif top_mode == "annulled":
+            result["annulled"] = True
+        elif top_mode == "rkn":
+            result["rkn"] = True
+
+        api = API_DIR / slug
+        api.mkdir(parents=True, exist_ok=True)
+        # Icon: explicit URL from the secret; for HTTP also the site favicon
+        # Do not fetch favicons when the service is down: it neither lengthens the run
+        # nor kills the workflow due to the concurrency timeout
+        icon_done = ""
+        if result["ok"]:
+            if site.get("icon_url"):
+                icon_done = fetch_favicon(site["icon_url"], api, site["timeout"])
+            if not icon_done and site["kind"] == "http":
+                icon_done = fetch_favicon(site["url"], api, site["timeout"])
+            if icon_done:
+                site["icon"] = icon_done
+
+        points = load_json(api / "points.json", [])
+        points.append(result)
+        max_points = int(config.get("history_days", 90)) * 24 * 12
+        if len(points) > max_points:
+            points = points[-max_points:]
+        write_json(api / "points.json", points)
+
+        write_site_files(slug, points, result)
+
+        clean_name = EMOJI_RE.sub("", name).strip()
+        active_here = [e for e in incidents if e.get("slug") == slug]
+        modes_here = {e.get("mode") for e in active_here}
+        if not result["ok"] and (not active_here or modes_here == {"rkn"}):
+            # RKN does not mask a real failure: open an incident on a real outage
+            open_incident(key, clean_name or name, result, incidents, repo)
+        elif result["ok"] and "incident" in modes_here:
+            # Real incidents close automatically; admin modes (maintenance/annulled/hidden/RKN) are manual
+            close_incident(key, incidents, result, repo)
+
+    # Final summary across all sites
+    history_points = {s["slug"]: load_json(API_DIR / s["slug"] / "points.json", []) for s in sites.values()}
+    write_json(HISTORY_DIR / "summary.json", build_summary(sites, history_points, interval_min))
+
+    write_json(API_DIR / "incidents.json", incidents)
+    if not load_log():
+        write_json(API_DIR / "incidents-log.json", [])
+    sync_issue_comments(repo, incidents)
+    print("Saved:", HISTORY_DIR / "summary.json")
+
+
+if __name__ == "__main__":
+    main()

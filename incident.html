@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#020b05">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" href="assets/icons/favicon.ico">
+  <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
+  <link rel="icon" sizes="96x96" type="image/png" href="assets/icons/favicon-96x96.png">
+  <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+  <link rel="manifest" href="assets/manifest.json">
+  <link rel="stylesheet" href="assets/css/status.css?v=29">
+  <title>Событие — Runicore</title>
+  <style>
+    /* Incident page styles */
+    h1 { font-size: 1.6rem; font-weight: 800; margin-bottom: 18px; }
+    #evtTitle { display: inline-flex; align-items: center; flex-wrap: wrap; gap: 2px 12px; }
+    #evtTitle .ev-fav { width: 26px; height: 26px; border-radius: 6px; }
+    #evtTitle .ev-fav.emoji { width: auto; height: auto; font-size: 24px; line-height: 1; -webkit-text-fill-color: initial; }
+    #evtTitle .title-sep { color: var(--muted); -webkit-text-fill-color: initial; }
+    /* Keep the flag/icon and the name together (no split line breaks) */
+    #evtTitle .svc-name-wrap { display: inline-flex; align-items: center; gap: 10px; white-space: nowrap; }
+    #evtTitle .svc-name { white-space: nowrap; }
+    /* Label badges under the title */
+    .evt-labels { display: flex; flex-wrap: wrap; gap: 8px; margin: 2px 0 18px; }
+    .evt-lb {
+      display: inline-flex; align-items: center;
+      border-radius: 999px; padding: 3px 12px;
+      font-size: .75rem; font-weight: 700; letter-spacing: .02em;
+      border: 1px solid; background: rgba(255,255,255,0.04);
+    }
+    .evt-lb-incident { color: var(--fail); border-color: rgba(255,79,109,.45); background: rgba(255,79,109,.1); }
+    .evt-lb-maintenance { color: var(--warn); border-color: rgba(241,196,15,.45); background: rgba(241,196,15,.1); }
+    .evt-lb-annulled { color: var(--gray); border-color: rgba(138,155,143,.45); background: rgba(138,155,143,.1); }
+    .evt-lb-hidden { color: var(--gray); border-color: rgba(74,85,77,.5); background: rgba(74,85,77,.12); }
+    .evt-lb-rkn { color: var(--rkn); border-color: rgba(55,182,255,.45); background: rgba(55,182,255,.1); }
+    /* Duration badge "(🕑 …)" — left of the labels, neutral styling */
+    .evt-lb-dur { color: var(--text); border-color: var(--border); background: rgba(255,255,255,0.04); font-weight: 600; }
+    .evt {
+      background: var(--card); border: 1px solid var(--border); border-left-width: 4px;
+      border-radius: 12px; padding: 20px 22px; margin-bottom: 22px;
+    }
+    /* Status colour bar plus a matching glow */
+    .evt.incident { border-left-color: var(--fail); box-shadow: -3px 0 12px -6px var(--fail); }
+    .evt.maintenance { border-left-color: var(--warn); box-shadow: -3px 0 12px -6px var(--warn); }
+    .evt.annulled { border-left-color: var(--gray); opacity: .75; box-shadow: -3px 0 12px -6px var(--gray); }
+    .evt.hidden { border-left-color: var(--gray); opacity: .6; box-shadow: -3px 0 12px -6px var(--gray); }
+    .evt.rkn { border-left-color: var(--rkn); box-shadow: -3px 0 12px -6px var(--rkn); }
+    .evt .status { font-weight: 700; font-size: 1.05rem; margin-bottom: 12px; }
+    .evt.incident .status { color: var(--fail); }
+    .evt.maintenance .status { color: var(--warn); }
+    /* Annulled: border and status are grey (same as hidden) */
+    .evt.annulled .status { color: var(--gray); }
+    .evt.hidden .status { color: var(--gray); }
+    .evt.rkn .status { color: var(--rkn); }
+    .evt .meta { color: var(--muted); font-size: .85rem; display: flex; flex-wrap: wrap; gap: 10px; }
+    /* "·" separator between the started and resolved dates */
+    .evt .meta .msep { color: var(--muted); }
+    /* Meta items wrap as a whole, never mid-phrase */
+    .evt .meta .nb { white-space: nowrap; }
+    .evt .meta b { color: var(--text); }
+    .evt .desc { font-size: .92rem; line-height: 1.55; white-space: pre-line; margin-top: 14px; }
+    .evt .desc b { color: var(--text); }
+
+    /* Admin comments (from GitHub Issues) */
+    .comments { margin-top: 0; margin-bottom: 20px; display: flex; flex-direction: column; gap: 14px; }
+    .comment {
+      background: var(--card); border: 1px solid var(--border); border-left: 3px solid var(--accent);
+      border-radius: 10px; padding: 14px 18px; backdrop-filter: blur(8px);
+    }
+    .comment-head { display: flex; align-items: baseline; gap: 10px; margin-bottom: 8px; }
+    .comment-head b { color: #52f099; font-size: .9rem; }
+    .comment-time { color: var(--muted); font-size: .78rem; }
+    .comment-body { font-size: .92rem; line-height: 1.5; white-space: pre-line; word-break: break-word; }
+    .service-links { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+    .service-btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(46, 204, 113, 0.1); border: 1px solid var(--border);
+      color: #52f099; text-decoration: none; border-radius: 10px;
+      padding: 10px 16px; font-size: .85rem; font-weight: 600; transition: background .2s, border-color .2s;
+    }
+    .service-btn:hover { background: rgba(46, 204, 113, 0.2); border-color: rgba(46, 204, 113, .5); }
+    .service-btn .ev-fav { width: 18px; height: 18px; border-radius: 4px; }
+    .service-btn .ev-fav.emoji { width: auto; height: auto; font-size: 16px; line-height: 1; -webkit-text-fill-color: initial; }
+    /* Service buttons sit at the bottom — tighten the gap to the footer */
+    footer { margin-top: 24px; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <a class="back" href="index.html">← К списку сервисов</a>
+    <h1><span id="evtTitle">Загрузка…</span></h1>
+    <div class="evt-labels" id="evtLabels" style="display:none"></div>
+    <div class="comments" id="evtComments" style="display:none"></div>
+    <div class="evt incident" id="evtCard">
+      <div class="status" id="evtStatus">…</div>
+      <div class="meta" id="evtMeta"></div>
+      <div class="desc" id="evtDesc"></div>
+    </div>
+    <div class="service-links" id="serviceLinks" style="display:none"></div>
+    <footer>© 2024–<span id="year"></span> Runicore. Все права защищены.</footer>
+  </div>
+
+  <script src="assets/js/common.js?v=28"></script>
+  <script src="assets/js/incident.js?v=26"></script>
+</body>
+</html>
