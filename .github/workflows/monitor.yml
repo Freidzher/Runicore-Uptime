@@ -57,26 +57,24 @@ jobs:
             git read-tree --empty
             git add -f api/ history/
             tree=$(git write-tree)
-            if [ "$(date -u +%u)" = "7" ] && [ "$(date -u +%H)" = "03" ]; then
-              # Weekly rotation (Sunday 03:xx UTC): reset to a single commit so the
-              # repository keeps ~7 days of data history (2016 commits), not years.
-              commit=$(git commit-tree "$tree" -m "Data snapshot (weekly reset)")
-              git push -f origin "$commit:data"
+            parent=$(git rev-parse origin/data 2>/dev/null || true)
+            if [ -n "$parent" ]; then
+              commit=$(git commit-tree "$tree" -p "$parent" -m "Data snapshot")
             else
-              parent=$(git rev-parse origin/data 2>/dev/null || true)
-              if [ -n "$parent" ]; then
-                commit=$(git commit-tree "$tree" -p "$parent" -m "Data snapshot")
-              else
-                commit=$(git commit-tree "$tree" -m "Data snapshot")
-              fi
-              for i in 1 2 3; do
-                if git push origin "$commit:data"; then break; fi
-                sleep $((i * 5))
-                git fetch --depth 1 origin data
-                commit=$(git commit-tree "$tree" -p "$(git rev-parse origin/data)" -m "Data snapshot")
-              done
+              commit=$(git commit-tree "$tree" -m "Data snapshot")
             fi
+            for i in 1 2 3; do
+              if git push origin "$commit:data"; then break; fi
+              sleep $((i * 5))
+              git fetch --depth 1 origin data
+              commit=$(git commit-tree "$tree" -p "$(git rev-parse origin/data)" -m "Data snapshot")
+            done
             git read-tree HEAD
+          fi
+          # Daily trim: keep the newest 2016 commits (~7 days) and drop only the
+          # tail — the branch is never wiped.
+          if [ "$(date -u +%H)" = "03" ]; then
+            bash scripts/trim_data_history.sh 2016 || echo "trim skipped"
           fi
           # Trigger site deploy
           curl -sS -X POST \
