@@ -24,5 +24,57 @@
    "rkn"
   ],
   "desc": ""
+ },
+ {
+  "issue_number": 179,
+  "opened": "2026-11-03T14:45:00Z",
+  "name": "🇸🇪 1. Стокгольм",
+  "slug": "server4",
+  "maintenance": true,
+  "mode": "maintenance",
+  "title": "🇸🇪 1. Стокгольм",
+  "labels": [
+   "maintenance"
+  ],
+  "desc": ""
+ },
+ {
+  "issue_number": 179,
+  "opened": "2026-11-03T14:45:00Z",
+  "name": "🇸🇪 1.3 Стокгольм",
+  "slug": "server12",
+  "maintenance": true,
+  "mode": "maintenance",
+  "title": "🇸🇪 1. Стокгольм",
+  "labels": [
+   "maintenance"
+  ],
+  "desc": ""
+ },
+ {
+  "issue_number": 179,
+  "opened": "2026-11-03T14:45:00Z",
+  "name": "🇸🇪 1.2 Стокгольм",
+  "slug": "server9",
+  "maintenance": true,
+  "mode": "maintenance",
+  "title": "🇸🇪 1. Стокгольм",
+  "labels": [
+   "maintenance"
+  ],
+  "desc": ""
+ },
+ {
+  "issue_number": 179,
+  "opened": "2026-11-03T14:45:00Z",
+  "name": "🇸🇪 1.1 Стокгольм",
+  "slug": "server8",
+  "maintenance": true,
+  "mode": "maintenance",
+  "title": "🇸🇪 1. Стокгольм",
+  "labels": [
+   "maintenance"
+  ],
+  "desc": ""
  }
 ]
