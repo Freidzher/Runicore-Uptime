@@ -34,7 +34,7 @@ jobs:
           # snapshot before the run, otherwise every run would start from scratch
           # and overwrite the accumulated history.
           git fetch --depth 1 origin data
-          git checkout origin/data -- api history || echo "No data branch yet"
+          git checkout FETCH_HEAD -- api history || echo "No data branch yet"
 
       - name: Run monitor
         run: python monitor.py
@@ -57,7 +57,8 @@ jobs:
             git read-tree --empty
             git add -f api/ history/
             tree=$(git write-tree)
-            parent=$(git rev-parse origin/data 2>/dev/null || true)
+            git fetch --depth 1 origin data
+            parent=$(git rev-parse FETCH_HEAD 2>/dev/null || true)
             if [ -n "$parent" ]; then
               commit=$(git commit-tree "$tree" -p "$parent" -m "Data snapshot")
             else
@@ -67,7 +68,7 @@ jobs:
               if git push origin "$commit:data"; then break; fi
               sleep $((i * 5))
               git fetch --depth 1 origin data
-              commit=$(git commit-tree "$tree" -p "$(git rev-parse origin/data)" -m "Data snapshot")
+              commit=$(git commit-tree "$tree" -p "$(git rev-parse FETCH_HEAD)" -m "Data snapshot")
             done
             git read-tree HEAD
           fi

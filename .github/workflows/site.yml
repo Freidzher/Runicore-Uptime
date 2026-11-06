@@ -39,7 +39,7 @@ jobs:
           # onto the code from main. No fallback: if the data branch is missing the
           # build fails and Pages keeps the last working deployment.
           git fetch --depth 1 origin data
-          git checkout origin/data -- api history
+          git checkout FETCH_HEAD -- api history
           echo "Данные взяты из ветки data"
 
       - name: Setup Pages

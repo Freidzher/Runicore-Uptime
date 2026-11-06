@@ -11,7 +11,7 @@ HOOKS="$ROOT/.git/hooks"
 HOOK_BODY='#!/usr/bin/env bash
 # Refresh the local data snapshot (api/, history/) after a pull/merge/rebase.
 git fetch --depth 1 origin data 2>/dev/null || exit 0
-git restore --source=origin/data --worktree -- api history 2>/dev/null || true
+git restore --source=FETCH_HEAD --worktree -- api history 2>/dev/null || true
 # Keep the local "data" branch in sync (the bot may rewrite its history when
 # trimming the tail, so a plain fetch would be rejected as non-fast-forward).
 git fetch --force origin data:data 2>/dev/null || true

@@ -9,7 +9,7 @@
 set -e
 N=${1:-2016}
 git fetch --depth $((N + 200)) origin data
-count=$(git rev-list --count origin/data)
+count=$(git rev-list --count FETCH_HEAD)
 if [ "$count" -le "$N" ]; then
   echo "data: $count commits — no trim needed (limit $N)"
   exit 0
@@ -17,7 +17,7 @@ fi
 
 git log --reverse --max-count="$N" \
   --format='%H%x1f%T%x1f%an%x1f%ae%x1f%aI%x1f%cn%x1f%ce%x1f%cI%x1f%s' \
-  origin/data > /tmp/data_commits.txt
+  FETCH_HEAD > /tmp/data_commits.txt
 
 prev=""
 while IFS=$'\x1f' read -r _c tree an ae ad cn ce cd2 subj; do

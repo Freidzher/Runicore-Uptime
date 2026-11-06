@@ -120,7 +120,12 @@
   }
 
   function renderChart(entries) {
-    const cutoff = Date.now() - range * 3600 * 1000;
+    // Anchor the window to the newest available point, not to Date.now(): if the
+    // data snapshot is temporarily stale, still show the last 24h of data instead
+    // of an empty chart.
+    const latest = entries.reduce((m, e) => Math.max(m, new Date(e.ts).getTime()), 0) || Date.now();
+    const anchor = Math.min(Date.now(), latest);
+    const cutoff = anchor - range * 3600 * 1000;
     const pts = entries.filter((e) => new Date(e.ts).getTime() > cutoff);
     if (chart) chart.destroy();
     chart = new Chart(document.getElementById('chart'), {
