@@ -260,11 +260,40 @@ window.Runicore = (function () {
     return r.json();
   }
 
+  // The monitor writes the snapshot timestamp only on the first summary entry.
+  // Always read that one; never substitute the current clock time.
+  const STALE_MINUTES = 20;
+  function dataTimestamp(summary) {
+    const withTs = (summary || []).find((s) => s && s.updatedAt);
+    return withTs ? withTs.updatedAt : null;
+  }
+  // "Обновлено: ..." line. Shows a warning triangle when the data is older
+  // than STALE_MINUTES; the tooltip explains it on hover.
+  function renderUpdated(el, ts) {
+    if (!el) return;
+    el.innerHTML = '';
+    if (!ts) {
+      el.textContent = 'Обновлено: нет данных';
+      return;
+    }
+    const stale = (Date.now() - new Date(ts).getTime()) / 60000 > STALE_MINUTES;
+    if (stale) {
+      const warn = document.createElement('span');
+      warn.className = 'upd-stale';
+      warn.textContent = '⚠';
+      warn.title = 'Данные устарели';
+      warn.setAttribute('aria-label', 'Данные устарели');
+      el.appendChild(warn);
+      el.appendChild(document.createTextNode(' '));
+    }
+    el.appendChild(document.createTextNode('Обновлено: ' + fmtTs(ts) + ' МСК'));
+  }
+
   // Short mode label shown as a badge before the service name.
   const LABEL_SHORT = { rkn: 'РКН', incident: 'Сбой', maintenance: 'Техработы', annulled: 'Аннул.', hidden: 'Скрыто' };
   function labelPrefix(mode) {
     return LABEL_SHORT[mode] || (mode ? mode[0].toUpperCase() + mode.slice(1) : 'Сбой');
   }
 
-  return { EMOJI_RE, esc, fmtTs, pluralMin, fmtDuration, modeOf, statusText, liveMinutes, labelPrefix, incidentCard, eventIconHtml, groupByIssue, renderEventGroup, setFooterYear, fetchJson, renderPager };
+  return { EMOJI_RE, esc, fmtTs, pluralMin, fmtDuration, modeOf, statusText, liveMinutes, labelPrefix, incidentCard, eventIconHtml, groupByIssue, renderEventGroup, setFooterYear, fetchJson, renderPager, dataTimestamp, renderUpdated };
 })();

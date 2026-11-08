@@ -6,7 +6,7 @@
   const incEl = document.getElementById('incidents');
   const pastEl = document.getElementById('past');
   const pastPagerEl = document.getElementById('pastPager');
-  const { EMOJI_RE, setFooterYear, fetchJson, renderPager, groupByIssue, renderEventGroup } = window.Runicore;
+  const { EMOJI_RE, setFooterYear, fetchJson, renderPager, groupByIssue, renderEventGroup, dataTimestamp, renderUpdated } = window.Runicore;
 
   const PAST_PAGE_SIZE = 10;
   let allPastGroups = [];
@@ -25,13 +25,7 @@
         fetchJson('api/issue-comments.json').catch(() => ({})),
       ]);
       render(summary, cur, log, comments || {});
-      if (updatedEl) {
-        const ts = summary.length && summary[0].updatedAt ? summary[0].updatedAt : null;
-        const when = ts
-          ? new Date(ts).toLocaleString('ru-RU', { timeZone: 'Europe/Moscow' })
-          : new Date().toLocaleString('ru-RU', { timeZone: 'Europe/Moscow' });
-        updatedEl.textContent = 'Обновлено: ' + when + ' МСК';
-      }
+      renderUpdated(updatedEl, dataTimestamp(summary));
     } catch (e) {
       banner.className = 'banner fail';
       banner.textContent = '⚠ Не удалось загрузить данные мониторинга';

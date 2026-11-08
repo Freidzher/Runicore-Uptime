@@ -64,6 +64,8 @@ h1 {
 .dot.up.rkn { background: linear-gradient(to right, var(--ok) 0 50%, var(--rkn) 50% 100%); box-shadow: 0 0 10px var(--ok); }
 .dot.down.rkn { background: linear-gradient(to right, var(--fail) 0 50%, var(--rkn) 50% 100%); box-shadow: 0 0 10px var(--fail); }
 .updated { text-align: left; color: var(--muted); font-size: .78rem; margin-bottom: 16px; }
+/* Triangle shown before the "Обновлено" line when the data is stale */
+.upd-stale { color: var(--warn); font-size: .9rem; cursor: help; margin-right: 3px; }
 /* Section titles: consistent rhythm — larger gap above, smaller below */
 .inc-title { margin: 26px 0 14px; font-weight: 700; font-size: .95rem; }
 /* Event card in lists (index/site). .evt is excluded: that is the card on

@@ -7,7 +7,7 @@
   const pastEl = document.getElementById('past');
   const pastPagerEl = document.getElementById('pastPager');
   const tabs = document.getElementById('rangeTabs');
-  const { EMOJI_RE, setFooterYear, fetchJson, renderPager, groupByIssue, renderEventGroup, esc } = window.Runicore;
+  const { EMOJI_RE, setFooterYear, fetchJson, renderPager, groupByIssue, renderEventGroup, esc, dataTimestamp, renderUpdated } = window.Runicore;
 
   setFooterYear();
 
@@ -194,13 +194,7 @@
       document.title = clean + ' — Runicore';
       nameEl.textContent = clean;
 
-      if (updatedEl) {
-        const ts = s.updatedAt || null;
-        const when = ts
-          ? new Date(ts).toLocaleString('ru-RU', { timeZone: 'Europe/Moscow' })
-          : new Date().toLocaleString('ru-RU', { timeZone: 'Europe/Moscow' });
-        updatedEl.textContent = 'Обновлено: ' + when + ' МСК';
-      }
+      renderUpdated(updatedEl, dataTimestamp(summary));
 
       const favEl = document.getElementById('siteFavicon');
       if (favEl) {
