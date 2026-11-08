@@ -53,9 +53,12 @@ jobs:
           if git diff --cached --quiet; then
             echo "No changes"
           else
-            # Data-only tree: the 'data' branch must never contain the code.
+            # Data-only tree plus the site workflow: GitHub resolves a
+            # workflow_dispatch against the given ref, so the 'data' branch must
+            # carry a copy of site.yml too (it is pruned from the published site).
             git read-tree --empty
             git add -f api/ history/
+            git add -f .github/workflows/site.yml
             tree=$(git write-tree)
             git fetch --depth 1 origin data
             parent=$(git rev-parse FETCH_HEAD 2>/dev/null || true)
@@ -77,6 +80,17 @@ jobs:
           if [ "$(date -u +%H)" = "03" ]; then
             bash scripts/trim_data_history.sh 2016 || echo "trim skipped"
           fi
-          # No site dispatch: the site reads the 'data' branch at runtime. Without
-          # data commits in main every deployment would repeat the same commit
-          # SHA, and Pages keeps serving the previously activated build.
+      - name: Deploy site from the data branch
+        env:
+          GH_TOKEN: ${{ secrets.FINE_GRAINED_TOKEN || github.token }}
+        run: |
+          # workflow_dispatch with ref=data: GITHUB_SHA becomes the latest data
+          # commit (unique every run), so Pages activates every deployment and
+          # the browser reads the baked data from its own domain without a CDN
+          # cache. Dispatch here, right after the data push, to avoid a race.
+          curl -sS -f -X POST \
+            -H "Authorization: Bearer ${GH_TOKEN}" \
+            -H "Accept: application/vnd.github+json" \
+            -H "User-Agent: runicore-monitor" \
+            "https://api.github.com/repos/${GITHUB_REPOSITORY}/actions/workflows/site.yml/dispatches" \
+            -d '{"ref":"data"}'

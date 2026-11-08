@@ -2,18 +2,13 @@ name: Static Site CI
 
 on:
   push:
+    branches: [master]
     paths:
       - "assets/**"
       - "*.html"
       - "config.json"
       - ".github/workflows/site.yml"
-  repository_dispatch:
-    types: [site]
   workflow_dispatch:
-  schedule:
-    # Refresh the baked-in fallback snapshot once a day. The site reads live
-    # data at runtime, so frequent deployments are no longer needed.
-    - cron: "17 3 * * *"
 
 permissions:
   contents: read
@@ -36,13 +31,17 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
+          # The workflow may be dispatched with ref=data; the code always comes
+          # from master, data is overlaid in the next step.
+          ref: master
           fetch-depth: 1
 
       - name: Fetch latest data (branch 'data')
         run: |
-          # Data (api/, history/) lives only in the 'data' branch. This baked-in
-          # copy is just a fallback for the client-side live fetch. If the data
-          # branch is missing, the build fails and Pages keeps the last deploy.
+          # Data (api/, history/) lives only in the 'data' branch. It is baked
+          # into every deployment, so the browser reads it from its own domain
+          # with no CDN delay. If the branch is missing the build fails and
+          # Pages keeps the last working deployment.
           git fetch --depth 1 origin data
           git checkout FETCH_HEAD -- api history
           echo "Данные взяты из ветки data"
