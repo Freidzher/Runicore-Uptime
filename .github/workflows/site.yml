@@ -4,11 +4,16 @@ on:
   push:
     paths:
       - "assets/**"
-      - "index.html"
+      - "*.html"
       - "config.json"
+      - ".github/workflows/site.yml"
   repository_dispatch:
     types: [site]
   workflow_dispatch:
+  schedule:
+    # Refresh the baked-in fallback snapshot once a day. The site reads live
+    # data at runtime, so frequent deployments are no longer needed.
+    - cron: "17 3 * * *"
 
 permissions:
   contents: read
@@ -18,7 +23,7 @@ permissions:
 
 concurrency:
   group: github-pages
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
   deploy:
@@ -35,9 +40,9 @@ jobs:
 
       - name: Fetch latest data (branch 'data')
         run: |
-          # Data (api/, history/) lives only in the 'data' branch and is overlaid
-          # onto the code from main. No fallback: if the data branch is missing the
-          # build fails and Pages keeps the last working deployment.
+          # Data (api/, history/) lives only in the 'data' branch. This baked-in
+          # copy is just a fallback for the client-side live fetch. If the data
+          # branch is missing, the build fails and Pages keeps the last deploy.
           git fetch --depth 1 origin data
           git checkout FETCH_HEAD -- api history
           echo "Данные взяты из ветки data"

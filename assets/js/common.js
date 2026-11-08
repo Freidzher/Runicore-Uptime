@@ -228,8 +228,34 @@ window.Runicore = (function () {
     el.appendChild(jump);
   }
 
+  // Data (api/, history/) lives in the 'data' branch and is refreshed by the
+  // monitor every 5 minutes. The Pages site is deployed only when the code
+  // changes — GitHub Pages throttles very frequent deployments — so read data
+  // at runtime from the branch tip instead of baking it into the artifact.
+  // Fallback chain: raw.githubusercontent -> jsDelivr -> baked-in snapshot.
+  const DATA_RAW = 'https://raw.githubusercontent.com/Freidzher/Runicore-Uptime/data/';
+  const DATA_CDN = 'https://cdn.jsdelivr.net/gh/Freidzher/Runicore-Uptime@data/';
+  function isLocalPreview() {
+    const h = location.hostname;
+    return !h || h === '127.0.0.1' || h === 'localhost';
+  }
+  async function tryFetch(url) {
+    try {
+      const opts = { cache: 'no-store' };
+      if (typeof AbortSignal !== 'undefined' && AbortSignal.timeout) opts.signal = AbortSignal.timeout(6000);
+      const r = await fetch(url, opts);
+      return r.ok ? r : null;
+    } catch (e) {
+      return null;
+    }
+  }
   async function fetchJson(url) {
-    const r = await fetch(url + '?t=' + Date.now(), { cache: 'no-store' });
+    const bust = '?t=' + Date.now();
+    if (!isLocalPreview()) {
+      const r = (await tryFetch(DATA_RAW + url + bust)) || (await tryFetch(DATA_CDN + url + bust));
+      if (r) return r.json();
+    }
+    const r = await fetch(url + bust, { cache: 'no-store' });
     if (!r.ok) throw new Error(url);
     return r.json();
   }

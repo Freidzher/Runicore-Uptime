@@ -77,10 +77,6 @@ jobs:
           if [ "$(date -u +%H)" = "03" ]; then
             bash scripts/trim_data_history.sh 2016 || echo "trim skipped"
           fi
-          # Trigger site deploy
-          curl -sS -X POST \
-            -H "Authorization: Bearer ${GH_TOKEN}" \
-            -H "Accept: application/vnd.github+json" \
-            -H "User-Agent: runicore-monitor" \
-            "https://api.github.com/repos/${GITHUB_REPOSITORY}/dispatches" \
-            -d '{"event_type": "site"}'
+          # No site dispatch: the site reads the 'data' branch at runtime. Without
+          # data commits in main every deployment would repeat the same commit
+          # SHA, and Pages keeps serving the previously activated build.
