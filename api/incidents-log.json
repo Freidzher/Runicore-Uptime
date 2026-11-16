@@ -1617,5 +1617,100 @@
   "hidden": false,
   "title": "🇸🇪 2. Стокгольм,🇸🇪 1. Стокгольм,🇷🇺 Москва — Бесшовное обновление инфраструктуры",
   "desc": ""
+ },
+ {
+  "name": "База знаний",
+  "slug": "server2",
+  "issue_number": 184,
+  "opened": "2026-11-16T18:07:00+00:00",
+  "resolved": "2026-11-16T18:13:09+00:00",
+  "minutes": 6,
+  "code": 0,
+  "ms": 90302,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "База знаний — недоступен",
+  "desc": "- Код ошибки: 0\n- Время отклика: 90302 мс"
+ },
+ {
+  "name": "Подписка",
+  "slug": "server3",
+  "issue_number": 185,
+  "opened": "2026-11-16T18:08:36+00:00",
+  "resolved": "2026-11-16T18:13:22+00:00",
+  "minutes": 5,
+  "code": 0,
+  "ms": 90290,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "Подписка — недоступен",
+  "desc": "- Код ошибки: 0\n- Время отклика: 90290 мс"
+ },
+ {
+  "name": "Москва",
+  "slug": "server7",
+  "issue_number": 186,
+  "opened": "2026-11-16T18:09:37+00:00",
+  "resolved": "2026-11-16T18:13:25+00:00",
+  "minutes": 4,
+  "code": 22,
+  "ms": 60178,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "Москва — недоступен",
+  "desc": "- Код ошибки: 22\n- Время отклика: 60178 мс"
+ },
+ {
+  "name": "Сайт-визитка",
+  "slug": "server1",
+  "issue_number": 187,
+  "opened": "2026-11-16T18:11:08+00:00",
+  "resolved": "2026-11-16T18:13:29+00:00",
+  "minutes": 2,
+  "code": 0,
+  "ms": 90204,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "Сайт-визитка — недоступен",
+  "desc": "- Код ошибки: 0\n- Время отклика: 90204 мс"
+ },
+ {
+  "name": "Служба поддержки",
+  "slug": "server6",
+  "issue_number": 188,
+  "opened": "2026-11-16T18:12:39+00:00",
+  "resolved": "2026-11-16T18:13:33+00:00",
+  "minutes": 1,
+  "code": 0,
+  "ms": 90283,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "Служба поддержки — недоступен",
+  "desc": "- Код ошибки: 0\n- Время отклика: 90283 мс"
  }
 ]
