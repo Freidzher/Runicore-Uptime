@@ -24,5 +24,65 @@
    "rkn"
   ],
   "desc": ""
+ },
+ {
+  "issue_number": 194,
+  "opened": "2026-11-17T18:42:05+00:00",
+  "name": "База знаний",
+  "slug": "server2",
+  "maintenance": false,
+  "mode": "incident",
+  "title": "База знаний — недоступен",
+  "desc": "- Код ошибки: 0\n- Время отклика: 91002 мс",
+  "code": 0,
+  "ms": 91002
+ },
+ {
+  "issue_number": 195,
+  "opened": "2026-11-17T18:43:43+00:00",
+  "name": "Подписка",
+  "slug": "server3",
+  "maintenance": false,
+  "mode": "incident",
+  "title": "Подписка — недоступен",
+  "desc": "- Код ошибки: 0\n- Время отклика: 90083 мс",
+  "code": 0,
+  "ms": 90083
+ },
+ {
+  "issue_number": 196,
+  "opened": "2026-11-17T18:44:44+00:00",
+  "name": "Москва",
+  "slug": "server7",
+  "maintenance": false,
+  "mode": "incident",
+  "title": "Москва — недоступен",
+  "desc": "- Код ошибки: 22\n- Время отклика: 60180 мс",
+  "code": 22,
+  "ms": 60180
+ },
+ {
+  "issue_number": 197,
+  "opened": "2026-11-17T18:46:15+00:00",
+  "name": "Сайт-визитка",
+  "slug": "server1",
+  "maintenance": false,
+  "mode": "incident",
+  "title": "Сайт-визитка — недоступен",
+  "desc": "- Код ошибки: 0\n- Время отклика: 90452 мс",
+  "code": 0,
+  "ms": 90452
+ },
+ {
+  "issue_number": 198,
+  "opened": "2026-11-17T18:47:17+00:00",
+  "name": "Служба поддержки",
+  "slug": "server6",
+  "maintenance": false,
+  "mode": "incident",
+  "title": "Служба поддержки — недоступен",
+  "desc": "- Код ошибки: 200\n- Время отклика: 60502 мс",
+  "code": 200,
+  "ms": 60502
  }
 ]
