@@ -1,100 +1,5 @@
 [
  {
-  "name": "База знаний",
-  "slug": "server2",
-  "issue_number": 157,
-  "opened": "2026-09-22T00:10:00+00:00",
-  "resolved": "2026-09-22T13:00:57Z",
-  "minutes": 771,
-  "code": 0,
-  "ms": 90251,
-  "maintenance": false,
-  "mode": "incident",
-  "annulled": false,
-  "hidden": false,
-  "title": "База знаний — недоступен",
-  "desc": "- Код ошибки: 0\n- Время отклика: 90251 мс",
-  "labels": [
-   "incident"
-  ]
- },
- {
-  "name": "Подписка",
-  "slug": "server3",
-  "issue_number": 158,
-  "opened": "2026-09-22T00:10:00+00:00",
-  "resolved": "2026-09-22T13:01:01Z",
-  "minutes": 771,
-  "code": 0,
-  "ms": 1340,
-  "maintenance": false,
-  "mode": "incident",
-  "annulled": false,
-  "hidden": false,
-  "title": "Подписка — недоступен",
-  "desc": "- Код ошибки: 0\n- Время отклика: 1340 мс",
-  "labels": [
-   "incident"
-  ]
- },
- {
-  "name": "Служба поддержки",
-  "slug": "server6",
-  "issue_number": 159,
-  "opened": "2026-09-22T00:10:00+00:00",
-  "resolved": "2026-09-22T13:01:07Z",
-  "minutes": 771,
-  "code": 0,
-  "ms": 1367,
-  "maintenance": false,
-  "mode": "incident",
-  "annulled": false,
-  "hidden": false,
-  "title": "Служба поддержки — недоступен",
-  "desc": "- Код ошибки: 0\n- Время отклика: 1367 мс",
-  "labels": [
-   "incident"
-  ]
- },
- {
-  "name": "Сайт-визитка",
-  "slug": "server1",
-  "issue_number": 160,
-  "opened": "2026-09-22T00:10:00+00:00",
-  "resolved": "2026-09-22T14:04:45Z",
-  "minutes": 835,
-  "code": 0,
-  "ms": 1367,
-  "maintenance": false,
-  "mode": "incident",
-  "annulled": false,
-  "hidden": false,
-  "title": "Сайт-визитка — недоступен",
-  "desc": "- Код ошибки: 0\n- Время отклика: 0 мс",
-  "labels": [
-   "incident"
-  ]
- },
- {
-  "name": "2.1 Стокгольм",
-  "slug": "server10",
-  "issue_number": 161,
-  "opened": "2026-09-26T23:45:42+00:00",
-  "resolved": "2026-09-26T23:48:17Z",
-  "minutes": 3,
-  "code": 0,
-  "ms": 532,
-  "maintenance": false,
-  "mode": "incident",
-  "annulled": false,
-  "hidden": false,
-  "title": "2.1 Стокгольм — недоступен",
-  "desc": "- Код ошибки: 0\n- Время отклика: 532 мс",
-  "labels": [
-   "incident"
-  ]
- },
- {
   "name": "1. Стокгольм",
   "slug": "server4",
   "issue_number": 162,
@@ -1902,5 +1807,100 @@
   ],
   "title": "Служба поддержки — недоступен",
   "desc": "- Код ошибки: 200\n- Время отклика: 60502 мс"
+ },
+ {
+  "name": "База знаний",
+  "slug": "server2",
+  "issue_number": 199,
+  "opened": "2026-11-18T02:52:02+00:00",
+  "resolved": "2026-11-18T02:58:07+00:00",
+  "minutes": 6,
+  "code": 0,
+  "ms": 90288,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "База знаний — недоступен",
+  "desc": "- Код ошибки: 0\n- Время отклика: 90288 мс"
+ },
+ {
+  "name": "Подписка",
+  "slug": "server3",
+  "issue_number": 200,
+  "opened": "2026-11-18T02:53:38+00:00",
+  "resolved": "2026-11-18T02:58:17+00:00",
+  "minutes": 5,
+  "code": 0,
+  "ms": 90265,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "Подписка — недоступен",
+  "desc": "- Код ошибки: 0\n- Время отклика: 90265 мс"
+ },
+ {
+  "name": "Москва",
+  "slug": "server7",
+  "issue_number": 201,
+  "opened": "2026-11-18T02:55:09+00:00",
+  "resolved": "2026-11-18T02:58:19+00:00",
+  "minutes": 3,
+  "code": 0,
+  "ms": 90065,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "Москва — недоступен",
+  "desc": "- Код ошибки: 0\n- Время отклика: 90065 мс"
+ },
+ {
+  "name": "Сайт-визитка",
+  "slug": "server1",
+  "issue_number": 202,
+  "opened": "2026-11-18T02:56:40+00:00",
+  "resolved": "2026-11-18T02:58:23+00:00",
+  "minutes": 2,
+  "code": 0,
+  "ms": 90105,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "Сайт-визитка — недоступен",
+  "desc": "- Код ошибки: 0\n- Время отклика: 90105 мс"
+ },
+ {
+  "name": "Служба поддержки",
+  "slug": "server6",
+  "issue_number": 203,
+  "opened": "2026-11-18T02:57:41+00:00",
+  "resolved": "2026-11-18T02:58:26+00:00",
+  "minutes": 1,
+  "code": 200,
+  "ms": 60734,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "Служба поддержки — недоступен",
+  "desc": "- Код ошибки: 200\n- Время отклика: 60734 мс"
  }
 ]
