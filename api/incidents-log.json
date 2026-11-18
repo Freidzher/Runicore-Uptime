@@ -1,103 +1,5 @@
 [
  {
-  "name": "1. Стокгольм",
-  "slug": "server4",
-  "issue_number": 162,
-  "opened": "2026-09-27T12:17:01+00:00",
-  "resolved": "2026-09-27T12:41:45Z",
-  "minutes": 25,
-  "code": 0,
-  "ms": 90037,
-  "maintenance": true,
-  "mode": "maintenance",
-  "annulled": false,
-  "hidden": false,
-  "title": "1. Стокгольм — недоступен",
-  "desc": "",
-  "labels": [
-   "maintenance",
-   "rkn"
-  ]
- },
- {
-  "name": "1.2 Стокгольм",
-  "slug": "server9",
-  "issue_number": 163,
-  "opened": "2026-09-27T12:18:32+00:00",
-  "resolved": "2026-09-27T12:41:45Z",
-  "minutes": 23,
-  "code": 0,
-  "ms": 90081,
-  "maintenance": true,
-  "mode": "maintenance",
-  "annulled": false,
-  "hidden": false,
-  "title": "1.2 Стокгольм — недоступен",
-  "desc": "",
-  "labels": [
-   "maintenance",
-   "rkn"
-  ]
- },
- {
-  "name": "1.1 Стокгольм",
-  "slug": "server8",
-  "issue_number": 164,
-  "opened": "2026-09-27T12:20:11+00:00",
-  "resolved": "2026-09-27T12:41:45Z",
-  "minutes": 22,
-  "code": 0,
-  "ms": 90048,
-  "maintenance": true,
-  "mode": "maintenance",
-  "annulled": false,
-  "hidden": false,
-  "title": "1.1 Стокгольм — недоступен",
-  "desc": "",
-  "labels": [
-   "maintenance",
-   "rkn"
-  ]
- },
- {
-  "name": "База знаний",
-  "slug": "server2",
-  "issue_number": 165,
-  "opened": "2026-10-06T20:55:17+00:00",
-  "resolved": "2026-10-06T21:20:25Z",
-  "minutes": 25,
-  "code": 0,
-  "ms": 1252,
-  "maintenance": false,
-  "mode": "incident",
-  "annulled": false,
-  "hidden": false,
-  "title": "База знаний — недоступен",
-  "desc": "- Код ошибки: 0\n- Время отклика: 1252 мс",
-  "labels": [
-   "incident"
-  ]
- },
- {
-  "name": "Сайт-визитка",
-  "slug": "server1",
-  "issue_number": 166,
-  "opened": "2026-10-06T20:55:27+00:00",
-  "resolved": "2026-10-06T21:01:01Z",
-  "minutes": 6,
-  "code": 200,
-  "ms": 1869,
-  "maintenance": false,
-  "mode": "incident",
-  "annulled": false,
-  "hidden": false,
-  "title": "Сайт-визитка — недоступен",
-  "desc": "- Код ошибки: 200\n- Время отклика: 1869 мс",
-  "labels": [
-   "incident"
-  ]
- },
- {
   "name": "Подписка",
   "slug": "server3",
   "issue_number": 167,
@@ -1902,5 +1804,100 @@
   ],
   "title": "Служба поддержки — недоступен",
   "desc": "- Код ошибки: 200\n- Время отклика: 60734 мс"
+ },
+ {
+  "name": "База знаний",
+  "slug": "server2",
+  "issue_number": 204,
+  "opened": "2026-11-18T09:26:56+00:00",
+  "resolved": "2026-11-18T09:33:35+00:00",
+  "minutes": 7,
+  "code": 0,
+  "ms": 90307,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "База знаний — недоступен",
+  "desc": "- Код ошибки: 0\n- Время отклика: 90307 мс"
+ },
+ {
+  "name": "Подписка",
+  "slug": "server3",
+  "issue_number": 205,
+  "opened": "2026-11-18T09:28:31+00:00",
+  "resolved": "2026-11-18T09:33:47+00:00",
+  "minutes": 5,
+  "code": 0,
+  "ms": 90051,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "Подписка — недоступен",
+  "desc": "- Код ошибки: 0\n- Время отклика: 90051 мс"
+ },
+ {
+  "name": "Москва",
+  "slug": "server7",
+  "issue_number": 206,
+  "opened": "2026-11-18T09:30:03+00:00",
+  "resolved": "2026-11-18T09:33:50+00:00",
+  "minutes": 4,
+  "code": 0,
+  "ms": 90081,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "Москва — недоступен",
+  "desc": "- Код ошибки: 0\n- Время отклика: 90081 мс"
+ },
+ {
+  "name": "Сайт-визитка",
+  "slug": "server1",
+  "issue_number": 207,
+  "opened": "2026-11-18T09:31:34+00:00",
+  "resolved": "2026-11-18T09:33:55+00:00",
+  "minutes": 2,
+  "code": 0,
+  "ms": 90280,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "Сайт-визитка — недоступен",
+  "desc": "- Код ошибки: 0\n- Время отклика: 90280 мс"
+ },
+ {
+  "name": "Служба поддержки",
+  "slug": "server6",
+  "issue_number": 208,
+  "opened": "2026-11-18T09:33:05+00:00",
+  "resolved": "2026-11-18T09:33:59+00:00",
+  "minutes": 1,
+  "code": 0,
+  "ms": 90053,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "Служба поддержки — недоступен",
+  "desc": "- Код ошибки: 0\n- Время отклика: 90053 мс"
  }
 ]
