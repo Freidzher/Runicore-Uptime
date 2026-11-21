@@ -32,6 +32,7 @@ import urllib.parse
 import ssl
 import socket
 from datetime import datetime, timezone, timedelta
+from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
 ROOT = Path(__file__).parent
@@ -368,9 +369,8 @@ def remove_inc_entry(incidents: list, entry: dict) -> None:
 
 
 def _write_log(log: list) -> None:
-    """Пишет журнал: дедупликация по (issue_number, slug), сортировка по opened,
-    хранение последних 100 записей. При дублях остаётся запись с самым поздним resolved
-    (переоткрытие issue обновляет одну запись, а не наслаивает новые)."""
+    """Write the incident log: dedupe by (issue_number, slug), sort by opened.
+    The full history is kept — the site pages through all past events."""
     best = {}
     for e in log:
         k = (e.get("issue_number"), e.get("slug"))
@@ -378,7 +378,7 @@ def _write_log(log: list) -> None:
         if cur is None or (e.get("resolved") or "") >= (cur.get("resolved") or ""):
             best[k] = e
     ordered = sorted(best.values(), key=lambda e: e.get("opened") or "")
-    write_json(API_DIR / "incidents-log.json", ordered[-100:])
+    write_json(API_DIR / "incidents-log.json", ordered)
 
 
 def upsert_log_entry(entry: dict) -> None:
@@ -452,6 +452,47 @@ def open_incident(key: str, name: str, result: dict, incidents: dict, repo: str,
         if not find_inc_entry(incidents, entry["slug"], entry["issue_number"]):
             incidents.append(entry)
         print(f"Incident issue #{issue['number']} opened for {name} (mode={'maintenance' if is_maint else 'incident'})")
+
+
+def open_incident_group(items: list, incidents: list, repo: str) -> None:
+    """One issue for every service that went down in the same run.
+
+    They share a single issue_number and opened timestamp, so the site groups
+    them under one card with an "affected services" dropdown instead of showing
+    a staircase of separate 7/5/4/2/1-minute events.
+    """
+    if not items:
+        return
+    first_name = items[0][1]
+    first_ts = items[0][2]["ts"]
+    title = f"{first_name} — недоступен"
+    body = "- Несколько сервисов недоступны одновременно.\n- Проверка выполнена параллельно."
+    existing_num = find_open_incident_issue(repo, title)
+    if existing_num:
+        num = existing_num
+        print(f"Incident issue #{num} reused for a service group")
+    else:
+        issue = gh_api(f"/repos/{repo}/issues", "POST",
+                       {"title": title, "body": body, "labels": ["incident"]})
+        if not issue:
+            return
+        num = issue["number"]
+    for key, name, result in items:
+        entry = {
+            "issue_number": num,
+            "opened": first_ts,
+            "name": name,
+            "slug": slugify(key),
+            "maintenance": False,
+            "mode": "incident",
+            "title": title,
+            "desc": body,
+            "code": result.get("code", 0),
+            "ms": result.get("ms", 0),
+        }
+        if not find_inc_entry(incidents, entry["slug"], num):
+            incidents.append(entry)
+    print(f"Incident issue #{num} opened for {len(items)} services")
 
 
 def close_incident(key: str, incidents: dict, result: dict, repo: str) -> None:
@@ -768,8 +809,8 @@ def sync_closed_incidents(repo: str, sites: dict = None) -> None:
         (позволяет влиять на закрытые инциденты: повесить annulled/hidden на issue).
     Релевантный issue: есть служебный лейбл (incident/maintenance/annulled/hidden),
     или в заголовке ключ сервиса, или номер уже есть в журнале.
-    Журнал дедуплицируется по (issue_number, slug, opened) и сортируется по opened;
-    хранится последние 100 записей (>= отслеживаемых 50 инцидентов)."""
+    The log is deduplicated by (issue_number, slug) and sorted by opened;
+    the full history is kept (no cap)."""
     sites = sites or {}
     our_labels = {"incident", "maintenance", "annulled", "hidden", "rkn"}
 
@@ -785,6 +826,12 @@ def sync_closed_incidents(repo: str, sites: dict = None) -> None:
         page += 1
 
     log = load_log()
+    # Issues absorbed into a grouped event carry a merged_issues marker; never
+    # re-add them as separate events from GitHub.
+    merged_nums = set()
+    for e in log:
+        for n in (e.get("merged_issues") or []):
+            merged_nums.add(n)
     log_by_num = {}
     for e in log:
         log_by_num.setdefault(e.get("issue_number"), []).append(e)
@@ -794,6 +841,8 @@ def sync_closed_incidents(repo: str, sites: dict = None) -> None:
         if "pull_request" in issue:
             continue
         num = issue.get("number")
+        if num in merged_nums:
+            continue
         labels = {l["name"] for l in issue.get("labels", [])}
         mode = _event_mode(labels)
         raw_title = issue.get("title", "")
@@ -885,8 +934,66 @@ def sync_closed_incidents(repo: str, sites: dict = None) -> None:
             print(f"closed #{num}: добавлена запись ({name}, mode={mode})")
 
     if changed:
-        # Dedupe by (issue_number, slug), sort by opened; keep 100
+        # Dedupe by (issue_number, slug), sort by opened; keep the full history
         _write_log(load_log())
+
+
+def _cascade_dt(value: str):
+    try:
+        return datetime.fromisoformat(value.replace("Z", "+00:00"))
+    except Exception:
+        return None
+
+
+def merge_staircased_cascades() -> None:
+    """Heal old sequential-ping cascades: services that failed 90s apart were
+    logged as separate 7/5/4/2/1-minute incidents. Merge each burst into one
+    event with the first service's issue number, opened, resolved and duration.
+    Absorbed issue numbers are marked so closed-issue sync will not re-add them.
+    Idempotent; only affects events since 16.11.2026."""
+    log = load_log()
+    since = "2026-11-16"
+    window_sec = 180
+    recent = [e for e in log if (e.get("opened") or "") >= since]
+    recent.sort(key=lambda e: e.get("opened") or "")
+    bursts, current = [], []
+    for e in recent:
+        if not current:
+            current = [e]
+            continue
+        prev = current[-1]
+        gap = (_cascade_dt(e["opened"]) - _cascade_dt(prev["opened"])).total_seconds()
+        if (0 <= gap <= window_sec
+                and (e.get("minutes") or 0) <= (prev.get("minutes") or 0)
+                and e.get("mode") == prev.get("mode") == "incident"
+                and e.get("slug") != prev.get("slug")):
+            current.append(e)
+        else:
+            if len(current) > 1:
+                bursts.append(current)
+            current = [e]
+    if len(current) > 1:
+        bursts.append(current)
+
+    changed = False
+    for burst in bursts:
+        head = burst[0]
+        for e in burst[1:]:
+            if (e.get("issue_number") == head.get("issue_number")
+                    and e.get("opened") == head.get("opened")):
+                continue
+            absorbed = set(e.get("merged_issues") or [])
+            if e.get("issue_number") is not None:
+                absorbed.add(e["issue_number"])
+            e["merged_issues"] = sorted(absorbed)
+            e["issue_number"] = head["issue_number"]
+            e["opened"] = head["opened"]
+            e["resolved"] = head.get("resolved")
+            e["minutes"] = head.get("minutes")
+            changed = True
+    if changed:
+        _write_log(log)
+        print(f"журнал: объединены каскады последовательных проверок ({len(bursts)} событий)")
 
 
 def fetch_issue_comments(repo: str, num: int) -> list:
@@ -939,7 +1046,7 @@ COMMENTS_STALE_DAYS = 7
 def sync_issue_comments(repo: str, incidents: dict, budget: int = COMMENTS_BUDGET) -> None:
     """Собирает пользовательские комментарии Issues в api/issue-comments.json.
 
-    Покрытие: ВСЕ issues из журнала (до 100 записей) + активные события.
+    Coverage: ALL issues in the log (full history) + active events.
     Инкрементальность (экономия лимита GitHub API):
       1) один запрос — лента последних обновлённых комментариев репозитория
          (sort=updated) — ловит и новые комментарии, и ПРАВКИ старых записей;
@@ -999,7 +1106,7 @@ def sync_issue_comments(repo: str, incidents: dict, budget: int = COMMENTS_BUDGE
     # Priority: hot -> new -> the rest (stable sort)
     pending.sort(key=lambda n: (0 if n in hot else 1, 0 if str(n) not in prev else 1, n))
 
-    # 3) Cache: keep only current issue numbers (the log is capped at 100)
+    # 3) Cache: keep only issue numbers that still exist in the log/active set
     out = {}
     for k, v in prev.items():
         try:
@@ -1214,6 +1321,7 @@ def main() -> None:
     ensure_labels(repo)
     sync_incidents(incidents, repo, sites)
     sync_closed_incidents(repo, sites)
+    merge_staircased_cascades()
 
     # Self-heal (bug 28.2): if an issue is open again, its entry must not
     # stay in the past log — remove it. A re-close recalculates everything.
@@ -1227,13 +1335,23 @@ def main() -> None:
 
     HISTORY_DIR.mkdir(exist_ok=True)
 
+    # Ping every service at the same time: sequential checks gave the outages a
+    # false "staircase" (each service opened minutes after the previous one).
+    # Only the network checks run in parallel; all result processing below keeps
+    # the original order and logic.
+    def _ping(item):
+        key, site = item
+        if site["kind"] == "ssh":
+            return key, check_ssh(site["name"], site["url"], site["timeout"])
+        return key, check_site(site["name"], site["url"], site["timeout"])
+
+    with ThreadPoolExecutor(max_workers=min(16, max(1, len(sites)))) as pool:
+        checked = dict(pool.map(_ping, sites.items()))
+
+    pending_open = []
     for key, site in sites.items():
         slug, name = site["slug"], site["name"]
-        if site["kind"] == "ssh":
-            # Machine: TCP check of SSH port 22 by IP/domain (no auth)
-            result = check_ssh(name, site["url"], site["timeout"])
-        else:
-            result = check_site(name, site["url"], site["timeout"])
+        result = checked[key]
         # Chart point mode flags: a service may have several active events,
         # the point follows the HIGHEST priority one (maintenance > RKN, etc.)
         active_here = [e for e in incidents if e.get("slug") == slug]
@@ -1275,11 +1393,14 @@ def main() -> None:
         active_here = [e for e in incidents if e.get("slug") == slug]
         modes_here = {e.get("mode") for e in active_here}
         if not result["ok"] and (not active_here or modes_here == {"rkn"}):
-            # RKN does not mask a real failure: open an incident on a real outage
-            open_incident(key, clean_name or name, result, incidents, repo)
+            # RKN does not mask a real failure: open an incident on a real outage.
+            # Services that failed in this same run are grouped into one issue.
+            pending_open.append((key, clean_name or name, result))
         elif result["ok"] and "incident" in modes_here:
             # Real incidents close automatically; admin modes (maintenance/annulled/hidden/RKN) are manual
             close_incident(key, incidents, result, repo)
+
+    open_incident_group(pending_open, incidents, repo)
 
     # Final summary across all sites
     history_points = {s["slug"]: load_json(API_DIR / s["slug"] / "points.json", []) for s in sites.values()}

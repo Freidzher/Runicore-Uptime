@@ -76,6 +76,12 @@
     .pager button:hover:not(:disabled):not(.active) { border-color: rgba(46, 204, 113, .5); color: var(--text); }
     .pager button.active { border-color: var(--accent); color: var(--text); background: rgba(46, 204, 113, .15); }
     .pager button:disabled { opacity: .35; cursor: default; }
+    @media (max-width: 520px) {
+      .pager { gap: 4px; }
+      .pager button { min-width: 30px; padding: 5px 8px; font-size: .8rem; }
+      .pager .pager-jump { position: static; transform: none; margin-left: 4px; }
+      .pager .pager-jump input { width: 44px; padding: 5px 4px; font-size: .8rem; }
+    }
   </style>
 </head>
 <body>
@@ -94,7 +100,7 @@
     <footer>© 2024–<span id="year"></span> Runicore. Все права защищены.</footer>
   </div>
 
-  <script src="assets/js/common.js?v=35"></script>
+  <script src="assets/js/common.js?v=36"></script>
   <script src="assets/js/app.js?v=32"></script>
 </body>
 </html>

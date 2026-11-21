@@ -205,7 +205,13 @@ window.Runicore = (function () {
       return b;
     };
     el.appendChild(btn('‹', current - 1, { disabled: current <= 1, arrow: true }));
-    for (let p = 1; p <= totalPages; p++) {
+    // At most five numbers, sliding around the current page. The jump input
+    // (below) still reaches any page directly, including on mobile.
+    const MAX_NUMBERS = 5;
+    let first = Math.max(1, current - Math.floor(MAX_NUMBERS / 2));
+    let last = Math.min(totalPages, first + MAX_NUMBERS - 1);
+    first = Math.max(1, last - MAX_NUMBERS + 1);
+    for (let p = first; p <= last; p++) {
       el.appendChild(btn(String(p), p));
     }
     el.appendChild(btn('›', current + 1, { disabled: current >= totalPages, arrow: true }));
