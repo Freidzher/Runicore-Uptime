@@ -3550,5 +3550,100 @@
   "merged_issues": [
    270
   ]
+ },
+ {
+  "name": "База знаний",
+  "slug": "server2",
+  "issue_number": 271,
+  "opened": "2026-11-21T20:12:07+00:00",
+  "resolved": "2026-11-21T20:15:38+00:00",
+  "minutes": 4,
+  "code": 0,
+  "ms": 90245,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "База знаний — недоступен",
+  "desc": "- Несколько сервисов недоступны одновременно.\n- Проверка выполнена параллельно."
+ },
+ {
+  "name": "Подписка",
+  "slug": "server3",
+  "issue_number": 271,
+  "opened": "2026-11-21T20:12:07+00:00",
+  "resolved": "2026-11-21T20:15:36+00:00",
+  "minutes": 3,
+  "code": 0,
+  "ms": 90088,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "База знаний — недоступен",
+  "desc": "- Несколько сервисов недоступны одновременно.\n- Проверка выполнена параллельно."
+ },
+ {
+  "name": "Москва",
+  "slug": "server7",
+  "issue_number": 271,
+  "opened": "2026-11-21T20:12:07+00:00",
+  "resolved": "2026-11-21T20:15:36+00:00",
+  "minutes": 3,
+  "code": 0,
+  "ms": 90063,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "База знаний — недоступен",
+  "desc": "- Несколько сервисов недоступны одновременно.\n- Проверка выполнена параллельно."
+ },
+ {
+  "name": "Сайт-визитка",
+  "slug": "server1",
+  "issue_number": 271,
+  "opened": "2026-11-21T20:12:07+00:00",
+  "resolved": "2026-11-21T20:15:37+00:00",
+  "minutes": 4,
+  "code": 0,
+  "ms": 90248,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "База знаний — недоступен",
+  "desc": "- Несколько сервисов недоступны одновременно.\n- Проверка выполнена параллельно."
+ },
+ {
+  "name": "Служба поддержки",
+  "slug": "server6",
+  "issue_number": 271,
+  "opened": "2026-11-21T20:12:07+00:00",
+  "resolved": "2026-11-21T20:15:36+00:00",
+  "minutes": 3,
+  "code": 200,
+  "ms": 89050,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "База знаний — недоступен",
+  "desc": "- Несколько сервисов недоступны одновременно.\n- Проверка выполнена параллельно."
  }
 ]
