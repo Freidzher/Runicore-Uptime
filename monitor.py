@@ -938,64 +938,6 @@ def sync_closed_incidents(repo: str, sites: dict = None) -> None:
         _write_log(load_log())
 
 
-def _cascade_dt(value: str):
-    try:
-        return datetime.fromisoformat(value.replace("Z", "+00:00"))
-    except Exception:
-        return None
-
-
-def merge_staircased_cascades() -> None:
-    """Heal old sequential-ping cascades: services that failed 90s apart were
-    logged as separate 7/5/4/2/1-minute incidents. Merge each burst into one
-    event with the first service's issue number, opened, resolved and duration.
-    Absorbed issue numbers are marked so closed-issue sync will not re-add them.
-    Idempotent; only affects events since 16.11.2026."""
-    log = load_log()
-    since = "2026-11-16"
-    window_sec = 180
-    recent = [e for e in log if (e.get("opened") or "") >= since]
-    recent.sort(key=lambda e: e.get("opened") or "")
-    bursts, current = [], []
-    for e in recent:
-        if not current:
-            current = [e]
-            continue
-        prev = current[-1]
-        gap = (_cascade_dt(e["opened"]) - _cascade_dt(prev["opened"])).total_seconds()
-        if (0 <= gap <= window_sec
-                and (e.get("minutes") or 0) <= (prev.get("minutes") or 0)
-                and e.get("mode") == prev.get("mode") == "incident"
-                and e.get("slug") != prev.get("slug")):
-            current.append(e)
-        else:
-            if len(current) > 1:
-                bursts.append(current)
-            current = [e]
-    if len(current) > 1:
-        bursts.append(current)
-
-    changed = False
-    for burst in bursts:
-        head = burst[0]
-        for e in burst[1:]:
-            if (e.get("issue_number") == head.get("issue_number")
-                    and e.get("opened") == head.get("opened")):
-                continue
-            absorbed = set(e.get("merged_issues") or [])
-            if e.get("issue_number") is not None:
-                absorbed.add(e["issue_number"])
-            e["merged_issues"] = sorted(absorbed)
-            e["issue_number"] = head["issue_number"]
-            e["opened"] = head["opened"]
-            e["resolved"] = head.get("resolved")
-            e["minutes"] = head.get("minutes")
-            changed = True
-    if changed:
-        _write_log(log)
-        print(f"журнал: объединены каскады последовательных проверок ({len(bursts)} событий)")
-
-
 def fetch_issue_comments(repo: str, num: int) -> list:
     """Комментарии issue (с пагинацией, до 2 страниц)."""
     comments = []
@@ -1321,7 +1263,6 @@ def main() -> None:
     ensure_labels(repo)
     sync_incidents(incidents, repo, sites)
     sync_closed_incidents(repo, sites)
-    merge_staircased_cascades()
 
     # Self-heal (bug 28.2): if an issue is open again, its entry must not
     # stay in the past log — remove it. A re-close recalculates everything.
