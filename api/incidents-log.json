@@ -1,100 +1,5 @@
 [
  {
-  "name": "🇸🇪 1.2 Стокгольм",
-  "slug": "server9",
-  "issue_number": 181,
-  "opened": "2026-11-06T18:47:05Z",
-  "resolved": "2026-11-06T18:48:35Z",
-  "minutes": 2,
-  "code": 0,
-  "ms": 0,
-  "maintenance": true,
-  "mode": "maintenance",
-  "annulled": false,
-  "hidden": false,
-  "labels": [
-   "maintenance"
-  ],
-  "title": "🇸🇪 1. Стокгольм  — Плановое обновление сервера",
-  "desc": ""
- },
- {
-  "name": "🇸🇪 1.1 Стокгольм",
-  "slug": "server8",
-  "issue_number": 181,
-  "opened": "2026-11-06T18:47:05Z",
-  "resolved": "2026-11-06T18:48:35Z",
-  "minutes": 2,
-  "code": 0,
-  "ms": 0,
-  "maintenance": true,
-  "mode": "maintenance",
-  "annulled": false,
-  "hidden": false,
-  "labels": [
-   "maintenance"
-  ],
-  "title": "🇸🇪 1. Стокгольм  — Плановое обновление сервера",
-  "desc": ""
- },
- {
-  "name": "🇸🇪 2. Стокгольм",
-  "slug": "server5",
-  "issue_number": 182,
-  "opened": "2026-11-08T20:57:44Z",
-  "resolved": "2026-11-08T21:04:30Z",
-  "labels": [
-   "maintenance"
-  ],
-  "minutes": 7,
-  "code": 0,
-  "ms": 0,
-  "maintenance": true,
-  "mode": "maintenance",
-  "annulled": false,
-  "hidden": false,
-  "title": "🇸🇪 2. Стокгольм,🇸🇪 1. Стокгольм — Плановое обновление сервера",
-  "desc": ""
- },
- {
-  "name": "🇸🇪 1. Стокгольм",
-  "slug": "server4",
-  "issue_number": 182,
-  "opened": "2026-11-08T20:57:44Z",
-  "resolved": "2026-11-08T21:04:30Z",
-  "labels": [
-   "maintenance"
-  ],
-  "minutes": 7,
-  "code": 0,
-  "ms": 0,
-  "maintenance": true,
-  "mode": "maintenance",
-  "annulled": false,
-  "hidden": false,
-  "title": "🇸🇪 2. Стокгольм,🇸🇪 1. Стокгольм — Плановое обновление сервера",
-  "desc": ""
- },
- {
-  "name": "🇸🇪 2.2 Стокгольм",
-  "slug": "server11",
-  "issue_number": 182,
-  "opened": "2026-11-08T20:57:44Z",
-  "resolved": "2026-11-08T21:04:30Z",
-  "labels": [
-   "maintenance"
-  ],
-  "minutes": 7,
-  "code": 0,
-  "ms": 0,
-  "maintenance": true,
-  "mode": "maintenance",
-  "annulled": false,
-  "hidden": false,
-  "title": "🇸🇪 2. Стокгольм,🇸🇪 1. Стокгольм — Плановое обновление сервера",
-  "desc": ""
- },
- {
   "name": "🇸🇪 2.3 Стокгольм",
   "slug": "server13",
   "issue_number": 182,
@@ -1898,5 +1803,100 @@
   ],
   "title": "Служба поддержки — недоступен",
   "desc": "- Код ошибки: 0\n- Время отклика: 90082 мс"
+ },
+ {
+  "name": "База знаний",
+  "slug": "server2",
+  "issue_number": 261,
+  "opened": "2026-11-21T10:12:10+00:00",
+  "resolved": "2026-11-21T10:18:17+00:00",
+  "minutes": 6,
+  "code": 0,
+  "ms": 90900,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "База знаний — недоступен",
+  "desc": "- Код ошибки: 0\n- Время отклика: 90900 мс"
+ },
+ {
+  "name": "Подписка",
+  "slug": "server3",
+  "issue_number": 262,
+  "opened": "2026-11-21T10:13:45+00:00",
+  "resolved": "2026-11-21T10:18:27+00:00",
+  "minutes": 5,
+  "code": 0,
+  "ms": 90072,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "Подписка — недоступен",
+  "desc": "- Код ошибки: 0\n- Время отклика: 90072 мс"
+ },
+ {
+  "name": "Москва",
+  "slug": "server7",
+  "issue_number": 263,
+  "opened": "2026-11-21T10:15:16+00:00",
+  "resolved": "2026-11-21T10:18:30+00:00",
+  "minutes": 3,
+  "code": 0,
+  "ms": 90064,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "Москва — недоступен",
+  "desc": "- Код ошибки: 0\n- Время отклика: 90064 мс"
+ },
+ {
+  "name": "Сайт-визитка",
+  "slug": "server1",
+  "issue_number": 264,
+  "opened": "2026-11-21T10:16:47+00:00",
+  "resolved": "2026-11-21T10:18:34+00:00",
+  "minutes": 2,
+  "code": 0,
+  "ms": 90448,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "Сайт-визитка — недоступен",
+  "desc": "- Код ошибки: 0\n- Время отклика: 90448 мс"
+ },
+ {
+  "name": "Служба поддержки",
+  "slug": "server6",
+  "issue_number": 265,
+  "opened": "2026-11-21T10:17:48+00:00",
+  "resolved": "2026-11-21T10:18:38+00:00",
+  "minutes": 1,
+  "code": 200,
+  "ms": 60469,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "Служба поддержки — недоступен",
+  "desc": "- Код ошибки: 200\n- Время отклика: 60469 мс"
  }
 ]
