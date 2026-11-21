@@ -58,6 +58,23 @@ jobs:
         with:
           path: .
 
+      - name: Wait for the Pages artifact to be visible
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          # The artifact is uploaded successfully, but the Actions API can be
+          # briefly stale — deploy-pages then reports "Found 0 artifact(s)".
+          # Poll until it is actually visible before deploying.
+          for i in $(seq 1 20); do
+            n=$(curl -sS -H "Authorization: Bearer ${GH_TOKEN}" \
+              -H "Accept: application/vnd.github+json" \
+              "https://api.github.com/repos/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}/artifacts?per_page=100" \
+              | jq '[.artifacts[]? | select(.name == "github-pages")] | length' 2>/dev/null || echo 0)
+            if [ "${n:-0}" -ge 1 ]; then echo "artifact visible"; exit 0; fi
+            sleep 3
+          done
+          echo "artifact still not visible — deploy-pages may fail"
+
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
