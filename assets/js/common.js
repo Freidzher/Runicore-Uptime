@@ -126,7 +126,10 @@ window.Runicore = (function () {
     const map = new Map();
     const order = [];
     for (const e of entries) {
-      const k = (e.issue_number != null) ? ('#' + e.issue_number) : ('s:' + (e.slug || ''));
+      // event_id groups siblings that have separate issues/links but belong to
+      // the same outage; otherwise fall back to the issue number.
+      const k = e.event_id ? ('e:' + e.event_id)
+        : ((e.issue_number != null) ? ('#' + e.issue_number) : ('s:' + (e.slug || '')));
       if (!map.has(k)) { map.set(k, []); order.push(k); }
       map.get(k).push(e);
     }
@@ -135,7 +138,11 @@ window.Runicore = (function () {
       arr.sort((a, b) => {
         const ag = (sumBySlug[a.slug] && sumBySlug[a.slug].isGroup) ? 0 : 1;
         const bg = (sumBySlug[b.slug] && sumBySlug[b.slug].isGroup) ? 0 : 1;
-        return ag - bg;
+        if (ag !== bg) return ag - bg;
+        // Among peers the longest outage is the representative card.
+        const am = a.minutes || 0, bm = b.minutes || 0;
+        if (am !== bm) return bm - am;
+        return (a.opened || '').localeCompare(b.opened || '');
       });
       return { key: k, main: arr[0], others: arr.slice(1) };
     });

@@ -454,45 +454,60 @@ def open_incident(key: str, name: str, result: dict, incidents: dict, repo: str,
         print(f"Incident issue #{issue['number']} opened for {name} (mode={'maintenance' if is_maint else 'incident'})")
 
 
-def open_incident_group(items: list, incidents: list, repo: str) -> None:
-    """One issue for every service that went down in the same run.
+def open_incident_group(items: list, incidents: list, repo: str, sites: dict = None) -> None:
+    """Handle services that went down in the same parallel check.
 
-    They share a single issue_number and opened timestamp, so the site groups
-    them under one card with an "affected services" dropdown instead of showing
-    a staircase of separate 7/5/4/2/1-minute events.
+    If a group head is among them, one issue is opened for all (one shared link).
+    Otherwise every sibling gets its own issue/link, and all of them share an
+    event_id so the site still shows one card with an affected-services dropdown.
     """
     if not items:
         return
-    first_name = items[0][1]
+    sites = sites or {}
     first_ts = items[0][2]["ts"]
-    title = f"{first_name} — недоступен"
-    body = "- Несколько сервисов недоступны одновременно.\n- Проверка выполнена параллельно."
-    existing_num = find_open_incident_issue(repo, title)
-    if existing_num:
-        num = existing_num
-        print(f"Incident issue #{num} reused for a service group")
-    else:
-        issue = gh_api(f"/repos/{repo}/issues", "POST",
-                       {"title": title, "body": body, "labels": ["incident"]})
-        if not issue:
-            return
-        num = issue["number"]
+    has_head = any((sites.get(key, {}) or {}).get("is_group") for key, _, _ in items)
+    event_id = "e" + first_ts + "-" + str(items[0][0])
+
+    if has_head:
+        first_name = items[0][1]
+        title = f"{first_name} — недоступен"
+        body = "- Несколько сервисов недоступны одновременно.\n- Проверка выполнена параллельно."
+        existing_num = find_open_incident_issue(repo, title)
+        if existing_num:
+            num = existing_num
+            print(f"Incident issue #{num} reused for a service group")
+        else:
+            issue = gh_api(f"/repos/{repo}/issues", "POST",
+                           {"title": title, "body": body, "labels": ["incident"]})
+            if not issue:
+                return
+            num = issue["number"]
+        for key, name, result in items:
+            entry = {
+                "issue_number": num,
+                "opened": first_ts,
+                "name": name,
+                "slug": slugify(key),
+                "maintenance": False,
+                "mode": "incident",
+                "title": title,
+                "desc": body,
+                "event_id": event_id,
+                "code": result.get("code", 0),
+                "ms": result.get("ms", 0),
+            }
+            if not find_inc_entry(incidents, entry["slug"], num):
+                incidents.append(entry)
+        print(f"Incident issue #{num} opened for {len(items)} services")
+        return
+
+    # Siblings of one group: separate issues, one visual event.
     for key, name, result in items:
-        entry = {
-            "issue_number": num,
-            "opened": first_ts,
-            "name": name,
-            "slug": slugify(key),
-            "maintenance": False,
-            "mode": "incident",
-            "title": title,
-            "desc": body,
-            "code": result.get("code", 0),
-            "ms": result.get("ms", 0),
-        }
-        if not find_inc_entry(incidents, entry["slug"], num):
-            incidents.append(entry)
-    print(f"Incident issue #{num} opened for {len(items)} services")
+        open_incident(key, name, result, incidents, repo)
+        entry = find_inc_entry(incidents, slugify(key))
+        if entry:
+            entry["event_id"] = event_id
+    print(f"{len(items)} sibling issues opened (one grouped event {event_id})")
 
 
 def close_incident(key: str, incidents: dict, result: dict, repo: str) -> None:
@@ -1341,7 +1356,7 @@ def main() -> None:
             # Real incidents close automatically; admin modes (maintenance/annulled/hidden/RKN) are manual
             close_incident(key, incidents, result, repo)
 
-    open_incident_group(pending_open, incidents, repo)
+    open_incident_group(pending_open, incidents, repo, sites)
 
     # Final summary across all sites
     history_points = {s["slug"]: load_json(API_DIR / s["slug"] / "points.json", []) for s in sites.values()}
