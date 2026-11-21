@@ -1,6 +1,6 @@
-status: up
+status: down
 code: 200
-responseTime: 964
-lastUpdated: 2026-11-21T10:05:45+00:00
+responseTime: 60469
+lastUpdated: 2026-11-21T10:17:48+00:00
 startTime: 2026-09-15T11:45:40+00:00
 generator: Runicore
