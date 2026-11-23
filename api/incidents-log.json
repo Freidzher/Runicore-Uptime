@@ -240,9 +240,9 @@
   "code": 0,
   "ms": 0,
   "maintenance": false,
-  "mode": "annulled",
-  "annulled": true,
-  "hidden": false,
+  "mode": "hidden",
+  "annulled": false,
+  "hidden": true,
   "labels": [
    "annulled",
    "incident"
