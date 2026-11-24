@@ -4025,5 +4025,100 @@
   ],
   "title": "База знаний — недоступен",
   "desc": "- Несколько сервисов недоступны одновременно.\n- Проверка выполнена параллельно."
+ },
+ {
+  "name": "База знаний",
+  "slug": "server2",
+  "issue_number": 276,
+  "opened": "2026-11-24T21:37:09+00:00",
+  "resolved": "2026-11-24T21:40:45+00:00",
+  "minutes": 4,
+  "code": 0,
+  "ms": 90118,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "База знаний — недоступен",
+  "desc": "- Несколько сервисов недоступны одновременно.\n- Проверка выполнена параллельно."
+ },
+ {
+  "name": "Подписка",
+  "slug": "server3",
+  "issue_number": 276,
+  "opened": "2026-11-24T21:37:09+00:00",
+  "resolved": "2026-11-24T21:40:44+00:00",
+  "minutes": 4,
+  "code": 0,
+  "ms": 90116,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "База знаний — недоступен",
+  "desc": "- Несколько сервисов недоступны одновременно.\n- Проверка выполнена параллельно."
+ },
+ {
+  "name": "Москва",
+  "slug": "server7",
+  "issue_number": 276,
+  "opened": "2026-11-24T21:37:09+00:00",
+  "resolved": "2026-11-24T21:40:43+00:00",
+  "minutes": 4,
+  "code": 22,
+  "ms": 60251,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "База знаний — недоступен",
+  "desc": "- Несколько сервисов недоступны одновременно.\n- Проверка выполнена параллельно."
+ },
+ {
+  "name": "Сайт-визитка",
+  "slug": "server1",
+  "issue_number": 276,
+  "opened": "2026-11-24T21:37:09+00:00",
+  "resolved": "2026-11-24T21:40:45+00:00",
+  "minutes": 4,
+  "code": 0,
+  "ms": 90143,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "База знаний — недоступен",
+  "desc": "- Несколько сервисов недоступны одновременно.\n- Проверка выполнена параллельно."
+ },
+ {
+  "name": "Служба поддержки",
+  "slug": "server6",
+  "issue_number": 276,
+  "opened": "2026-11-24T21:37:09+00:00",
+  "resolved": "2026-11-24T21:40:44+00:00",
+  "minutes": 4,
+  "code": 0,
+  "ms": 90115,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "База знаний — недоступен",
+  "desc": "- Несколько сервисов недоступны одновременно.\n- Проверка выполнена параллельно."
  }
 ]
