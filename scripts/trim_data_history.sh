@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Trim the 'data' branch to its newest N commits (default 2016 ~ 7 days).
+# Trim the 'data' branch to its newest N commits (default 8640 ~ 30 days).
 #
 # Instead of wiping the branch, only the oldest commits are dropped: the chain
 # is rebuilt with a new root, reusing the existing trees, preserving messages
@@ -7,7 +7,7 @@
 #
 # Usage: bash scripts/trim_data_history.sh [N]
 set -e
-N=${1:-2016}
+N=${1:-8640}
 git fetch --depth $((N + 200)) origin data
 count=$(git rev-list --count FETCH_HEAD)
 if [ "$count" -le "$N" ]; then

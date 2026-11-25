@@ -418,15 +418,18 @@ def find_open_incident_issue(repo: str, title: str) -> int:
         page += 1
 
 
+def incident_body(result: dict) -> str:
+    """Single technical template for every outage issue."""
+    return (f"- Код ошибки: {result.get('code', 0)}\n"
+            f"- Время отклика: {result.get('ms', 0)} мс")
+
+
 def open_incident(key: str, name: str, result: dict, incidents: dict, repo: str, is_maint: bool = False) -> None:
     title = f"{name} — техработы" if is_maint else f"{name} — недоступен"
     labels = ["maintenance"] if is_maint else ["incident"]
     body = (
         f"{name} — плановые работы.\n\nЗавершается закрытием issue."
-    ) if is_maint else (
-        f"- Код ошибки: {result['code']}\n"
-        f"- Время отклика: {result['ms']} мс"
-    )
+    ) if is_maint else incident_body(result)
     # Dedup: reuse an already open issue with the same title
     existing_num = find_open_incident_issue(repo, title)
     if existing_num:
@@ -471,7 +474,7 @@ def open_incident_group(items: list, incidents: list, repo: str, sites: dict = N
     if has_head:
         first_name = items[0][1]
         title = f"{first_name} — недоступен"
-        body = "- Несколько сервисов недоступны одновременно.\n- Проверка выполнена параллельно."
+        body = incident_body(items[0][2])
         existing_num = find_open_incident_issue(repo, title)
         if existing_num:
             num = existing_num

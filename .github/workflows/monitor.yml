@@ -75,10 +75,10 @@ jobs:
             done
             git read-tree HEAD
           fi
-          # Daily trim: keep the newest 2016 commits (~7 days) and drop only the
+          # Daily trim: keep the newest 8640 commits (~30 days) and drop only the
           # tail — the branch is never wiped.
           if [ "$(date -u +%H)" = "03" ]; then
-            bash scripts/trim_data_history.sh 2016 || echo "trim skipped"
+            bash scripts/trim_data_history.sh 8640 || echo "trim skipped"
           fi
       - name: Deploy site from the data branch
         env:
@@ -88,9 +88,22 @@ jobs:
           # commit (unique every run), so Pages activates every deployment and
           # the browser reads the baked data from its own domain without a CDN
           # cache. Dispatch here, right after the data push, to avoid a race.
-          curl -sS -f -X POST \
-            -H "Authorization: Bearer ${GH_TOKEN}" \
-            -H "Accept: application/vnd.github+json" \
-            -H "User-Agent: runicore-monitor" \
-            "https://api.github.com/repos/${GITHUB_REPOSITORY}/actions/workflows/site.yml/dispatches" \
-            -d '{"ref":"data"}'
+          # Transient GitHub API 500s happen occasionally — retry with backoff.
+          ok=0
+          for i in 1 2 3; do
+            if curl -sS -f -X POST \
+              -H "Authorization: Bearer ${GH_TOKEN}" \
+              -H "Accept: application/vnd.github+json" \
+              -H "User-Agent: runicore-monitor" \
+              "https://api.github.com/repos/${GITHUB_REPOSITORY}/actions/workflows/site.yml/dispatches" \
+              -d '{"ref":"data"}'; then
+              ok=1
+              break
+            fi
+            echo "site dispatch attempt $i failed — retrying"
+            sleep $((i * 5))
+          done
+          if [ "$ok" -ne 1 ]; then
+            echo "site dispatch failed after 3 attempts"
+            exit 1
+          fi
