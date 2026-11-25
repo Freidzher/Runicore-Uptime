@@ -75,6 +75,36 @@ jobs:
           done
           echo "artifact still not visible — deploy-pages may fail"
 
-      - name: Deploy to GitHub Pages
-        id: deployment
+      # Both "Found 0 artifact(s)" and "Creating Pages deployment failed (500)"
+      # are transient GitHub API failures observed on this repo. Retry a few
+      # times with backoff; the last attempt fails the job if all attempts fail.
+      - name: Deploy to GitHub Pages (attempt 1)
+        id: deploy1
         uses: actions/deploy-pages@v5
+        continue-on-error: true
+
+      - name: Retry delay (10s)
+        if: steps.deploy1.outcome == 'failure'
+        run: sleep 10
+
+      - name: Deploy to GitHub Pages (attempt 2)
+        id: deploy2
+        if: steps.deploy1.outcome == 'failure'
+        uses: actions/deploy-pages@v5
+        continue-on-error: true
+
+      - name: Retry delay (20s)
+        if: steps.deploy1.outcome == 'failure' && steps.deploy2.outcome == 'failure'
+        run: sleep 20
+
+      - name: Deploy to GitHub Pages (attempt 3)
+        id: deploy3
+        if: steps.deploy1.outcome == 'failure' && steps.deploy2.outcome == 'failure'
+        uses: actions/deploy-pages@v5
+
+      - name: Expose deployment URL
+        id: deployment
+        if: always()
+        run: |
+          url="${{ steps.deploy1.outputs.page_url || steps.deploy2.outputs.page_url || steps.deploy3.outputs.page_url }}"
+          echo "page_url=$url" >> "$GITHUB_OUTPUT"
