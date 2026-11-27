@@ -24,5 +24,70 @@
    "rkn"
   ],
   "desc": ""
+ },
+ {
+  "issue_number": 277,
+  "opened": "2026-11-27T19:07:03+00:00",
+  "name": "База знаний",
+  "slug": "server2",
+  "maintenance": false,
+  "mode": "incident",
+  "title": "База знаний — недоступен",
+  "desc": "- Код ошибки: 0\n- Время отклика: 90128 мс",
+  "event_id": "e2026-11-27T19:07:03+00:00-SERVER2",
+  "code": 0,
+  "ms": 90128
+ },
+ {
+  "issue_number": 277,
+  "opened": "2026-11-27T19:07:03+00:00",
+  "name": "Подписка",
+  "slug": "server3",
+  "maintenance": false,
+  "mode": "incident",
+  "title": "База знаний — недоступен",
+  "desc": "- Код ошибки: 0\n- Время отклика: 90128 мс",
+  "event_id": "e2026-11-27T19:07:03+00:00-SERVER2",
+  "code": 0,
+  "ms": 90378
+ },
+ {
+  "issue_number": 277,
+  "opened": "2026-11-27T19:07:03+00:00",
+  "name": "Москва",
+  "slug": "server7",
+  "maintenance": false,
+  "mode": "incident",
+  "title": "База знаний — недоступен",
+  "desc": "- Код ошибки: 0\n- Время отклика: 90128 мс",
+  "event_id": "e2026-11-27T19:07:03+00:00-SERVER2",
+  "code": 22,
+  "ms": 60222
+ },
+ {
+  "issue_number": 277,
+  "opened": "2026-11-27T19:07:03+00:00",
+  "name": "Сайт-визитка",
+  "slug": "server1",
+  "maintenance": false,
+  "mode": "incident",
+  "title": "База знаний — недоступен",
+  "desc": "- Код ошибки: 0\n- Время отклика: 90128 мс",
+  "event_id": "e2026-11-27T19:07:03+00:00-SERVER2",
+  "code": 0,
+  "ms": 90117
+ },
+ {
+  "issue_number": 277,
+  "opened": "2026-11-27T19:07:03+00:00",
+  "name": "Служба поддержки",
+  "slug": "server6",
+  "maintenance": false,
+  "mode": "incident",
+  "title": "База знаний — недоступен",
+  "desc": "- Код ошибки: 0\n- Время отклика: 90128 мс",
+  "event_id": "e2026-11-27T19:07:03+00:00-SERVER2",
+  "code": 0,
+  "ms": 90113
  }
 ]
