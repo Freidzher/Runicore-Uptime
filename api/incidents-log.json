@@ -1,4124 +1,4219 @@
 [
-  {
-    "name": "База знаний",
-    "slug": "server2",
-    "issue_number": 157,
-    "opened": "2026-09-22T12:59:02Z",
-    "resolved": "2026-09-22T13:00:57Z",
-    "minutes": 2,
-    "code": 0,
-    "ms": 90251,
-    "maintenance": false,
-    "mode": "incident",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "incident"
-    ],
-    "title": "База знаний — недоступен",
-    "desc": "- Код ошибки: 0\n- Время отклика: 90251 мс"
-  },
-  {
-    "name": "Подписка",
-    "slug": "server3",
-    "issue_number": 158,
-    "opened": "2026-09-22T12:59:04Z",
-    "resolved": "2026-09-22T13:01:01Z",
-    "minutes": 2,
-    "code": 0,
-    "ms": 1340,
-    "maintenance": false,
-    "mode": "incident",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "incident"
-    ],
-    "title": "Подписка — недоступен",
-    "desc": "- Код ошибки: 0\n- Время отклика: 1340 мс"
-  },
-  {
-    "name": "Служба поддержки",
-    "slug": "server6",
-    "issue_number": 159,
-    "opened": "2026-09-22T12:59:17Z",
-    "resolved": "2026-09-22T13:01:07Z",
-    "minutes": 2,
-    "code": 0,
-    "ms": 1367,
-    "maintenance": false,
-    "mode": "incident",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "incident"
-    ],
-    "title": "Служба поддержки — недоступен",
-    "desc": "- Код ошибки: 0\n- Время отклика: 1367 мс"
-  },
-  {
-    "name": "Сайт-визитка",
-    "slug": "server1",
-    "issue_number": 160,
-    "opened": "2026-09-22T14:04:43Z",
-    "resolved": "2026-09-22T14:04:45Z",
-    "minutes": 1,
-    "code": 0,
-    "ms": 1367,
-    "maintenance": false,
-    "mode": "incident",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "incident"
-    ],
-    "title": "Сайт-визитка — недоступен",
-    "desc": "- Код ошибки: 0\n- Время отклика: 1367 мс"
-  },
-  {
-    "name": "2.1 Стокгольм",
-    "slug": "server10",
-    "issue_number": 161,
-    "opened": "2026-09-26T23:45:42Z",
-    "resolved": "2026-09-26T23:48:17Z",
-    "minutes": 3,
-    "code": 0,
-    "ms": 532,
-    "maintenance": false,
-    "mode": "incident",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "incident"
-    ],
-    "title": "2.1 Стокгольм — недоступен",
-    "desc": "- Код ошибки: 0\n- Время отклика: 532 мс"
-  },
-  {
-    "name": "1. Стокгольм",
-    "slug": "server4",
-    "issue_number": 162,
-    "opened": "2026-09-27T12:17:01Z",
-    "resolved": "2026-09-27T12:41:45Z",
-    "minutes": 25,
-    "code": 0,
-    "ms": 0,
-    "maintenance": true,
-    "mode": "maintenance",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "maintenance",
-      "rkn"
-    ],
-    "title": "1. Стокгольм — недоступен",
-    "desc": ""
-  },
-  {
-    "name": "1.2 Стокгольм",
-    "slug": "server9",
-    "issue_number": 163,
-    "opened": "2026-09-27T12:18:32Z",
-    "resolved": "2026-09-27T12:41:45Z",
-    "minutes": 23,
-    "code": 0,
-    "ms": 0,
-    "maintenance": true,
-    "mode": "maintenance",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "maintenance",
-      "rkn"
-    ],
-    "title": "1.2 Стокгольм — недоступен",
-    "desc": ""
-  },
-  {
-    "name": "1.1 Стокгольм",
-    "slug": "server8",
-    "issue_number": 164,
-    "opened": "2026-09-27T12:20:12Z",
-    "resolved": "2026-09-27T12:41:45Z",
-    "minutes": 22,
-    "code": 0,
-    "ms": 0,
-    "maintenance": true,
-    "mode": "maintenance",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "maintenance",
-      "rkn"
-    ],
-    "title": "1.1 Стокгольм — недоступен",
-    "desc": ""
-  },
-  {
-    "name": "База знаний",
-    "slug": "server2",
-    "issue_number": 165,
-    "opened": "2026-10-06T20:55:18Z",
-    "resolved": "2026-10-06T21:20:25Z",
-    "minutes": 25,
-    "code": 0,
-    "ms": 1252,
-    "maintenance": false,
-    "mode": "incident",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "incident"
-    ],
-    "title": "База знаний — недоступен",
-    "desc": "- Код ошибки: 0\n- Время отклика: 1252 мс"
-  },
-  {
-    "name": "Сайт-визитка",
-    "slug": "server1",
-    "issue_number": 166,
-    "opened": "2026-10-06T20:55:28Z",
-    "resolved": "2026-10-06T21:01:01Z",
-    "minutes": 6,
-    "code": 200,
-    "ms": 1869,
-    "maintenance": false,
-    "mode": "incident",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "incident"
-    ],
-    "title": "Сайт-визитка — недоступен",
-    "desc": "- Код ошибки: 200\n- Время отклика: 1869 мс"
-  },
-  {
-    "name": "Подписка",
-    "slug": "server3",
-    "issue_number": 167,
-    "opened": "2026-10-06T21:00:55Z",
-    "resolved": "2026-10-06T21:20:31Z",
-    "minutes": 20,
-    "code": 0,
-    "ms": 1060,
-    "maintenance": false,
-    "mode": "incident",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "incident"
-    ],
-    "title": "Подписка — недоступен",
-    "desc": "- Код ошибки: 0\n- Время отклика: 1060 мс"
-  },
-  {
-    "name": "Сайт-визитка",
-    "slug": "server1",
-    "issue_number": 168,
-    "opened": "2026-10-06T21:10:33Z",
-    "resolved": "2026-10-06T21:20:35Z",
-    "minutes": 10,
-    "code": 200,
-    "ms": 2703,
-    "maintenance": false,
-    "mode": "incident",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "incident"
-    ],
-    "title": "Сайт-визитка — недоступен",
-    "desc": "- Код ошибки: 200\n- Время отклика: 2703 мс"
-  },
-  {
-    "name": "1.1 Стокгольм",
-    "slug": "server8",
-    "issue_number": 169,
-    "opened": "2026-10-11T11:50:38Z",
-    "resolved": "2026-10-11T11:55:45Z",
-    "minutes": 5,
-    "code": 0,
-    "ms": 0,
-    "maintenance": false,
-    "mode": "hidden",
-    "annulled": false,
-    "hidden": true,
-    "labels": [
-      "annulled",
-      "incident"
-    ],
-    "title": "1.1 Стокгольм — недоступен",
-    "desc": ""
-  },
-  {
-    "name": "🇷🇺 Москва",
-    "slug": "server7",
-    "issue_number": 170,
-    "opened": "2026-10-13T22:05:09Z",
-    "resolved": "2026-10-13T22:27:26Z",
-    "minutes": 22,
-    "code": 0,
-    "ms": 0,
-    "maintenance": true,
-    "mode": "maintenance",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "maintenance"
-    ],
-    "title": "🇷🇺 Москва,🇸🇪 1. Стокгольм,🇸🇪 2. Стокгольм — Плановое обновление инфраструктуры",
-    "desc": ""
-  },
-  {
-    "name": "🇸🇪 1. Стокгольм",
-    "slug": "server4",
-    "issue_number": 170,
-    "opened": "2026-10-13T22:05:09Z",
-    "resolved": "2026-10-13T22:27:26Z",
-    "minutes": 22,
-    "code": 0,
-    "ms": 0,
-    "maintenance": true,
-    "mode": "maintenance",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "maintenance"
-    ],
-    "title": "🇷🇺 Москва,🇸🇪 1. Стокгольм,🇸🇪 2. Стокгольм — Плановое обновление инфраструктуры",
-    "desc": ""
-  },
-  {
-    "name": "🇸🇪 2. Стокгольм",
-    "slug": "server5",
-    "issue_number": 170,
-    "opened": "2026-10-13T22:05:09Z",
-    "resolved": "2026-10-13T22:27:26Z",
-    "minutes": 22,
-    "code": 0,
-    "ms": 0,
-    "maintenance": true,
-    "mode": "maintenance",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "maintenance"
-    ],
-    "title": "🇷🇺 Москва,🇸🇪 1. Стокгольм,🇸🇪 2. Стокгольм — Плановое обновление инфраструктуры",
-    "desc": ""
-  },
-  {
-    "name": "База знаний",
-    "slug": "server2",
-    "issue_number": 170,
-    "opened": "2026-10-13T22:05:09Z",
-    "resolved": "2026-10-13T22:27:26Z",
-    "minutes": 22,
-    "code": 0,
-    "ms": 0,
-    "maintenance": true,
-    "mode": "maintenance",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "maintenance"
-    ],
-    "title": "🇷🇺 Москва,🇸🇪 1. Стокгольм,🇸🇪 2. Стокгольм — Плановое обновление инфраструктуры",
-    "desc": ""
-  },
-  {
-    "name": "Подписка",
-    "slug": "server3",
-    "issue_number": 170,
-    "opened": "2026-10-13T22:05:09Z",
-    "resolved": "2026-10-13T22:27:26Z",
-    "minutes": 22,
-    "code": 0,
-    "ms": 0,
-    "maintenance": true,
-    "mode": "maintenance",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "maintenance"
-    ],
-    "title": "🇷🇺 Москва,🇸🇪 1. Стокгольм,🇸🇪 2. Стокгольм — Плановое обновление инфраструктуры",
-    "desc": ""
-  },
-  {
-    "name": "Сайт-визитка",
-    "slug": "server1",
-    "issue_number": 170,
-    "opened": "2026-10-13T22:05:09Z",
-    "resolved": "2026-10-13T22:27:26Z",
-    "minutes": 22,
-    "code": 0,
-    "ms": 0,
-    "maintenance": true,
-    "mode": "maintenance",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "maintenance"
-    ],
-    "title": "🇷🇺 Москва,🇸🇪 1. Стокгольм,🇸🇪 2. Стокгольм — Плановое обновление инфраструктуры",
-    "desc": ""
-  },
-  {
-    "name": "Служба поддержки",
-    "slug": "server6",
-    "issue_number": 170,
-    "opened": "2026-10-13T22:05:09Z",
-    "resolved": "2026-10-13T22:27:26Z",
-    "minutes": 22,
-    "code": 0,
-    "ms": 0,
-    "maintenance": true,
-    "mode": "maintenance",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "maintenance"
-    ],
-    "title": "🇷🇺 Москва,🇸🇪 1. Стокгольм,🇸🇪 2. Стокгольм — Плановое обновление инфраструктуры",
-    "desc": ""
-  },
-  {
-    "name": "🇸🇪 1.3 Стокгольм",
-    "slug": "server12",
-    "issue_number": 170,
-    "opened": "2026-10-13T22:05:09Z",
-    "resolved": "2026-10-13T22:27:26Z",
-    "minutes": 22,
-    "code": 0,
-    "ms": 0,
-    "maintenance": true,
-    "mode": "maintenance",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "maintenance"
-    ],
-    "title": "🇷🇺 Москва,🇸🇪 1. Стокгольм,🇸🇪 2. Стокгольм — Плановое обновление инфраструктуры",
-    "desc": ""
-  },
-  {
-    "name": "🇸🇪 1.2 Стокгольм",
-    "slug": "server9",
-    "issue_number": 170,
-    "opened": "2026-10-13T22:05:09Z",
-    "resolved": "2026-10-13T22:27:26Z",
-    "minutes": 22,
-    "code": 0,
-    "ms": 0,
-    "maintenance": true,
-    "mode": "maintenance",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "maintenance"
-    ],
-    "title": "🇷🇺 Москва,🇸🇪 1. Стокгольм,🇸🇪 2. Стокгольм — Плановое обновление инфраструктуры",
-    "desc": ""
-  },
-  {
-    "name": "🇸🇪 1.1 Стокгольм",
-    "slug": "server8",
-    "issue_number": 170,
-    "opened": "2026-10-13T22:05:09Z",
-    "resolved": "2026-10-13T22:27:26Z",
-    "minutes": 22,
-    "code": 0,
-    "ms": 0,
-    "maintenance": true,
-    "mode": "maintenance",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "maintenance"
-    ],
-    "title": "🇷🇺 Москва,🇸🇪 1. Стокгольм,🇸🇪 2. Стокгольм — Плановое обновление инфраструктуры",
-    "desc": ""
-  },
-  {
-    "name": "🇸🇪 2.2 Стокгольм",
-    "slug": "server11",
-    "issue_number": 170,
-    "opened": "2026-10-13T22:05:09Z",
-    "resolved": "2026-10-13T22:27:26Z",
-    "minutes": 22,
-    "code": 0,
-    "ms": 0,
-    "maintenance": true,
-    "mode": "maintenance",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "maintenance"
-    ],
-    "title": "🇷🇺 Москва,🇸🇪 1. Стокгольм,🇸🇪 2. Стокгольм — Плановое обновление инфраструктуры",
-    "desc": ""
-  },
-  {
-    "name": "🇸🇪 2.3 Стокгольм",
-    "slug": "server13",
-    "issue_number": 170,
-    "opened": "2026-10-13T22:05:09Z",
-    "resolved": "2026-10-13T22:27:26Z",
-    "minutes": 22,
-    "code": 0,
-    "ms": 0,
-    "maintenance": true,
-    "mode": "maintenance",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "maintenance"
-    ],
-    "title": "🇷🇺 Москва,🇸🇪 1. Стокгольм,🇸🇪 2. Стокгольм — Плановое обновление инфраструктуры",
-    "desc": ""
-  },
-  {
-    "name": "🇸🇪 2.1 Стокгольм",
-    "slug": "server10",
-    "issue_number": 170,
-    "opened": "2026-10-13T22:05:09Z",
-    "resolved": "2026-10-13T22:27:26Z",
-    "minutes": 22,
-    "code": 0,
-    "ms": 0,
-    "maintenance": true,
-    "mode": "maintenance",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "maintenance"
-    ],
-    "title": "🇷🇺 Москва,🇸🇪 1. Стокгольм,🇸🇪 2. Стокгольм — Плановое обновление инфраструктуры",
-    "desc": ""
-  },
-  {
-    "name": "🇸🇪 1. Стокгольм",
-    "slug": "server4",
-    "issue_number": 172,
-    "opened": "2026-10-17T12:12:54Z",
-    "resolved": "2026-10-17T12:28:03Z",
-    "minutes": 15,
-    "code": 0,
-    "ms": 0,
-    "maintenance": true,
-    "mode": "maintenance",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "maintenance"
-    ],
-    "title": "🇸🇪 1. Стокгольм,🇸🇪 2. Стокгольм — Резервируем новый свободный порт",
-    "desc": ""
-  },
-  {
-    "name": "🇸🇪 2. Стокгольм",
-    "slug": "server5",
-    "issue_number": 172,
-    "opened": "2026-10-17T12:12:54Z",
-    "resolved": "2026-10-17T12:28:03Z",
-    "minutes": 15,
-    "code": 0,
-    "ms": 0,
-    "maintenance": true,
-    "mode": "maintenance",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "maintenance"
-    ],
-    "title": "🇸🇪 1. Стокгольм,🇸🇪 2. Стокгольм — Резервируем новый свободный порт",
-    "desc": ""
-  },
-  {
-    "name": "🇸🇪 1.3 Стокгольм",
-    "slug": "server12",
-    "issue_number": 172,
-    "opened": "2026-10-17T12:12:54Z",
-    "resolved": "2026-10-17T12:28:03Z",
-    "minutes": 15,
-    "code": 0,
-    "ms": 0,
-    "maintenance": true,
-    "mode": "maintenance",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "maintenance"
-    ],
-    "title": "🇸🇪 1. Стокгольм,🇸🇪 2. Стокгольм — Резервируем новый свободный порт",
-    "desc": ""
-  },
-  {
-    "name": "🇸🇪 1.2 Стокгольм",
-    "slug": "server9",
-    "issue_number": 172,
-    "opened": "2026-10-17T12:12:54Z",
-    "resolved": "2026-10-17T12:28:03Z",
-    "minutes": 15,
-    "code": 0,
-    "ms": 0,
-    "maintenance": true,
-    "mode": "maintenance",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "maintenance"
-    ],
-    "title": "🇸🇪 1. Стокгольм,🇸🇪 2. Стокгольм — Резервируем новый свободный порт",
-    "desc": ""
-  },
-  {
-    "name": "🇸🇪 1.1 Стокгольм",
-    "slug": "server8",
-    "issue_number": 172,
-    "opened": "2026-10-17T12:12:54Z",
-    "resolved": "2026-10-17T12:28:03Z",
-    "minutes": 15,
-    "code": 0,
-    "ms": 0,
-    "maintenance": true,
-    "mode": "maintenance",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "maintenance"
-    ],
-    "title": "🇸🇪 1. Стокгольм,🇸🇪 2. Стокгольм — Резервируем новый свободный порт",
-    "desc": ""
-  },
-  {
-    "name": "🇸🇪 2.2 Стокгольм",
-    "slug": "server11",
-    "issue_number": 172,
-    "opened": "2026-10-17T12:12:54Z",
-    "resolved": "2026-10-17T12:28:03Z",
-    "minutes": 15,
-    "code": 0,
-    "ms": 0,
-    "maintenance": true,
-    "mode": "maintenance",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "maintenance"
-    ],
-    "title": "🇸🇪 1. Стокгольм,🇸🇪 2. Стокгольм — Резервируем новый свободный порт",
-    "desc": ""
-  },
-  {
-    "name": "🇸🇪 2.3 Стокгольм",
-    "slug": "server13",
-    "issue_number": 172,
-    "opened": "2026-10-17T12:12:54Z",
-    "resolved": "2026-10-17T12:28:03Z",
-    "minutes": 15,
-    "code": 0,
-    "ms": 0,
-    "maintenance": true,
-    "mode": "maintenance",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "maintenance"
-    ],
-    "title": "🇸🇪 1. Стокгольм,🇸🇪 2. Стокгольм — Резервируем новый свободный порт",
-    "desc": ""
-  },
-  {
-    "name": "🇸🇪 2.1 Стокгольм",
-    "slug": "server10",
-    "issue_number": 172,
-    "opened": "2026-10-17T12:12:54Z",
-    "resolved": "2026-10-17T12:28:03Z",
-    "minutes": 15,
-    "code": 0,
-    "ms": 0,
-    "maintenance": true,
-    "mode": "maintenance",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "maintenance"
-    ],
-    "title": "🇸🇪 1. Стокгольм,🇸🇪 2. Стокгольм — Резервируем новый свободный порт",
-    "desc": ""
-  },
-  {
-    "name": "🇸🇪 1. Стокгольм",
-    "slug": "server4",
-    "issue_number": 173,
-    "opened": "2026-10-21T20:03:51Z",
-    "resolved": "2026-10-21T20:16:26Z",
-    "minutes": 13,
-    "code": 0,
-    "ms": 0,
-    "maintenance": true,
-    "mode": "maintenance",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "maintenance"
-    ],
-    "title": "🇸🇪 1. Стокгольм,🇸🇪 2. Стокгольм — Плановое обновление маршрутизации",
-    "desc": ""
-  },
-  {
-    "name": "🇸🇪 2. Стокгольм",
-    "slug": "server5",
-    "issue_number": 173,
-    "opened": "2026-10-21T20:03:51Z",
-    "resolved": "2026-10-21T20:16:26Z",
-    "minutes": 13,
-    "code": 0,
-    "ms": 0,
-    "maintenance": true,
-    "mode": "maintenance",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "maintenance"
-    ],
-    "title": "🇸🇪 1. Стокгольм,🇸🇪 2. Стокгольм — Плановое обновление маршрутизации",
-    "desc": ""
-  },
-  {
-    "name": "🇸🇪 1.3 Стокгольм",
-    "slug": "server12",
-    "issue_number": 173,
-    "opened": "2026-10-21T20:03:51Z",
-    "resolved": "2026-10-21T20:16:26Z",
-    "minutes": 13,
-    "code": 0,
-    "ms": 0,
-    "maintenance": true,
-    "mode": "maintenance",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "maintenance"
-    ],
-    "title": "🇸🇪 1. Стокгольм,🇸🇪 2. Стокгольм — Плановое обновление маршрутизации",
-    "desc": ""
-  },
-  {
-    "name": "🇸🇪 1.2 Стокгольм",
-    "slug": "server9",
-    "issue_number": 173,
-    "opened": "2026-10-21T20:03:51Z",
-    "resolved": "2026-10-21T20:16:26Z",
-    "minutes": 13,
-    "code": 0,
-    "ms": 0,
-    "maintenance": true,
-    "mode": "maintenance",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "maintenance"
-    ],
-    "title": "🇸🇪 1. Стокгольм,🇸🇪 2. Стокгольм — Плановое обновление маршрутизации",
-    "desc": ""
-  },
-  {
-    "name": "🇸🇪 1.1 Стокгольм",
-    "slug": "server8",
-    "issue_number": 173,
-    "opened": "2026-10-21T20:03:51Z",
-    "resolved": "2026-10-21T20:16:26Z",
-    "minutes": 13,
-    "code": 0,
-    "ms": 0,
-    "maintenance": true,
-    "mode": "maintenance",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "maintenance"
-    ],
-    "title": "🇸🇪 1. Стокгольм,🇸🇪 2. Стокгольм — Плановое обновление маршрутизации",
-    "desc": ""
-  },
-  {
-    "name": "🇸🇪 2.2 Стокгольм",
-    "slug": "server11",
-    "issue_number": 173,
-    "opened": "2026-10-21T20:03:51Z",
-    "resolved": "2026-10-21T20:16:26Z",
-    "minutes": 13,
-    "code": 0,
-    "ms": 0,
-    "maintenance": true,
-    "mode": "maintenance",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "maintenance"
-    ],
-    "title": "🇸🇪 1. Стокгольм,🇸🇪 2. Стокгольм — Плановое обновление маршрутизации",
-    "desc": ""
-  },
-  {
-    "name": "🇸🇪 2.3 Стокгольм",
-    "slug": "server13",
-    "issue_number": 173,
-    "opened": "2026-10-21T20:03:51Z",
-    "resolved": "2026-10-21T20:16:26Z",
-    "minutes": 13,
-    "code": 0,
-    "ms": 0,
-    "maintenance": true,
-    "mode": "maintenance",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "maintenance"
-    ],
-    "title": "🇸🇪 1. Стокгольм,🇸🇪 2. Стокгольм — Плановое обновление маршрутизации",
-    "desc": ""
-  },
-  {
-    "name": "🇸🇪 2.1 Стокгольм",
-    "slug": "server10",
-    "issue_number": 173,
-    "opened": "2026-10-21T20:03:51Z",
-    "resolved": "2026-10-21T20:16:26Z",
-    "minutes": 13,
-    "code": 0,
-    "ms": 0,
-    "maintenance": true,
-    "mode": "maintenance",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "maintenance"
-    ],
-    "title": "🇸🇪 1. Стокгольм,🇸🇪 2. Стокгольм — Плановое обновление маршрутизации",
-    "desc": ""
-  },
-  {
-    "name": "🇸🇪 2. Стокгольм",
-    "slug": "server5",
-    "issue_number": 174,
-    "opened": "2026-10-25T19:52:29Z",
-    "resolved": "2026-10-25T20:14:27Z",
-    "minutes": 22,
-    "code": 0,
-    "ms": 0,
-    "maintenance": true,
-    "mode": "maintenance",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "maintenance"
-    ],
-    "title": "🇸🇪 2. Стокгольм,🇸🇪 1. Стокгольм,🇷🇺 Москва — Плановое обновление инфраструктуры",
-    "desc": ""
-  },
-  {
-    "name": "🇸🇪 1. Стокгольм",
-    "slug": "server4",
-    "issue_number": 174,
-    "opened": "2026-10-25T19:52:29Z",
-    "resolved": "2026-10-25T20:14:27Z",
-    "minutes": 22,
-    "code": 0,
-    "ms": 0,
-    "maintenance": true,
-    "mode": "maintenance",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "maintenance"
-    ],
-    "title": "🇸🇪 2. Стокгольм,🇸🇪 1. Стокгольм,🇷🇺 Москва — Плановое обновление инфраструктуры",
-    "desc": ""
-  },
-  {
-    "name": "🇷🇺 Москва",
-    "slug": "server7",
-    "issue_number": 174,
-    "opened": "2026-10-25T19:52:29Z",
-    "resolved": "2026-10-25T20:14:27Z",
-    "minutes": 22,
-    "code": 0,
-    "ms": 0,
-    "maintenance": true,
-    "mode": "maintenance",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "maintenance"
-    ],
-    "title": "🇸🇪 2. Стокгольм,🇸🇪 1. Стокгольм,🇷🇺 Москва — Плановое обновление инфраструктуры",
-    "desc": ""
-  },
-  {
-    "name": "🇸🇪 2.2 Стокгольм",
-    "slug": "server11",
-    "issue_number": 174,
-    "opened": "2026-10-25T19:52:29Z",
-    "resolved": "2026-10-25T20:14:27Z",
-    "minutes": 22,
-    "code": 0,
-    "ms": 0,
-    "maintenance": true,
-    "mode": "maintenance",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "maintenance"
-    ],
-    "title": "🇸🇪 2. Стокгольм,🇸🇪 1. Стокгольм,🇷🇺 Москва — Плановое обновление инфраструктуры",
-    "desc": ""
-  },
-  {
-    "name": "🇸🇪 2.3 Стокгольм",
-    "slug": "server13",
-    "issue_number": 174,
-    "opened": "2026-10-25T19:52:29Z",
-    "resolved": "2026-10-25T20:14:27Z",
-    "minutes": 22,
-    "code": 0,
-    "ms": 0,
-    "maintenance": true,
-    "mode": "maintenance",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "maintenance"
-    ],
-    "title": "🇸🇪 2. Стокгольм,🇸🇪 1. Стокгольм,🇷🇺 Москва — Плановое обновление инфраструктуры",
-    "desc": ""
-  },
-  {
-    "name": "🇸🇪 2.1 Стокгольм",
-    "slug": "server10",
-    "issue_number": 174,
-    "opened": "2026-10-25T19:52:29Z",
-    "resolved": "2026-10-25T20:14:27Z",
-    "minutes": 22,
-    "code": 0,
-    "ms": 0,
-    "maintenance": true,
-    "mode": "maintenance",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "maintenance"
-    ],
-    "title": "🇸🇪 2. Стокгольм,🇸🇪 1. Стокгольм,🇷🇺 Москва — Плановое обновление инфраструктуры",
-    "desc": ""
-  },
-  {
-    "name": "🇸🇪 1.3 Стокгольм",
-    "slug": "server12",
-    "issue_number": 174,
-    "opened": "2026-10-25T19:52:29Z",
-    "resolved": "2026-10-25T20:14:27Z",
-    "minutes": 22,
-    "code": 0,
-    "ms": 0,
-    "maintenance": true,
-    "mode": "maintenance",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "maintenance"
-    ],
-    "title": "🇸🇪 2. Стокгольм,🇸🇪 1. Стокгольм,🇷🇺 Москва — Плановое обновление инфраструктуры",
-    "desc": ""
-  },
-  {
-    "name": "🇸🇪 1.2 Стокгольм",
-    "slug": "server9",
-    "issue_number": 174,
-    "opened": "2026-10-25T19:52:29Z",
-    "resolved": "2026-10-25T20:14:27Z",
-    "minutes": 22,
-    "code": 0,
-    "ms": 0,
-    "maintenance": true,
-    "mode": "maintenance",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "maintenance"
-    ],
-    "title": "🇸🇪 2. Стокгольм,🇸🇪 1. Стокгольм,🇷🇺 Москва — Плановое обновление инфраструктуры",
-    "desc": ""
-  },
-  {
-    "name": "🇸🇪 1.1 Стокгольм",
-    "slug": "server8",
-    "issue_number": 174,
-    "opened": "2026-10-25T19:52:29Z",
-    "resolved": "2026-10-25T20:14:27Z",
-    "minutes": 22,
-    "code": 0,
-    "ms": 0,
-    "maintenance": true,
-    "mode": "maintenance",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "maintenance"
-    ],
-    "title": "🇸🇪 2. Стокгольм,🇸🇪 1. Стокгольм,🇷🇺 Москва — Плановое обновление инфраструктуры",
-    "desc": ""
-  },
-  {
-    "name": "База знаний",
-    "slug": "server2",
-    "issue_number": 174,
-    "opened": "2026-10-25T19:52:29Z",
-    "resolved": "2026-10-25T20:14:27Z",
-    "minutes": 22,
-    "code": 0,
-    "ms": 0,
-    "maintenance": true,
-    "mode": "maintenance",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "maintenance"
-    ],
-    "title": "🇸🇪 2. Стокгольм,🇸🇪 1. Стокгольм,🇷🇺 Москва — Плановое обновление инфраструктуры",
-    "desc": ""
-  },
-  {
-    "name": "Подписка",
-    "slug": "server3",
-    "issue_number": 174,
-    "opened": "2026-10-25T19:52:29Z",
-    "resolved": "2026-10-25T20:14:27Z",
-    "minutes": 22,
-    "code": 0,
-    "ms": 0,
-    "maintenance": true,
-    "mode": "maintenance",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "maintenance"
-    ],
-    "title": "🇸🇪 2. Стокгольм,🇸🇪 1. Стокгольм,🇷🇺 Москва — Плановое обновление инфраструктуры",
-    "desc": ""
-  },
-  {
-    "name": "Сайт-визитка",
-    "slug": "server1",
-    "issue_number": 174,
-    "opened": "2026-10-25T19:52:29Z",
-    "resolved": "2026-10-25T20:14:27Z",
-    "minutes": 22,
-    "code": 0,
-    "ms": 0,
-    "maintenance": true,
-    "mode": "maintenance",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "maintenance"
-    ],
-    "title": "🇸🇪 2. Стокгольм,🇸🇪 1. Стокгольм,🇷🇺 Москва — Плановое обновление инфраструктуры",
-    "desc": ""
-  },
-  {
-    "name": "Служба поддержки",
-    "slug": "server6",
-    "issue_number": 174,
-    "opened": "2026-10-25T19:52:29Z",
-    "resolved": "2026-10-25T20:14:27Z",
-    "minutes": 22,
-    "code": 0,
-    "ms": 0,
-    "maintenance": true,
-    "mode": "maintenance",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "maintenance"
-    ],
-    "title": "🇸🇪 2. Стокгольм,🇸🇪 1. Стокгольм,🇷🇺 Москва — Плановое обновление инфраструктуры",
-    "desc": ""
-  },
-  {
-    "name": "1.3 Стокгольм",
-    "slug": "server12",
-    "issue_number": 175,
-    "opened": "2026-10-26T19:16:38Z",
-    "resolved": "2026-10-26T19:21:03Z",
-    "minutes": 4,
-    "code": 400,
-    "ms": 67135,
-    "maintenance": false,
-    "mode": "incident",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "incident"
-    ],
-    "title": "1.3 Стокгольм — недоступен",
-    "desc": "- Код ошибки: 400\n- Время отклика: 67135 мс"
-  },
-  {
-    "name": "1.2 Стокгольм",
-    "slug": "server9",
-    "issue_number": 176,
-    "opened": "2026-10-26T19:32:54Z",
-    "resolved": "2026-10-26T19:36:35Z",
-    "minutes": 4,
-    "code": 400,
-    "ms": 69497,
-    "maintenance": false,
-    "mode": "incident",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "incident"
-    ],
-    "title": "1.2 Стокгольм — недоступен",
-    "desc": "- Код ошибки: 400\n- Время отклика: 69497 мс"
-  },
-  {
-    "name": "1.3 Стокгольм",
-    "slug": "server12",
-    "issue_number": 177,
-    "opened": "2026-10-30T16:27:22Z",
-    "resolved": "2026-10-30T16:35:24Z",
-    "minutes": 8,
-    "code": 400,
-    "ms": 63791,
-    "maintenance": false,
-    "mode": "incident",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "incident"
-    ],
-    "title": "1.3 Стокгольм — недоступен",
-    "desc": "- Код ошибки: 400\n- Время отклика: 63791 мс"
-  },
-  {
-    "name": "1.3 Стокгольм",
-    "slug": "server12",
-    "issue_number": 178,
-    "opened": "2026-11-01T13:51:39Z",
-    "resolved": "2026-11-01T13:55:21Z",
-    "minutes": 4,
-    "code": 400,
-    "ms": 73416,
-    "maintenance": false,
-    "mode": "incident",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "incident"
-    ],
-    "title": "1.3 Стокгольм — недоступен",
-    "desc": "- Код ошибки: 400\n- Время отклика: 73416 мс"
-  },
-  {
-    "name": "🇸🇪 1. Стокгольм",
-    "slug": "server4",
-    "issue_number": 179,
-    "opened": "2026-11-03T14:45:00Z",
-    "resolved": "2026-11-03T15:04:14Z",
-    "minutes": 19,
-    "code": 0,
-    "ms": 0,
-    "maintenance": true,
-    "mode": "maintenance",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "maintenance"
-    ],
-    "title": "🇸🇪 1. Стокгольм — Внеплановое обновление в связи с активностью РКН",
-    "desc": ""
-  },
-  {
-    "name": "🇸🇪 1.3 Стокгольм",
-    "slug": "server12",
-    "issue_number": 179,
-    "opened": "2026-11-03T14:45:00Z",
-    "resolved": "2026-11-03T15:04:14Z",
-    "minutes": 19,
-    "code": 0,
-    "ms": 0,
-    "maintenance": true,
-    "mode": "maintenance",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "maintenance"
-    ],
-    "title": "🇸🇪 1. Стокгольм — Внеплановое обновление в связи с активностью РКН",
-    "desc": ""
-  },
-  {
-    "name": "🇸🇪 1.2 Стокгольм",
-    "slug": "server9",
-    "issue_number": 179,
-    "opened": "2026-11-03T14:45:00Z",
-    "resolved": "2026-11-03T15:04:14Z",
-    "minutes": 19,
-    "code": 0,
-    "ms": 0,
-    "maintenance": true,
-    "mode": "maintenance",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "maintenance"
-    ],
-    "title": "🇸🇪 1. Стокгольм — Внеплановое обновление в связи с активностью РКН",
-    "desc": ""
-  },
-  {
-    "name": "🇸🇪 1.1 Стокгольм",
-    "slug": "server8",
-    "issue_number": 179,
-    "opened": "2026-11-03T14:45:00Z",
-    "resolved": "2026-11-03T15:04:14Z",
-    "minutes": 19,
-    "code": 0,
-    "ms": 0,
-    "maintenance": true,
-    "mode": "maintenance",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "maintenance"
-    ],
-    "title": "🇸🇪 1. Стокгольм — Внеплановое обновление в связи с активностью РКН",
-    "desc": ""
-  },
-  {
-    "name": "2.1 Стокгольм",
-    "slug": "server10",
-    "issue_number": 180,
-    "opened": "2026-11-05T16:28:14Z",
-    "resolved": "2026-11-05T16:31:20Z",
-    "minutes": 3,
-    "code": 0,
-    "ms": 0,
-    "maintenance": false,
-    "mode": "incident",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "incident"
-    ],
-    "title": "2.1 Стокгольм — недоступен",
-    "desc": "- Код ошибки: 0\n- Время отклика: 0 мс"
-  },
-  {
-    "name": "🇸🇪 1. Стокгольм",
-    "slug": "server4",
-    "issue_number": 181,
-    "opened": "2026-11-06T18:47:05Z",
-    "resolved": "2026-11-06T18:48:35Z",
-    "minutes": 2,
-    "code": 0,
-    "ms": 0,
-    "maintenance": true,
-    "mode": "maintenance",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "maintenance"
-    ],
-    "title": "🇸🇪 1. Стокгольм  — Плановое обновление сервера",
-    "desc": ""
-  },
-  {
-    "name": "🇸🇪 1.3 Стокгольм",
-    "slug": "server12",
-    "issue_number": 181,
-    "opened": "2026-11-06T18:47:05Z",
-    "resolved": "2026-11-06T18:48:35Z",
-    "minutes": 2,
-    "code": 0,
-    "ms": 0,
-    "maintenance": true,
-    "mode": "maintenance",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "maintenance"
-    ],
-    "title": "🇸🇪 1. Стокгольм  — Плановое обновление сервера",
-    "desc": ""
-  },
-  {
-    "name": "🇸🇪 1.2 Стокгольм",
-    "slug": "server9",
-    "issue_number": 181,
-    "opened": "2026-11-06T18:47:05Z",
-    "resolved": "2026-11-06T18:48:35Z",
-    "minutes": 2,
-    "code": 0,
-    "ms": 0,
-    "maintenance": true,
-    "mode": "maintenance",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "maintenance"
-    ],
-    "title": "🇸🇪 1. Стокгольм  — Плановое обновление сервера",
-    "desc": ""
-  },
-  {
-    "name": "🇸🇪 1.1 Стокгольм",
-    "slug": "server8",
-    "issue_number": 181,
-    "opened": "2026-11-06T18:47:05Z",
-    "resolved": "2026-11-06T18:48:35Z",
-    "minutes": 2,
-    "code": 0,
-    "ms": 0,
-    "maintenance": true,
-    "mode": "maintenance",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "maintenance"
-    ],
-    "title": "🇸🇪 1. Стокгольм  — Плановое обновление сервера",
-    "desc": ""
-  },
-  {
-    "name": "🇸🇪 2. Стокгольм",
-    "slug": "server5",
-    "issue_number": 182,
-    "opened": "2026-11-08T20:57:44Z",
-    "resolved": "2026-11-08T21:04:30Z",
-    "minutes": 7,
-    "code": 0,
-    "ms": 0,
-    "maintenance": true,
-    "mode": "maintenance",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "maintenance"
-    ],
-    "title": "🇸🇪 2. Стокгольм,🇸🇪 1. Стокгольм — Плановое обновление сервера",
-    "desc": ""
-  },
-  {
-    "name": "🇸🇪 1. Стокгольм",
-    "slug": "server4",
-    "issue_number": 182,
-    "opened": "2026-11-08T20:57:44Z",
-    "resolved": "2026-11-08T21:04:30Z",
-    "minutes": 7,
-    "code": 0,
-    "ms": 0,
-    "maintenance": true,
-    "mode": "maintenance",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "maintenance"
-    ],
-    "title": "🇸🇪 2. Стокгольм,🇸🇪 1. Стокгольм — Плановое обновление сервера",
-    "desc": ""
-  },
-  {
-    "name": "🇸🇪 2.2 Стокгольм",
-    "slug": "server11",
-    "issue_number": 182,
-    "opened": "2026-11-08T20:57:44Z",
-    "resolved": "2026-11-08T21:04:30Z",
-    "minutes": 7,
-    "code": 0,
-    "ms": 0,
-    "maintenance": true,
-    "mode": "maintenance",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "maintenance"
-    ],
-    "title": "🇸🇪 2. Стокгольм,🇸🇪 1. Стокгольм — Плановое обновление сервера",
-    "desc": ""
-  },
-  {
-    "name": "🇸🇪 2.3 Стокгольм",
-    "slug": "server13",
-    "issue_number": 182,
-    "opened": "2026-11-08T20:57:44Z",
-    "resolved": "2026-11-08T21:04:30Z",
-    "minutes": 7,
-    "code": 0,
-    "ms": 0,
-    "maintenance": true,
-    "mode": "maintenance",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "maintenance"
-    ],
-    "title": "🇸🇪 2. Стокгольм,🇸🇪 1. Стокгольм — Плановое обновление сервера",
-    "desc": ""
-  },
-  {
-    "name": "🇸🇪 2.1 Стокгольм",
-    "slug": "server10",
-    "issue_number": 182,
-    "opened": "2026-11-08T20:57:44Z",
-    "resolved": "2026-11-08T21:04:30Z",
-    "minutes": 7,
-    "code": 0,
-    "ms": 0,
-    "maintenance": true,
-    "mode": "maintenance",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "maintenance"
-    ],
-    "title": "🇸🇪 2. Стокгольм,🇸🇪 1. Стокгольм — Плановое обновление сервера",
-    "desc": ""
-  },
-  {
-    "name": "🇸🇪 1.3 Стокгольм",
-    "slug": "server12",
-    "issue_number": 182,
-    "opened": "2026-11-08T20:57:44Z",
-    "resolved": "2026-11-08T21:04:30Z",
-    "minutes": 7,
-    "code": 0,
-    "ms": 0,
-    "maintenance": true,
-    "mode": "maintenance",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "maintenance"
-    ],
-    "title": "🇸🇪 2. Стокгольм,🇸🇪 1. Стокгольм — Плановое обновление сервера",
-    "desc": ""
-  },
-  {
-    "name": "🇸🇪 1.2 Стокгольм",
-    "slug": "server9",
-    "issue_number": 182,
-    "opened": "2026-11-08T20:57:44Z",
-    "resolved": "2026-11-08T21:04:30Z",
-    "minutes": 7,
-    "code": 0,
-    "ms": 0,
-    "maintenance": true,
-    "mode": "maintenance",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "maintenance"
-    ],
-    "title": "🇸🇪 2. Стокгольм,🇸🇪 1. Стокгольм — Плановое обновление сервера",
-    "desc": ""
-  },
-  {
-    "name": "🇸🇪 1.1 Стокгольм",
-    "slug": "server8",
-    "issue_number": 182,
-    "opened": "2026-11-08T20:57:44Z",
-    "resolved": "2026-11-08T21:04:30Z",
-    "minutes": 7,
-    "code": 0,
-    "ms": 0,
-    "maintenance": true,
-    "mode": "maintenance",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "maintenance"
-    ],
-    "title": "🇸🇪 2. Стокгольм,🇸🇪 1. Стокгольм — Плановое обновление сервера",
-    "desc": ""
-  },
-  {
-    "name": "🇸🇪 2. Стокгольм",
-    "slug": "server5",
-    "issue_number": 183,
-    "opened": "2026-11-14T21:13:56Z",
-    "resolved": "2026-11-14T21:20:41Z",
-    "labels": [
-      "maintenance"
-    ],
-    "minutes": 7,
-    "code": 0,
-    "ms": 0,
-    "maintenance": true,
-    "mode": "maintenance",
-    "annulled": false,
-    "hidden": false,
-    "title": "🇸🇪 2. Стокгольм,🇸🇪 1. Стокгольм,🇷🇺 Москва — Бесшовное обновление инфраструктуры",
-    "desc": ""
-  },
-  {
-    "name": "🇸🇪 1. Стокгольм",
-    "slug": "server4",
-    "issue_number": 183,
-    "opened": "2026-11-14T21:13:56Z",
-    "resolved": "2026-11-14T21:20:41Z",
-    "labels": [
-      "maintenance"
-    ],
-    "minutes": 7,
-    "code": 0,
-    "ms": 0,
-    "maintenance": true,
-    "mode": "maintenance",
-    "annulled": false,
-    "hidden": false,
-    "title": "🇸🇪 2. Стокгольм,🇸🇪 1. Стокгольм,🇷🇺 Москва — Бесшовное обновление инфраструктуры",
-    "desc": ""
-  },
-  {
-    "name": "🇷🇺 Москва",
-    "slug": "server7",
-    "issue_number": 183,
-    "opened": "2026-11-14T21:13:56Z",
-    "resolved": "2026-11-14T21:20:41Z",
-    "labels": [
-      "maintenance"
-    ],
-    "minutes": 7,
-    "code": 0,
-    "ms": 0,
-    "maintenance": true,
-    "mode": "maintenance",
-    "annulled": false,
-    "hidden": false,
-    "title": "🇸🇪 2. Стокгольм,🇸🇪 1. Стокгольм,🇷🇺 Москва — Бесшовное обновление инфраструктуры",
-    "desc": ""
-  },
-  {
-    "name": "🇸🇪 2.2 Стокгольм",
-    "slug": "server11",
-    "issue_number": 183,
-    "opened": "2026-11-14T21:13:56Z",
-    "resolved": "2026-11-14T21:20:41Z",
-    "labels": [
-      "maintenance"
-    ],
-    "minutes": 7,
-    "code": 0,
-    "ms": 0,
-    "maintenance": true,
-    "mode": "maintenance",
-    "annulled": false,
-    "hidden": false,
-    "title": "🇸🇪 2. Стокгольм,🇸🇪 1. Стокгольм,🇷🇺 Москва — Бесшовное обновление инфраструктуры",
-    "desc": ""
-  },
-  {
-    "name": "🇸🇪 2.3 Стокгольм",
-    "slug": "server13",
-    "issue_number": 183,
-    "opened": "2026-11-14T21:13:56Z",
-    "resolved": "2026-11-14T21:20:41Z",
-    "labels": [
-      "maintenance"
-    ],
-    "minutes": 7,
-    "code": 0,
-    "ms": 0,
-    "maintenance": true,
-    "mode": "maintenance",
-    "annulled": false,
-    "hidden": false,
-    "title": "🇸🇪 2. Стокгольм,🇸🇪 1. Стокгольм,🇷🇺 Москва — Бесшовное обновление инфраструктуры",
-    "desc": ""
-  },
-  {
-    "name": "🇸🇪 2.1 Стокгольм",
-    "slug": "server10",
-    "issue_number": 183,
-    "opened": "2026-11-14T21:13:56Z",
-    "resolved": "2026-11-14T21:20:41Z",
-    "labels": [
-      "maintenance"
-    ],
-    "minutes": 7,
-    "code": 0,
-    "ms": 0,
-    "maintenance": true,
-    "mode": "maintenance",
-    "annulled": false,
-    "hidden": false,
-    "title": "🇸🇪 2. Стокгольм,🇸🇪 1. Стокгольм,🇷🇺 Москва — Бесшовное обновление инфраструктуры",
-    "desc": ""
-  },
-  {
-    "name": "🇸🇪 1.3 Стокгольм",
-    "slug": "server12",
-    "issue_number": 183,
-    "opened": "2026-11-14T21:13:56Z",
-    "resolved": "2026-11-14T21:20:41Z",
-    "labels": [
-      "maintenance"
-    ],
-    "minutes": 7,
-    "code": 0,
-    "ms": 0,
-    "maintenance": true,
-    "mode": "maintenance",
-    "annulled": false,
-    "hidden": false,
-    "title": "🇸🇪 2. Стокгольм,🇸🇪 1. Стокгольм,🇷🇺 Москва — Бесшовное обновление инфраструктуры",
-    "desc": ""
-  },
-  {
-    "name": "🇸🇪 1.2 Стокгольм",
-    "slug": "server9",
-    "issue_number": 183,
-    "opened": "2026-11-14T21:13:56Z",
-    "resolved": "2026-11-14T21:20:41Z",
-    "labels": [
-      "maintenance"
-    ],
-    "minutes": 7,
-    "code": 0,
-    "ms": 0,
-    "maintenance": true,
-    "mode": "maintenance",
-    "annulled": false,
-    "hidden": false,
-    "title": "🇸🇪 2. Стокгольм,🇸🇪 1. Стокгольм,🇷🇺 Москва — Бесшовное обновление инфраструктуры",
-    "desc": ""
-  },
-  {
-    "name": "🇸🇪 1.1 Стокгольм",
-    "slug": "server8",
-    "issue_number": 183,
-    "opened": "2026-11-14T21:13:56Z",
-    "resolved": "2026-11-14T21:20:41Z",
-    "labels": [
-      "maintenance"
-    ],
-    "minutes": 7,
-    "code": 0,
-    "ms": 0,
-    "maintenance": true,
-    "mode": "maintenance",
-    "annulled": false,
-    "hidden": false,
-    "title": "🇸🇪 2. Стокгольм,🇸🇪 1. Стокгольм,🇷🇺 Москва — Бесшовное обновление инфраструктуры",
-    "desc": ""
-  },
-  {
-    "name": "База знаний",
-    "slug": "server2",
-    "issue_number": 183,
-    "opened": "2026-11-14T21:13:56Z",
-    "resolved": "2026-11-14T21:20:41Z",
-    "labels": [
-      "maintenance"
-    ],
-    "minutes": 7,
-    "code": 0,
-    "ms": 0,
-    "maintenance": true,
-    "mode": "maintenance",
-    "annulled": false,
-    "hidden": false,
-    "title": "🇸🇪 2. Стокгольм,🇸🇪 1. Стокгольм,🇷🇺 Москва — Бесшовное обновление инфраструктуры",
-    "desc": ""
-  },
-  {
-    "name": "Подписка",
-    "slug": "server3",
-    "issue_number": 183,
-    "opened": "2026-11-14T21:13:56Z",
-    "resolved": "2026-11-14T21:20:41Z",
-    "labels": [
-      "maintenance"
-    ],
-    "minutes": 7,
-    "code": 0,
-    "ms": 0,
-    "maintenance": true,
-    "mode": "maintenance",
-    "annulled": false,
-    "hidden": false,
-    "title": "🇸🇪 2. Стокгольм,🇸🇪 1. Стокгольм,🇷🇺 Москва — Бесшовное обновление инфраструктуры",
-    "desc": ""
-  },
-  {
-    "name": "Сайт-визитка",
-    "slug": "server1",
-    "issue_number": 183,
-    "opened": "2026-11-14T21:13:56Z",
-    "resolved": "2026-11-14T21:20:41Z",
-    "labels": [
-      "maintenance"
-    ],
-    "minutes": 7,
-    "code": 0,
-    "ms": 0,
-    "maintenance": true,
-    "mode": "maintenance",
-    "annulled": false,
-    "hidden": false,
-    "title": "🇸🇪 2. Стокгольм,🇸🇪 1. Стокгольм,🇷🇺 Москва — Бесшовное обновление инфраструктуры",
-    "desc": ""
-  },
-  {
-    "name": "Служба поддержки",
-    "slug": "server6",
-    "issue_number": 183,
-    "opened": "2026-11-14T21:13:56Z",
-    "resolved": "2026-11-14T21:20:41Z",
-    "labels": [
-      "maintenance"
-    ],
-    "minutes": 7,
-    "code": 0,
-    "ms": 0,
-    "maintenance": true,
-    "mode": "maintenance",
-    "annulled": false,
-    "hidden": false,
-    "title": "🇸🇪 2. Стокгольм,🇸🇪 1. Стокгольм,🇷🇺 Москва — Бесшовное обновление инфраструктуры",
-    "desc": ""
-  },
-  {
-    "name": "База знаний",
-    "slug": "server2",
-    "issue_number": 184,
-    "opened": "2026-11-16T18:07:00+00:00",
-    "resolved": "2026-11-16T18:13:11Z",
-    "minutes": 6,
-    "code": 0,
-    "ms": 90302,
-    "maintenance": false,
-    "mode": "incident",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "incident"
-    ],
-    "title": "База знаний — недоступен",
-    "desc": "- Код ошибки: 0\n- Время отклика: 90302 мс"
-  },
-  {
-    "name": "Подписка",
-    "slug": "server3",
-    "issue_number": 184,
-    "opened": "2026-11-16T18:07:00+00:00",
-    "resolved": "2026-11-16T18:13:11Z",
-    "minutes": 6,
-    "code": 0,
-    "ms": 90290,
-    "maintenance": false,
-    "mode": "incident",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "incident"
-    ],
-    "title": "Подписка — недоступен",
-    "desc": "- Код ошибки: 0\n- Время отклика: 90290 мс",
-    "merged_issues": [
-      185
-    ]
-  },
-  {
-    "name": "Москва",
-    "slug": "server7",
-    "issue_number": 184,
-    "opened": "2026-11-16T18:07:00+00:00",
-    "resolved": "2026-11-16T18:13:11Z",
-    "minutes": 6,
-    "code": 22,
-    "ms": 60178,
-    "maintenance": false,
-    "mode": "incident",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "incident"
-    ],
-    "title": "Москва — недоступен",
-    "desc": "- Код ошибки: 22\n- Время отклика: 60178 мс",
-    "merged_issues": [
-      186
-    ]
-  },
-  {
-    "name": "Сайт-визитка",
-    "slug": "server1",
-    "issue_number": 184,
-    "opened": "2026-11-16T18:07:00+00:00",
-    "resolved": "2026-11-16T18:13:11Z",
-    "minutes": 6,
-    "code": 0,
-    "ms": 90204,
-    "maintenance": false,
-    "mode": "incident",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "incident"
-    ],
-    "title": "Сайт-визитка — недоступен",
-    "desc": "- Код ошибки: 0\n- Время отклика: 90204 мс",
-    "merged_issues": [
-      187
-    ]
-  },
-  {
-    "name": "Служба поддержки",
-    "slug": "server6",
-    "issue_number": 184,
-    "opened": "2026-11-16T18:07:00+00:00",
-    "resolved": "2026-11-16T18:13:11Z",
-    "minutes": 6,
-    "code": 0,
-    "ms": 90283,
-    "maintenance": false,
-    "mode": "incident",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "incident"
-    ],
-    "title": "Служба поддержки — недоступен",
-    "desc": "- Код ошибки: 0\n- Время отклика: 90283 мс",
-    "merged_issues": [
-      188
-    ]
-  },
-  {
-    "name": "База знаний",
-    "slug": "server2",
-    "issue_number": 189,
-    "opened": "2026-11-17T13:06:57+00:00",
-    "resolved": "2026-11-17T13:13:38Z",
-    "minutes": 7,
-    "code": 0,
-    "ms": 90226,
-    "maintenance": false,
-    "mode": "incident",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "incident"
-    ],
-    "title": "База знаний — недоступен",
-    "desc": "- Код ошибки: 0\n- Время отклика: 90226 мс"
-  },
-  {
-    "name": "Подписка",
-    "slug": "server3",
-    "issue_number": 189,
-    "opened": "2026-11-17T13:06:57+00:00",
-    "resolved": "2026-11-17T13:13:38Z",
-    "minutes": 7,
-    "code": 0,
-    "ms": 90267,
-    "maintenance": false,
-    "mode": "incident",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "incident"
-    ],
-    "title": "Подписка — недоступен",
-    "desc": "- Код ошибки: 0\n- Время отклика: 90267 мс",
-    "merged_issues": [
-      190
-    ]
-  },
-  {
-    "name": "Москва",
-    "slug": "server7",
-    "issue_number": 189,
-    "opened": "2026-11-17T13:06:57+00:00",
-    "resolved": "2026-11-17T13:13:38Z",
-    "minutes": 7,
-    "code": 0,
-    "ms": 90082,
-    "maintenance": false,
-    "mode": "incident",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "incident"
-    ],
-    "title": "Москва — недоступен",
-    "desc": "- Код ошибки: 0\n- Время отклика: 90082 мс",
-    "merged_issues": [
-      191
-    ]
-  },
-  {
-    "name": "Сайт-визитка",
-    "slug": "server1",
-    "issue_number": 189,
-    "opened": "2026-11-17T13:06:57+00:00",
-    "resolved": "2026-11-17T13:13:38Z",
-    "minutes": 7,
-    "code": 0,
-    "ms": 90614,
-    "maintenance": false,
-    "mode": "incident",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "incident"
-    ],
-    "title": "Сайт-визитка — недоступен",
-    "desc": "- Код ошибки: 0\n- Время отклика: 90614 мс",
-    "merged_issues": [
-      192
-    ]
-  },
-  {
-    "name": "Служба поддержки",
-    "slug": "server6",
-    "issue_number": 189,
-    "opened": "2026-11-17T13:06:57+00:00",
-    "resolved": "2026-11-17T13:13:38Z",
-    "minutes": 7,
-    "code": 0,
-    "ms": 90093,
-    "maintenance": false,
-    "mode": "incident",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "incident"
-    ],
-    "title": "Служба поддержки — недоступен",
-    "desc": "- Код ошибки: 0\n- Время отклика: 90093 мс",
-    "merged_issues": [
-      193
-    ]
-  },
-  {
-    "name": "База знаний",
-    "slug": "server2",
-    "issue_number": 194,
-    "opened": "2026-11-17T18:42:05+00:00",
-    "resolved": "2026-11-17T18:47:47Z",
-    "minutes": 6,
-    "code": 0,
-    "ms": 91002,
-    "maintenance": false,
-    "mode": "incident",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "incident"
-    ],
-    "title": "База знаний — недоступен",
-    "desc": "- Код ошибки: 0\n- Время отклика: 91002 мс"
-  },
-  {
-    "name": "Подписка",
-    "slug": "server3",
-    "issue_number": 194,
-    "opened": "2026-11-17T18:42:05+00:00",
-    "resolved": "2026-11-17T18:47:47Z",
-    "minutes": 6,
-    "code": 0,
-    "ms": 90083,
-    "maintenance": false,
-    "mode": "incident",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "incident"
-    ],
-    "title": "Подписка — недоступен",
-    "desc": "- Код ошибки: 0\n- Время отклика: 90083 мс",
-    "merged_issues": [
-      195
-    ]
-  },
-  {
-    "name": "Москва",
-    "slug": "server7",
-    "issue_number": 194,
-    "opened": "2026-11-17T18:42:05+00:00",
-    "resolved": "2026-11-17T18:47:47Z",
-    "minutes": 6,
-    "code": 22,
-    "ms": 60180,
-    "maintenance": false,
-    "mode": "incident",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "incident"
-    ],
-    "title": "Москва — недоступен",
-    "desc": "- Код ошибки: 22\n- Время отклика: 60180 мс",
-    "merged_issues": [
-      196
-    ]
-  },
-  {
-    "name": "Сайт-визитка",
-    "slug": "server1",
-    "issue_number": 194,
-    "opened": "2026-11-17T18:42:05+00:00",
-    "resolved": "2026-11-17T18:47:47Z",
-    "minutes": 6,
-    "code": 0,
-    "ms": 90452,
-    "maintenance": false,
-    "mode": "incident",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "incident"
-    ],
-    "title": "Сайт-визитка — недоступен",
-    "desc": "- Код ошибки: 0\n- Время отклика: 90452 мс",
-    "merged_issues": [
-      197
-    ]
-  },
-  {
-    "name": "Служба поддержки",
-    "slug": "server6",
-    "issue_number": 194,
-    "opened": "2026-11-17T18:42:05+00:00",
-    "resolved": "2026-11-17T18:47:47Z",
-    "minutes": 6,
-    "code": 200,
-    "ms": 60502,
-    "maintenance": false,
-    "mode": "incident",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "incident"
-    ],
-    "title": "Служба поддержки — недоступен",
-    "desc": "- Код ошибки: 200\n- Время отклика: 60502 мс",
-    "merged_issues": [
-      198
-    ]
-  },
-  {
-    "name": "База знаний",
-    "slug": "server2",
-    "issue_number": 199,
-    "opened": "2026-11-18T02:52:02+00:00",
-    "resolved": "2026-11-18T02:58:10Z",
-    "minutes": 6,
-    "code": 0,
-    "ms": 90288,
-    "maintenance": false,
-    "mode": "incident",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "incident"
-    ],
-    "title": "База знаний — недоступен",
-    "desc": "- Код ошибки: 0\n- Время отклика: 90288 мс"
-  },
-  {
-    "name": "Подписка",
-    "slug": "server3",
-    "issue_number": 199,
-    "opened": "2026-11-18T02:52:02+00:00",
-    "resolved": "2026-11-18T02:58:10Z",
-    "minutes": 6,
-    "code": 0,
-    "ms": 90265,
-    "maintenance": false,
-    "mode": "incident",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "incident"
-    ],
-    "title": "Подписка — недоступен",
-    "desc": "- Код ошибки: 0\n- Время отклика: 90265 мс",
-    "merged_issues": [
-      200
-    ]
-  },
-  {
-    "name": "Москва",
-    "slug": "server7",
-    "issue_number": 199,
-    "opened": "2026-11-18T02:52:02+00:00",
-    "resolved": "2026-11-18T02:58:10Z",
-    "minutes": 6,
-    "code": 0,
-    "ms": 90065,
-    "maintenance": false,
-    "mode": "incident",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "incident"
-    ],
-    "title": "Москва — недоступен",
-    "desc": "- Код ошибки: 0\n- Время отклика: 90065 мс",
-    "merged_issues": [
-      201
-    ]
-  },
-  {
-    "name": "Сайт-визитка",
-    "slug": "server1",
-    "issue_number": 199,
-    "opened": "2026-11-18T02:52:02+00:00",
-    "resolved": "2026-11-18T02:58:10Z",
-    "minutes": 6,
-    "code": 0,
-    "ms": 90105,
-    "maintenance": false,
-    "mode": "incident",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "incident"
-    ],
-    "title": "Сайт-визитка — недоступен",
-    "desc": "- Код ошибки: 0\n- Время отклика: 90105 мс",
-    "merged_issues": [
-      202
-    ]
-  },
-  {
-    "name": "Служба поддержки",
-    "slug": "server6",
-    "issue_number": 199,
-    "opened": "2026-11-18T02:52:02+00:00",
-    "resolved": "2026-11-18T02:58:10Z",
-    "minutes": 6,
-    "code": 200,
-    "ms": 60734,
-    "maintenance": false,
-    "mode": "incident",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "incident"
-    ],
-    "title": "Служба поддержки — недоступен",
-    "desc": "- Код ошибки: 200\n- Время отклика: 60734 мс",
-    "merged_issues": [
-      203
-    ]
-  },
-  {
-    "name": "База знаний",
-    "slug": "server2",
-    "issue_number": 204,
-    "opened": "2026-11-18T09:26:56+00:00",
-    "resolved": "2026-11-18T09:33:38Z",
-    "minutes": 7,
-    "code": 0,
-    "ms": 90307,
-    "maintenance": false,
-    "mode": "incident",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "incident"
-    ],
-    "title": "База знаний — недоступен",
-    "desc": "- Код ошибки: 0\n- Время отклика: 90307 мс"
-  },
-  {
-    "name": "Подписка",
-    "slug": "server3",
-    "issue_number": 204,
-    "opened": "2026-11-18T09:26:56+00:00",
-    "resolved": "2026-11-18T09:33:38Z",
-    "minutes": 7,
-    "code": 0,
-    "ms": 90051,
-    "maintenance": false,
-    "mode": "incident",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "incident"
-    ],
-    "title": "Подписка — недоступен",
-    "desc": "- Код ошибки: 0\n- Время отклика: 90051 мс",
-    "merged_issues": [
-      205
-    ]
-  },
-  {
-    "name": "Москва",
-    "slug": "server7",
-    "issue_number": 204,
-    "opened": "2026-11-18T09:26:56+00:00",
-    "resolved": "2026-11-18T09:33:38Z",
-    "minutes": 7,
-    "code": 0,
-    "ms": 90081,
-    "maintenance": false,
-    "mode": "incident",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "incident"
-    ],
-    "title": "Москва — недоступен",
-    "desc": "- Код ошибки: 0\n- Время отклика: 90081 мс",
-    "merged_issues": [
-      206
-    ]
-  },
-  {
-    "name": "Сайт-визитка",
-    "slug": "server1",
-    "issue_number": 204,
-    "opened": "2026-11-18T09:26:56+00:00",
-    "resolved": "2026-11-18T09:33:38Z",
-    "minutes": 7,
-    "code": 0,
-    "ms": 90280,
-    "maintenance": false,
-    "mode": "incident",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "incident"
-    ],
-    "title": "Сайт-визитка — недоступен",
-    "desc": "- Код ошибки: 0\n- Время отклика: 90280 мс",
-    "merged_issues": [
-      207
-    ]
-  },
-  {
-    "name": "Служба поддержки",
-    "slug": "server6",
-    "issue_number": 204,
-    "opened": "2026-11-18T09:26:56+00:00",
-    "resolved": "2026-11-18T09:33:38Z",
-    "minutes": 7,
-    "code": 0,
-    "ms": 90053,
-    "maintenance": false,
-    "mode": "incident",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "incident"
-    ],
-    "title": "Служба поддержки — недоступен",
-    "desc": "- Код ошибки: 0\n- Время отклика: 90053 мс",
-    "merged_issues": [
-      208
-    ]
-  },
-  {
-    "name": "1.3 Стокгольм",
-    "slug": "server12",
-    "issue_number": 209,
-    "opened": "2026-11-18T19:02:39+00:00",
-    "resolved": "2026-11-18T19:05:33Z",
-    "minutes": 3,
-    "code": 0,
-    "ms": 95784,
-    "maintenance": false,
-    "mode": "incident",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "incident"
-    ],
-    "title": "1.3 Стокгольм — недоступен",
-    "desc": "- Код ошибки: 0\n- Время отклика: 95784 мс"
-  },
-  {
-    "name": "1.3 Стокгольм",
-    "slug": "server12",
-    "issue_number": 210,
-    "opened": "2026-11-18T22:21:24+00:00",
-    "resolved": "2026-11-18T22:25:25Z",
-    "minutes": 4,
-    "code": 400,
-    "ms": 54145,
-    "maintenance": false,
-    "mode": "incident",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "incident"
-    ],
-    "title": "1.3 Стокгольм — недоступен",
-    "desc": "- Код ошибки: 400\n- Время отклика: 54145 мс"
-  },
-  {
-    "name": "База знаний",
-    "slug": "server2",
-    "issue_number": 211,
-    "opened": "2026-11-19T20:36:59+00:00",
-    "resolved": "2026-11-19T20:43:39Z",
-    "minutes": 7,
-    "code": 0,
-    "ms": 90292,
-    "maintenance": false,
-    "mode": "incident",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "incident"
-    ],
-    "title": "База знаний — недоступен",
-    "desc": "- Код ошибки: 0\n- Время отклика: 90292 мс"
-  },
-  {
-    "name": "Подписка",
-    "slug": "server3",
-    "issue_number": 211,
-    "opened": "2026-11-19T20:36:59+00:00",
-    "resolved": "2026-11-19T20:43:39Z",
-    "minutes": 7,
-    "code": 0,
-    "ms": 90326,
-    "maintenance": false,
-    "mode": "incident",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "incident"
-    ],
-    "title": "Подписка — недоступен",
-    "desc": "- Код ошибки: 0\n- Время отклика: 90326 мс",
-    "merged_issues": [
-      212
-    ]
-  },
-  {
-    "name": "Москва",
-    "slug": "server7",
-    "issue_number": 211,
-    "opened": "2026-11-19T20:36:59+00:00",
-    "resolved": "2026-11-19T20:43:39Z",
-    "minutes": 7,
-    "code": 0,
-    "ms": 90066,
-    "maintenance": false,
-    "mode": "incident",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "incident"
-    ],
-    "title": "Москва — недоступен",
-    "desc": "- Код ошибки: 0\n- Время отклика: 90066 мс",
-    "merged_issues": [
-      213
-    ]
-  },
-  {
-    "name": "Сайт-визитка",
-    "slug": "server1",
-    "issue_number": 211,
-    "opened": "2026-11-19T20:36:59+00:00",
-    "resolved": "2026-11-19T20:43:39Z",
-    "minutes": 7,
-    "code": 0,
-    "ms": 90725,
-    "maintenance": false,
-    "mode": "incident",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "incident"
-    ],
-    "title": "Сайт-визитка — недоступен",
-    "desc": "- Код ошибки: 0\n- Время отклика: 90725 мс",
-    "merged_issues": [
-      214
-    ]
-  },
-  {
-    "name": "Служба поддержки",
-    "slug": "server6",
-    "issue_number": 211,
-    "opened": "2026-11-19T20:36:59+00:00",
-    "resolved": "2026-11-19T20:43:39Z",
-    "minutes": 7,
-    "code": 0,
-    "ms": 90104,
-    "maintenance": false,
-    "mode": "incident",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "incident"
-    ],
-    "title": "Служба поддержки — недоступен",
-    "desc": "- Код ошибки: 0\n- Время отклика: 90104 мс",
-    "merged_issues": [
-      215
-    ]
-  },
-  {
-    "name": "База знаний",
-    "slug": "server2",
-    "issue_number": 216,
-    "opened": "2026-11-19T21:26:59+00:00",
-    "resolved": "2026-11-19T21:33:06Z",
-    "minutes": 6,
-    "code": 0,
-    "ms": 90277,
-    "maintenance": false,
-    "mode": "incident",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "incident"
-    ],
-    "title": "База знаний — недоступен",
-    "desc": "- Код ошибки: 0\n- Время отклика: 90277 мс"
-  },
-  {
-    "name": "Подписка",
-    "slug": "server3",
-    "issue_number": 216,
-    "opened": "2026-11-19T21:26:59+00:00",
-    "resolved": "2026-11-19T21:33:06Z",
-    "minutes": 6,
-    "code": 200,
-    "ms": 60608,
-    "maintenance": false,
-    "mode": "incident",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "incident"
-    ],
-    "title": "Подписка — недоступен",
-    "desc": "- Код ошибки: 200\n- Время отклика: 60608 мс",
-    "merged_issues": [
-      217
-    ]
-  },
-  {
-    "name": "Москва",
-    "slug": "server7",
-    "issue_number": 216,
-    "opened": "2026-11-19T21:26:59+00:00",
-    "resolved": "2026-11-19T21:33:06Z",
-    "minutes": 6,
-    "code": 0,
-    "ms": 90091,
-    "maintenance": false,
-    "mode": "incident",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "incident"
-    ],
-    "title": "Москва — недоступен",
-    "desc": "- Код ошибки: 0\n- Время отклика: 90091 мс",
-    "merged_issues": [
-      218
-    ]
-  },
-  {
-    "name": "Сайт-визитка",
-    "slug": "server1",
-    "issue_number": 216,
-    "opened": "2026-11-19T21:26:59+00:00",
-    "resolved": "2026-11-19T21:33:06Z",
-    "minutes": 6,
-    "code": 0,
-    "ms": 90102,
-    "maintenance": false,
-    "mode": "incident",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "incident"
-    ],
-    "title": "Сайт-визитка — недоступен",
-    "desc": "- Код ошибки: 0\n- Время отклика: 90102 мс",
-    "merged_issues": [
-      219
-    ]
-  },
-  {
-    "name": "Служба поддержки",
-    "slug": "server6",
-    "issue_number": 216,
-    "opened": "2026-11-19T21:26:59+00:00",
-    "resolved": "2026-11-19T21:33:06Z",
-    "minutes": 6,
-    "code": 0,
-    "ms": 90253,
-    "maintenance": false,
-    "mode": "incident",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "incident"
-    ],
-    "title": "Служба поддержки — недоступен",
-    "desc": "- Код ошибки: 0\n- Время отклика: 90253 мс",
-    "merged_issues": [
-      220
-    ]
-  },
-  {
-    "name": "База знаний",
-    "slug": "server2",
-    "issue_number": 221,
-    "opened": "2026-11-20T13:02:42+00:00",
-    "resolved": "2026-11-20T13:08:52Z",
-    "minutes": 6,
-    "code": 0,
-    "ms": 90284,
-    "maintenance": false,
-    "mode": "incident",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "incident"
-    ],
-    "title": "База знаний — недоступен",
-    "desc": "- Код ошибки: 0\n- Время отклика: 90284 мс"
-  },
-  {
-    "name": "Подписка",
-    "slug": "server3",
-    "issue_number": 221,
-    "opened": "2026-11-20T13:02:42+00:00",
-    "resolved": "2026-11-20T13:08:52Z",
-    "minutes": 6,
-    "code": 200,
-    "ms": 60630,
-    "maintenance": false,
-    "mode": "incident",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "incident"
-    ],
-    "title": "Подписка — недоступен",
-    "desc": "- Код ошибки: 200\n- Время отклика: 60630 мс",
-    "merged_issues": [
-      222
-    ]
-  },
-  {
-    "name": "Москва",
-    "slug": "server7",
-    "issue_number": 221,
-    "opened": "2026-11-20T13:02:42+00:00",
-    "resolved": "2026-11-20T13:08:52Z",
-    "minutes": 6,
-    "code": 0,
-    "ms": 90062,
-    "maintenance": false,
-    "mode": "incident",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "incident"
-    ],
-    "title": "Москва — недоступен",
-    "desc": "- Код ошибки: 0\n- Время отклика: 90062 мс",
-    "merged_issues": [
-      223
-    ]
-  },
-  {
-    "name": "Сайт-визитка",
-    "slug": "server1",
-    "issue_number": 221,
-    "opened": "2026-11-20T13:02:42+00:00",
-    "resolved": "2026-11-20T13:08:52Z",
-    "minutes": 6,
-    "code": 0,
-    "ms": 90296,
-    "maintenance": false,
-    "mode": "incident",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "incident"
-    ],
-    "title": "Сайт-визитка — недоступен",
-    "desc": "- Код ошибки: 0\n- Время отклика: 90296 мс",
-    "merged_issues": [
-      224
-    ]
-  },
-  {
-    "name": "Служба поддержки",
-    "slug": "server6",
-    "issue_number": 221,
-    "opened": "2026-11-20T13:02:42+00:00",
-    "resolved": "2026-11-20T13:08:52Z",
-    "minutes": 6,
-    "code": 0,
-    "ms": 90081,
-    "maintenance": false,
-    "mode": "incident",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "incident"
-    ],
-    "title": "Служба поддержки — недоступен",
-    "desc": "- Код ошибки: 0\n- Время отклика: 90081 мс",
-    "merged_issues": [
-      225
-    ]
-  },
-  {
-    "name": "База знаний",
-    "slug": "server2",
-    "issue_number": 226,
-    "opened": "2026-11-20T18:12:13+00:00",
-    "resolved": "2026-11-20T18:18:52Z",
-    "minutes": 7,
-    "code": 0,
-    "ms": 90177,
-    "maintenance": false,
-    "mode": "incident",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "incident"
-    ],
-    "title": "База знаний — недоступен",
-    "desc": "- Код ошибки: 0\n- Время отклика: 90177 мс"
-  },
-  {
-    "name": "Подписка",
-    "slug": "server3",
-    "issue_number": 226,
-    "opened": "2026-11-20T18:12:13+00:00",
-    "resolved": "2026-11-20T18:18:52Z",
-    "minutes": 7,
-    "code": 0,
-    "ms": 90132,
-    "maintenance": false,
-    "mode": "incident",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "incident"
-    ],
-    "title": "Подписка — недоступен",
-    "desc": "- Код ошибки: 0\n- Время отклика: 90132 мс",
-    "merged_issues": [
-      227
-    ]
-  },
-  {
-    "name": "Москва",
-    "slug": "server7",
-    "issue_number": 226,
-    "opened": "2026-11-20T18:12:13+00:00",
-    "resolved": "2026-11-20T18:18:52Z",
-    "minutes": 7,
-    "code": 0,
-    "ms": 90091,
-    "maintenance": false,
-    "mode": "incident",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "incident"
-    ],
-    "title": "Москва — недоступен",
-    "desc": "- Код ошибки: 0\n- Время отклика: 90091 мс",
-    "merged_issues": [
-      228
-    ]
-  },
-  {
-    "name": "Сайт-визитка",
-    "slug": "server1",
-    "issue_number": 226,
-    "opened": "2026-11-20T18:12:13+00:00",
-    "resolved": "2026-11-20T18:18:52Z",
-    "minutes": 7,
-    "code": 0,
-    "ms": 90516,
-    "maintenance": false,
-    "mode": "incident",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "incident"
-    ],
-    "title": "Сайт-визитка — недоступен",
-    "desc": "- Код ошибки: 0\n- Время отклика: 90516 мс",
-    "merged_issues": [
-      229
-    ]
-  },
-  {
-    "name": "Служба поддержки",
-    "slug": "server6",
-    "issue_number": 226,
-    "opened": "2026-11-20T18:12:13+00:00",
-    "resolved": "2026-11-20T18:18:52Z",
-    "minutes": 7,
-    "code": 0,
-    "ms": 90218,
-    "maintenance": false,
-    "mode": "incident",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "incident"
-    ],
-    "title": "Служба поддержки — недоступен",
-    "desc": "- Код ошибки: 0\n- Время отклика: 90218 мс",
-    "merged_issues": [
-      230
-    ]
-  },
-  {
-    "name": "База знаний",
-    "slug": "server2",
-    "issue_number": 231,
-    "opened": "2026-11-20T21:47:11+00:00",
-    "resolved": "2026-11-20T21:53:09Z",
-    "minutes": 6,
-    "code": 0,
-    "ms": 90933,
-    "maintenance": false,
-    "mode": "incident",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "incident"
-    ],
-    "title": "База знаний — недоступен",
-    "desc": "- Код ошибки: 0\n- Время отклика: 90933 мс"
-  },
-  {
-    "name": "Подписка",
-    "slug": "server3",
-    "issue_number": 231,
-    "opened": "2026-11-20T21:47:11+00:00",
-    "resolved": "2026-11-20T21:53:09Z",
-    "minutes": 6,
-    "code": 0,
-    "ms": 90307,
-    "maintenance": false,
-    "mode": "incident",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "incident"
-    ],
-    "title": "Подписка — недоступен",
-    "desc": "- Код ошибки: 0\n- Время отклика: 90307 мс",
-    "merged_issues": [
-      232
-    ]
-  },
-  {
-    "name": "Москва",
-    "slug": "server7",
-    "issue_number": 231,
-    "opened": "2026-11-20T21:47:11+00:00",
-    "resolved": "2026-11-20T21:53:09Z",
-    "minutes": 6,
-    "code": 22,
-    "ms": 60250,
-    "maintenance": false,
-    "mode": "incident",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "incident"
-    ],
-    "title": "Москва — недоступен",
-    "desc": "- Код ошибки: 22\n- Время отклика: 60250 мс",
-    "merged_issues": [
-      233
-    ]
-  },
-  {
-    "name": "Сайт-визитка",
-    "slug": "server1",
-    "issue_number": 231,
-    "opened": "2026-11-20T21:47:11+00:00",
-    "resolved": "2026-11-20T21:53:09Z",
-    "minutes": 6,
-    "code": 0,
-    "ms": 90162,
-    "maintenance": false,
-    "mode": "incident",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "incident"
-    ],
-    "title": "Сайт-визитка — недоступен",
-    "desc": "- Код ошибки: 0\n- Время отклика: 90162 мс",
-    "merged_issues": [
-      234
-    ]
-  },
-  {
-    "name": "Служба поддержки",
-    "slug": "server6",
-    "issue_number": 231,
-    "opened": "2026-11-20T21:47:11+00:00",
-    "resolved": "2026-11-20T21:53:09Z",
-    "minutes": 6,
-    "code": 200,
-    "ms": 60710,
-    "maintenance": false,
-    "mode": "incident",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "incident"
-    ],
-    "title": "Служба поддержки — недоступен",
-    "desc": "- Код ошибки: 200\n- Время отклика: 60710 мс",
-    "merged_issues": [
-      235
-    ]
-  },
-  {
-    "name": "База знаний",
-    "slug": "server2",
-    "issue_number": 236,
-    "opened": "2026-11-20T22:32:27+00:00",
-    "resolved": "2026-11-20T22:39:04Z",
-    "minutes": 7,
-    "code": 0,
-    "ms": 90274,
-    "maintenance": false,
-    "mode": "incident",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "incident"
-    ],
-    "title": "База знаний — недоступен",
-    "desc": "- Код ошибки: 0\n- Время отклика: 90274 мс"
-  },
-  {
-    "name": "Подписка",
-    "slug": "server3",
-    "issue_number": 236,
-    "opened": "2026-11-20T22:32:27+00:00",
-    "resolved": "2026-11-20T22:39:04Z",
-    "minutes": 7,
-    "code": 0,
-    "ms": 90280,
-    "maintenance": false,
-    "mode": "incident",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "incident"
-    ],
-    "title": "Подписка — недоступен",
-    "desc": "- Код ошибки: 0\n- Время отклика: 90280 мс",
-    "merged_issues": [
-      237
-    ]
-  },
-  {
-    "name": "Москва",
-    "slug": "server7",
-    "issue_number": 236,
-    "opened": "2026-11-20T22:32:27+00:00",
-    "resolved": "2026-11-20T22:39:04Z",
-    "minutes": 7,
-    "code": 0,
-    "ms": 90074,
-    "maintenance": false,
-    "mode": "incident",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "incident"
-    ],
-    "title": "Москва — недоступен",
-    "desc": "- Код ошибки: 0\n- Время отклика: 90074 мс",
-    "merged_issues": [
-      238
-    ]
-  },
-  {
-    "name": "Сайт-визитка",
-    "slug": "server1",
-    "issue_number": 236,
-    "opened": "2026-11-20T22:32:27+00:00",
-    "resolved": "2026-11-20T22:39:04Z",
-    "minutes": 7,
-    "code": 0,
-    "ms": 90046,
-    "maintenance": false,
-    "mode": "incident",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "incident"
-    ],
-    "title": "Сайт-визитка — недоступен",
-    "desc": "- Код ошибки: 0\n- Время отклика: 90046 мс",
-    "merged_issues": [
-      239
-    ]
-  },
-  {
-    "name": "Служба поддержки",
-    "slug": "server6",
-    "issue_number": 236,
-    "opened": "2026-11-20T22:32:27+00:00",
-    "resolved": "2026-11-20T22:39:04Z",
-    "minutes": 7,
-    "code": 0,
-    "ms": 90122,
-    "maintenance": false,
-    "mode": "incident",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "incident"
-    ],
-    "title": "Служба поддержки — недоступен",
-    "desc": "- Код ошибки: 0\n- Время отклика: 90122 мс",
-    "merged_issues": [
-      240
-    ]
-  },
-  {
-    "name": "База знаний",
-    "slug": "server2",
-    "issue_number": 241,
-    "opened": "2026-11-20T22:47:05+00:00",
-    "resolved": "2026-11-20T22:53:21Z",
-    "minutes": 6,
-    "code": 0,
-    "ms": 90376,
-    "maintenance": false,
-    "mode": "incident",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "incident"
-    ],
-    "title": "База знаний — недоступен",
-    "desc": "- Код ошибки: 0\n- Время отклика: 90376 мс"
-  },
-  {
-    "name": "Подписка",
-    "slug": "server3",
-    "issue_number": 241,
-    "opened": "2026-11-20T22:47:05+00:00",
-    "resolved": "2026-11-20T22:53:21Z",
-    "minutes": 6,
-    "code": 0,
-    "ms": 90289,
-    "maintenance": false,
-    "mode": "incident",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "incident"
-    ],
-    "title": "Подписка — недоступен",
-    "desc": "- Код ошибки: 0\n- Время отклика: 90289 мс",
-    "merged_issues": [
-      242
-    ]
-  },
-  {
-    "name": "Москва",
-    "slug": "server7",
-    "issue_number": 241,
-    "opened": "2026-11-20T22:47:05+00:00",
-    "resolved": "2026-11-20T22:53:21Z",
-    "minutes": 6,
-    "code": 22,
-    "ms": 60182,
-    "maintenance": false,
-    "mode": "incident",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "incident"
-    ],
-    "title": "Москва — недоступен",
-    "desc": "- Код ошибки: 22\n- Время отклика: 60182 мс",
-    "merged_issues": [
-      243
-    ]
-  },
-  {
-    "name": "Сайт-визитка",
-    "slug": "server1",
-    "issue_number": 241,
-    "opened": "2026-11-20T22:47:05+00:00",
-    "resolved": "2026-11-20T22:53:21Z",
-    "minutes": 6,
-    "code": 0,
-    "ms": 90468,
-    "maintenance": false,
-    "mode": "incident",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "incident"
-    ],
-    "title": "Сайт-визитка — недоступен",
-    "desc": "- Код ошибки: 0\n- Время отклика: 90468 мс",
-    "merged_issues": [
-      244
-    ]
-  },
-  {
-    "name": "Служба поддержки",
-    "slug": "server6",
-    "issue_number": 241,
-    "opened": "2026-11-20T22:47:05+00:00",
-    "resolved": "2026-11-20T22:53:21Z",
-    "minutes": 6,
-    "code": 0,
-    "ms": 90173,
-    "maintenance": false,
-    "mode": "incident",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "incident"
-    ],
-    "title": "Служба поддержки — недоступен",
-    "desc": "- Код ошибки: 0\n- Время отклика: 90173 мс",
-    "merged_issues": [
-      245
-    ]
-  },
-  {
-    "name": "База знаний",
-    "slug": "server2",
-    "issue_number": 246,
-    "opened": "2026-11-21T00:27:03+00:00",
-    "resolved": "2026-11-21T00:33:11Z",
-    "minutes": 6,
-    "code": 0,
-    "ms": 90219,
-    "maintenance": false,
-    "mode": "incident",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "incident"
-    ],
-    "title": "База знаний — недоступен",
-    "desc": "- Код ошибки: 0\n- Время отклика: 90219 мс"
-  },
-  {
-    "name": "Подписка",
-    "slug": "server3",
-    "issue_number": 246,
-    "opened": "2026-11-21T00:27:03+00:00",
-    "resolved": "2026-11-21T00:33:11Z",
-    "minutes": 6,
-    "code": 200,
-    "ms": 60569,
-    "maintenance": false,
-    "mode": "incident",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "incident"
-    ],
-    "title": "Подписка — недоступен",
-    "desc": "- Код ошибки: 200\n- Время отклика: 60569 мс",
-    "merged_issues": [
-      247
-    ]
-  },
-  {
-    "name": "Москва",
-    "slug": "server7",
-    "issue_number": 246,
-    "opened": "2026-11-21T00:27:03+00:00",
-    "resolved": "2026-11-21T00:33:11Z",
-    "minutes": 6,
-    "code": 0,
-    "ms": 90089,
-    "maintenance": false,
-    "mode": "incident",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "incident"
-    ],
-    "title": "Москва — недоступен",
-    "desc": "- Код ошибки: 0\n- Время отклика: 90089 мс",
-    "merged_issues": [
-      248
-    ]
-  },
-  {
-    "name": "Сайт-визитка",
-    "slug": "server1",
-    "issue_number": 246,
-    "opened": "2026-11-21T00:27:03+00:00",
-    "resolved": "2026-11-21T00:33:11Z",
-    "minutes": 6,
-    "code": 0,
-    "ms": 90073,
-    "maintenance": false,
-    "mode": "incident",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "incident"
-    ],
-    "title": "Сайт-визитка — недоступен",
-    "desc": "- Код ошибки: 0\n- Время отклика: 90073 мс",
-    "merged_issues": [
-      249
-    ]
-  },
-  {
-    "name": "Служба поддержки",
-    "slug": "server6",
-    "issue_number": 246,
-    "opened": "2026-11-21T00:27:03+00:00",
-    "resolved": "2026-11-21T00:33:11Z",
-    "minutes": 6,
-    "code": 0,
-    "ms": 90113,
-    "maintenance": false,
-    "mode": "incident",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "incident"
-    ],
-    "title": "Служба поддержки — недоступен",
-    "desc": "- Код ошибки: 0\n- Время отклика: 90113 мс",
-    "merged_issues": [
-      250
-    ]
-  },
-  {
-    "name": "База знаний",
-    "slug": "server2",
-    "issue_number": 251,
-    "opened": "2026-11-21T08:52:10+00:00",
-    "resolved": "2026-11-21T08:58:49Z",
-    "minutes": 7,
-    "code": 0,
-    "ms": 90269,
-    "maintenance": false,
-    "mode": "incident",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "incident"
-    ],
-    "title": "База знаний — недоступен",
-    "desc": "- Код ошибки: 0\n- Время отклика: 90269 мс"
-  },
-  {
-    "name": "Подписка",
-    "slug": "server3",
-    "issue_number": 251,
-    "opened": "2026-11-21T08:52:10+00:00",
-    "resolved": "2026-11-21T08:58:49Z",
-    "minutes": 7,
-    "code": 0,
-    "ms": 90271,
-    "maintenance": false,
-    "mode": "incident",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "incident"
-    ],
-    "title": "Подписка — недоступен",
-    "desc": "- Код ошибки: 0\n- Время отклика: 90271 мс",
-    "merged_issues": [
-      252
-    ]
-  },
-  {
-    "name": "Москва",
-    "slug": "server7",
-    "issue_number": 251,
-    "opened": "2026-11-21T08:52:10+00:00",
-    "resolved": "2026-11-21T08:58:49Z",
-    "minutes": 7,
-    "code": 0,
-    "ms": 90088,
-    "maintenance": false,
-    "mode": "incident",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "incident"
-    ],
-    "title": "Москва — недоступен",
-    "desc": "- Код ошибки: 0\n- Время отклика: 90088 мс",
-    "merged_issues": [
-      253
-    ]
-  },
-  {
-    "name": "Сайт-визитка",
-    "slug": "server1",
-    "issue_number": 251,
-    "opened": "2026-11-21T08:52:10+00:00",
-    "resolved": "2026-11-21T08:58:49Z",
-    "minutes": 7,
-    "code": 0,
-    "ms": 90098,
-    "maintenance": false,
-    "mode": "incident",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "incident"
-    ],
-    "title": "Сайт-визитка — недоступен",
-    "desc": "- Код ошибки: 0\n- Время отклика: 90098 мс",
-    "merged_issues": [
-      254
-    ]
-  },
-  {
-    "name": "Служба поддержки",
-    "slug": "server6",
-    "issue_number": 251,
-    "opened": "2026-11-21T08:52:10+00:00",
-    "resolved": "2026-11-21T08:58:49Z",
-    "minutes": 7,
-    "code": 0,
-    "ms": 90091,
-    "maintenance": false,
-    "mode": "incident",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "incident"
-    ],
-    "title": "Служба поддержки — недоступен",
-    "desc": "- Код ошибки: 0\n- Время отклика: 90091 мс",
-    "merged_issues": [
-      255
-    ]
-  },
-  {
-    "name": "База знаний",
-    "slug": "server2",
-    "issue_number": 256,
-    "opened": "2026-11-21T09:12:10+00:00",
-    "resolved": "2026-11-21T09:18:47Z",
-    "minutes": 7,
-    "code": 0,
-    "ms": 90283,
-    "maintenance": false,
-    "mode": "incident",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "incident"
-    ],
-    "title": "База знаний — недоступен",
-    "desc": "- Код ошибки: 0\n- Время отклика: 90283 мс"
-  },
-  {
-    "name": "Подписка",
-    "slug": "server3",
-    "issue_number": 256,
-    "opened": "2026-11-21T09:12:10+00:00",
-    "resolved": "2026-11-21T09:18:47Z",
-    "minutes": 7,
-    "code": 0,
-    "ms": 90268,
-    "maintenance": false,
-    "mode": "incident",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "incident"
-    ],
-    "title": "Подписка — недоступен",
-    "desc": "- Код ошибки: 0\n- Время отклика: 90268 мс",
-    "merged_issues": [
-      257
-    ]
-  },
-  {
-    "name": "Москва",
-    "slug": "server7",
-    "issue_number": 256,
-    "opened": "2026-11-21T09:12:10+00:00",
-    "resolved": "2026-11-21T09:18:47Z",
-    "minutes": 7,
-    "code": 0,
-    "ms": 90091,
-    "maintenance": false,
-    "mode": "incident",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "incident"
-    ],
-    "title": "Москва — недоступен",
-    "desc": "- Код ошибки: 0\n- Время отклика: 90091 мс",
-    "merged_issues": [
-      258
-    ]
-  },
-  {
-    "name": "Сайт-визитка",
-    "slug": "server1",
-    "issue_number": 256,
-    "opened": "2026-11-21T09:12:10+00:00",
-    "resolved": "2026-11-21T09:18:47Z",
-    "minutes": 7,
-    "code": 0,
-    "ms": 90100,
-    "maintenance": false,
-    "mode": "incident",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "incident"
-    ],
-    "title": "Сайт-визитка — недоступен",
-    "desc": "- Код ошибки: 0\n- Время отклика: 90100 мс",
-    "merged_issues": [
-      259
-    ]
-  },
-  {
-    "name": "Служба поддержки",
-    "slug": "server6",
-    "issue_number": 256,
-    "opened": "2026-11-21T09:12:10+00:00",
-    "resolved": "2026-11-21T09:18:47Z",
-    "minutes": 7,
-    "code": 0,
-    "ms": 90082,
-    "maintenance": false,
-    "mode": "incident",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "incident"
-    ],
-    "title": "Служба поддержки — недоступен",
-    "desc": "- Код ошибки: 0\n- Время отклика: 90082 мс",
-    "merged_issues": [
-      260
-    ]
-  },
-  {
-    "name": "База знаний",
-    "slug": "server2",
-    "issue_number": 261,
-    "opened": "2026-11-21T10:12:10+00:00",
-    "resolved": "2026-11-21T10:18:19Z",
-    "minutes": 6,
-    "code": 0,
-    "ms": 90900,
-    "maintenance": false,
-    "mode": "incident",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "incident"
-    ],
-    "title": "База знаний — недоступен",
-    "desc": "- Код ошибки: 0\n- Время отклика: 90900 мс"
-  },
-  {
-    "name": "Подписка",
-    "slug": "server3",
-    "issue_number": 261,
-    "opened": "2026-11-21T10:12:10+00:00",
-    "resolved": "2026-11-21T10:18:19Z",
-    "minutes": 6,
-    "code": 0,
-    "ms": 90072,
-    "maintenance": false,
-    "mode": "incident",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "incident"
-    ],
-    "title": "Подписка — недоступен",
-    "desc": "- Код ошибки: 0\n- Время отклика: 90072 мс",
-    "merged_issues": [
-      262
-    ]
-  },
-  {
-    "name": "Москва",
-    "slug": "server7",
-    "issue_number": 261,
-    "opened": "2026-11-21T10:12:10+00:00",
-    "resolved": "2026-11-21T10:18:19Z",
-    "minutes": 6,
-    "code": 0,
-    "ms": 90064,
-    "maintenance": false,
-    "mode": "incident",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "incident"
-    ],
-    "title": "Москва — недоступен",
-    "desc": "- Код ошибки: 0\n- Время отклика: 90064 мс",
-    "merged_issues": [
-      263
-    ]
-  },
-  {
-    "name": "Сайт-визитка",
-    "slug": "server1",
-    "issue_number": 261,
-    "opened": "2026-11-21T10:12:10+00:00",
-    "resolved": "2026-11-21T10:18:19Z",
-    "minutes": 6,
-    "code": 0,
-    "ms": 90448,
-    "maintenance": false,
-    "mode": "incident",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "incident"
-    ],
-    "title": "Сайт-визитка — недоступен",
-    "desc": "- Код ошибки: 0\n- Время отклика: 90448 мс",
-    "merged_issues": [
-      264
-    ]
-  },
-  {
-    "name": "Служба поддержки",
-    "slug": "server6",
-    "issue_number": 261,
-    "opened": "2026-11-21T10:12:10+00:00",
-    "resolved": "2026-11-21T10:18:19Z",
-    "minutes": 6,
-    "code": 200,
-    "ms": 60469,
-    "maintenance": false,
-    "mode": "incident",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "incident"
-    ],
-    "title": "Служба поддержки — недоступен",
-    "desc": "- Код ошибки: 200\n- Время отклика: 60469 мс",
-    "merged_issues": [
-      265
-    ]
-  },
-  {
-    "name": "База знаний",
-    "slug": "server2",
-    "issue_number": 266,
-    "opened": "2026-11-21T15:22:13+00:00",
-    "resolved": "2026-11-21T15:29:23Z",
-    "minutes": 7,
-    "code": 0,
-    "ms": 90250,
-    "maintenance": false,
-    "mode": "incident",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "incident"
-    ],
-    "title": "База знаний — недоступен",
-    "desc": "- Код ошибки: 0\n- Время отклика: 90250 мс"
-  },
-  {
-    "name": "Подписка",
-    "slug": "server3",
-    "issue_number": 266,
-    "opened": "2026-11-21T15:22:13+00:00",
-    "resolved": "2026-11-21T15:29:23Z",
-    "minutes": 7,
-    "code": 0,
-    "ms": 90086,
-    "maintenance": false,
-    "mode": "incident",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "incident"
-    ],
-    "title": "Подписка — недоступен",
-    "desc": "- Код ошибки: 0\n- Время отклика: 90086 мс",
-    "merged_issues": [
-      267
-    ]
-  },
-  {
-    "name": "Москва",
-    "slug": "server7",
-    "issue_number": 266,
-    "opened": "2026-11-21T15:22:13+00:00",
-    "resolved": "2026-11-21T15:29:23Z",
-    "minutes": 7,
-    "code": 0,
-    "ms": 90091,
-    "maintenance": false,
-    "mode": "incident",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "incident"
-    ],
-    "title": "Москва — недоступен",
-    "desc": "- Код ошибки: 0\n- Время отклика: 90091 мс",
-    "merged_issues": [
-      268
-    ]
-  },
-  {
-    "name": "Сайт-визитка",
-    "slug": "server1",
-    "issue_number": 266,
-    "opened": "2026-11-21T15:22:13+00:00",
-    "resolved": "2026-11-21T15:29:23Z",
-    "minutes": 7,
-    "code": 0,
-    "ms": 90217,
-    "maintenance": false,
-    "mode": "incident",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "incident"
-    ],
-    "title": "Сайт-визитка — недоступен",
-    "desc": "- Код ошибки: 0\n- Время отклика: 90217 мс",
-    "merged_issues": [
-      269
-    ]
-  },
-  {
-    "name": "Служба поддержки",
-    "slug": "server6",
-    "issue_number": 266,
-    "opened": "2026-11-21T15:22:13+00:00",
-    "resolved": "2026-11-21T15:29:23Z",
-    "minutes": 7,
-    "code": 0,
-    "ms": 90100,
-    "maintenance": false,
-    "mode": "incident",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "incident"
-    ],
-    "title": "Служба поддержки — недоступен",
-    "desc": "- Код ошибки: 0\n- Время отклика: 90100 мс",
-    "merged_issues": [
-      270
-    ]
-  },
-  {
-    "name": "База знаний",
-    "slug": "server2",
-    "issue_number": 271,
-    "opened": "2026-11-21T20:12:07+00:00",
-    "resolved": "2026-11-21T20:15:40Z",
-    "minutes": 4,
-    "code": 0,
-    "ms": 90245,
-    "maintenance": false,
-    "mode": "incident",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "incident"
-    ],
-    "title": "База знаний — недоступен",
-    "desc": "- Код ошибки: 0\n- Время отклика: 90245 мс"
-  },
-  {
-    "name": "Подписка",
-    "slug": "server3",
-    "issue_number": 271,
-    "opened": "2026-11-21T20:12:07+00:00",
-    "resolved": "2026-11-21T20:15:40Z",
-    "minutes": 4,
-    "code": 0,
-    "ms": 90088,
-    "maintenance": false,
-    "mode": "incident",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "incident"
-    ],
-    "title": "База знаний — недоступен",
-    "desc": "- Код ошибки: 0\n- Время отклика: 90088 мс"
-  },
-  {
-    "name": "Москва",
-    "slug": "server7",
-    "issue_number": 271,
-    "opened": "2026-11-21T20:12:07+00:00",
-    "resolved": "2026-11-21T20:15:40Z",
-    "minutes": 4,
-    "code": 0,
-    "ms": 90063,
-    "maintenance": false,
-    "mode": "incident",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "incident"
-    ],
-    "title": "База знаний — недоступен",
-    "desc": "- Код ошибки: 0\n- Время отклика: 90063 мс"
-  },
-  {
-    "name": "Сайт-визитка",
-    "slug": "server1",
-    "issue_number": 271,
-    "opened": "2026-11-21T20:12:07+00:00",
-    "resolved": "2026-11-21T20:15:40Z",
-    "minutes": 4,
-    "code": 0,
-    "ms": 90248,
-    "maintenance": false,
-    "mode": "incident",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "incident"
-    ],
-    "title": "База знаний — недоступен",
-    "desc": "- Код ошибки: 0\n- Время отклика: 90248 мс"
-  },
-  {
-    "name": "Служба поддержки",
-    "slug": "server6",
-    "issue_number": 271,
-    "opened": "2026-11-21T20:12:07+00:00",
-    "resolved": "2026-11-21T20:15:40Z",
-    "minutes": 4,
-    "code": 200,
-    "ms": 89050,
-    "maintenance": false,
-    "mode": "incident",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "incident"
-    ],
-    "title": "База знаний — недоступен",
-    "desc": "- Код ошибки: 200\n- Время отклика: 89050 мс"
-  },
-  {
-    "name": "База знаний",
-    "slug": "server2",
-    "issue_number": 272,
-    "opened": "2026-11-22T01:47:08+00:00",
-    "resolved": "2026-11-22T01:50:44Z",
-    "minutes": 4,
-    "code": 0,
-    "ms": 90288,
-    "maintenance": false,
-    "mode": "incident",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "incident"
-    ],
-    "title": "База знаний — недоступен",
-    "desc": "- Код ошибки: 0\n- Время отклика: 90288 мс"
-  },
-  {
-    "name": "Подписка",
-    "slug": "server3",
-    "issue_number": 272,
-    "opened": "2026-11-22T01:47:08+00:00",
-    "resolved": "2026-11-22T01:50:44Z",
-    "minutes": 4,
-    "code": 0,
-    "ms": 90273,
-    "maintenance": false,
-    "mode": "incident",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "incident"
-    ],
-    "title": "База знаний — недоступен",
-    "desc": "- Код ошибки: 0\n- Время отклика: 90273 мс"
-  },
-  {
-    "name": "Москва",
-    "slug": "server7",
-    "issue_number": 272,
-    "opened": "2026-11-22T01:47:08+00:00",
-    "resolved": "2026-11-22T01:50:44Z",
-    "minutes": 4,
-    "code": 22,
-    "ms": 60169,
-    "maintenance": false,
-    "mode": "incident",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "incident"
-    ],
-    "title": "База знаний — недоступен",
-    "desc": "- Код ошибки: 22\n- Время отклика: 60169 мс"
-  },
-  {
-    "name": "Сайт-визитка",
-    "slug": "server1",
-    "issue_number": 272,
-    "opened": "2026-11-22T01:47:08+00:00",
-    "resolved": "2026-11-22T01:50:44Z",
-    "minutes": 4,
-    "code": 0,
-    "ms": 90280,
-    "maintenance": false,
-    "mode": "incident",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "incident"
-    ],
-    "title": "База знаний — недоступен",
-    "desc": "- Код ошибки: 0\n- Время отклика: 90280 мс"
-  },
-  {
-    "name": "Служба поддержки",
-    "slug": "server6",
-    "issue_number": 272,
-    "opened": "2026-11-22T01:47:08+00:00",
-    "resolved": "2026-11-22T01:50:44Z",
-    "minutes": 4,
-    "code": 0,
-    "ms": 90285,
-    "maintenance": false,
-    "mode": "incident",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "incident"
-    ],
-    "title": "База знаний — недоступен",
-    "desc": "- Код ошибки: 0\n- Время отклика: 90285 мс"
-  },
-  {
-    "name": "База знаний",
-    "slug": "server2",
-    "issue_number": 273,
-    "opened": "2026-11-22T05:32:27+00:00",
-    "resolved": "2026-11-22T05:35:31Z",
-    "minutes": 3,
-    "code": 0,
-    "ms": 90650,
-    "maintenance": false,
-    "mode": "incident",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "incident"
-    ],
-    "title": "База знаний — недоступен",
-    "desc": "- Код ошибки: 0\n- Время отклика: 90650 мс"
-  },
-  {
-    "name": "Подписка",
-    "slug": "server3",
-    "issue_number": 273,
-    "opened": "2026-11-22T05:32:27+00:00",
-    "resolved": "2026-11-22T05:35:31Z",
-    "minutes": 3,
-    "code": 0,
-    "ms": 90291,
-    "maintenance": false,
-    "mode": "incident",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "incident"
-    ],
-    "title": "База знаний — недоступен",
-    "desc": "- Код ошибки: 0\n- Время отклика: 90291 мс"
-  },
-  {
-    "name": "Москва",
-    "slug": "server7",
-    "issue_number": 273,
-    "opened": "2026-11-22T05:32:27+00:00",
-    "resolved": "2026-11-22T05:35:31Z",
-    "minutes": 3,
-    "code": 0,
-    "ms": 90091,
-    "maintenance": false,
-    "mode": "incident",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "incident"
-    ],
-    "title": "База знаний — недоступен",
-    "desc": "- Код ошибки: 0\n- Время отклика: 90091 мс"
-  },
-  {
-    "name": "Сайт-визитка",
-    "slug": "server1",
-    "issue_number": 273,
-    "opened": "2026-11-22T05:32:27+00:00",
-    "resolved": "2026-11-22T05:35:31Z",
-    "minutes": 3,
-    "code": 0,
-    "ms": 90282,
-    "maintenance": false,
-    "mode": "incident",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "incident"
-    ],
-    "title": "База знаний — недоступен",
-    "desc": "- Код ошибки: 0\n- Время отклика: 90282 мс"
-  },
-  {
-    "name": "Служба поддержки",
-    "slug": "server6",
-    "issue_number": 273,
-    "opened": "2026-11-22T05:32:27+00:00",
-    "resolved": "2026-11-22T05:35:31Z",
-    "minutes": 3,
-    "code": 0,
-    "ms": 90282,
-    "maintenance": false,
-    "mode": "incident",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "incident"
-    ],
-    "title": "База знаний — недоступен",
-    "desc": "- Код ошибки: 0\n- Время отклика: 90282 мс"
-  },
-  {
-    "name": "База знаний",
-    "slug": "server2",
-    "issue_number": 274,
-    "opened": "2026-11-22T22:27:04+00:00",
-    "resolved": "2026-11-22T22:30:57Z",
-    "minutes": 4,
-    "code": 0,
-    "ms": 90282,
-    "maintenance": false,
-    "mode": "incident",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "incident"
-    ],
-    "title": "База знаний — недоступен",
-    "desc": "- Код ошибки: 0\n- Время отклика: 90282 мс"
-  },
-  {
-    "name": "Подписка",
-    "slug": "server3",
-    "issue_number": 274,
-    "opened": "2026-11-22T22:27:04+00:00",
-    "resolved": "2026-11-22T22:30:57Z",
-    "minutes": 4,
-    "code": 0,
-    "ms": 90143,
-    "maintenance": false,
-    "mode": "incident",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "incident"
-    ],
-    "title": "База знаний — недоступен",
-    "desc": "- Код ошибки: 0\n- Время отклика: 90143 мс"
-  },
-  {
-    "name": "Москва",
-    "slug": "server7",
-    "issue_number": 274,
-    "opened": "2026-11-22T22:27:04+00:00",
-    "resolved": "2026-11-22T22:30:57Z",
-    "minutes": 4,
-    "code": 22,
-    "ms": 60248,
-    "maintenance": false,
-    "mode": "incident",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "incident"
-    ],
-    "title": "База знаний — недоступен",
-    "desc": "- Код ошибки: 22\n- Время отклика: 60248 мс"
-  },
-  {
-    "name": "Сайт-визитка",
-    "slug": "server1",
-    "issue_number": 274,
-    "opened": "2026-11-22T22:27:04+00:00",
-    "resolved": "2026-11-22T22:30:57Z",
-    "minutes": 4,
-    "code": 0,
-    "ms": 90272,
-    "maintenance": false,
-    "mode": "incident",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "incident"
-    ],
-    "title": "База знаний — недоступен",
-    "desc": "- Код ошибки: 0\n- Время отклика: 90272 мс"
-  },
-  {
-    "name": "Служба поддержки",
-    "slug": "server6",
-    "issue_number": 274,
-    "opened": "2026-11-22T22:27:04+00:00",
-    "resolved": "2026-11-22T22:30:57Z",
-    "minutes": 4,
-    "code": 200,
-    "ms": 60755,
-    "maintenance": false,
-    "mode": "incident",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "incident"
-    ],
-    "title": "База знаний — недоступен",
-    "desc": "- Код ошибки: 200\n- Время отклика: 60755 мс"
-  },
-  {
-    "name": "База знаний",
-    "slug": "server2",
-    "issue_number": 275,
-    "opened": "2026-11-24T01:36:32+00:00",
-    "resolved": "2026-11-24T01:40:41Z",
-    "minutes": 4,
-    "code": 200,
-    "ms": 61918,
-    "maintenance": false,
-    "mode": "incident",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "incident"
-    ],
-    "title": "База знаний — недоступен",
-    "desc": "- Код ошибки: 200\n- Время отклика: 61918 мс"
-  },
-  {
-    "name": "Подписка",
-    "slug": "server3",
-    "issue_number": 275,
-    "opened": "2026-11-24T01:36:32+00:00",
-    "resolved": "2026-11-24T01:40:41Z",
-    "minutes": 4,
-    "code": 0,
-    "ms": 90257,
-    "maintenance": false,
-    "mode": "incident",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "incident"
-    ],
-    "title": "База знаний — недоступен",
-    "desc": "- Код ошибки: 0\n- Время отклика: 90257 мс"
-  },
-  {
-    "name": "Москва",
-    "slug": "server7",
-    "issue_number": 275,
-    "opened": "2026-11-24T01:36:32+00:00",
-    "resolved": "2026-11-24T01:40:41Z",
-    "minutes": 4,
-    "code": 0,
-    "ms": 90048,
-    "maintenance": false,
-    "mode": "incident",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "incident"
-    ],
-    "title": "База знаний — недоступен",
-    "desc": "- Код ошибки: 0\n- Время отклика: 90048 мс"
-  },
-  {
-    "name": "Сайт-визитка",
-    "slug": "server1",
-    "issue_number": 275,
-    "opened": "2026-11-24T01:36:32+00:00",
-    "resolved": "2026-11-24T01:40:41Z",
-    "minutes": 4,
-    "code": 0,
-    "ms": 90117,
-    "maintenance": false,
-    "mode": "incident",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "incident"
-    ],
-    "title": "База знаний — недоступен",
-    "desc": "- Код ошибки: 0\n- Время отклика: 90117 мс"
-  },
-  {
-    "name": "Служба поддержки",
-    "slug": "server6",
-    "issue_number": 275,
-    "opened": "2026-11-24T01:36:32+00:00",
-    "resolved": "2026-11-24T01:40:41Z",
-    "minutes": 4,
-    "code": 0,
-    "ms": 90289,
-    "maintenance": false,
-    "mode": "incident",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "incident"
-    ],
-    "title": "База знаний — недоступен",
-    "desc": "- Код ошибки: 0\n- Время отклика: 90289 мс"
-  },
-  {
-    "name": "База знаний",
-    "slug": "server2",
-    "issue_number": 276,
-    "opened": "2026-11-24T21:37:09+00:00",
-    "resolved": "2026-11-24T21:40:48Z",
-    "minutes": 4,
-    "code": 0,
-    "ms": 90118,
-    "maintenance": false,
-    "mode": "incident",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "incident"
-    ],
-    "title": "База знаний — недоступен",
-    "desc": "- Код ошибки: 0\n- Время отклика: 90118 мс"
-  },
-  {
-    "name": "Подписка",
-    "slug": "server3",
-    "issue_number": 276,
-    "opened": "2026-11-24T21:37:09+00:00",
-    "resolved": "2026-11-24T21:40:48Z",
-    "minutes": 4,
-    "code": 0,
-    "ms": 90116,
-    "maintenance": false,
-    "mode": "incident",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "incident"
-    ],
-    "title": "База знаний — недоступен",
-    "desc": "- Код ошибки: 0\n- Время отклика: 90116 мс"
-  },
-  {
-    "name": "Москва",
-    "slug": "server7",
-    "issue_number": 276,
-    "opened": "2026-11-24T21:37:09+00:00",
-    "resolved": "2026-11-24T21:40:48Z",
-    "minutes": 4,
-    "code": 22,
-    "ms": 60251,
-    "maintenance": false,
-    "mode": "incident",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "incident"
-    ],
-    "title": "База знаний — недоступен",
-    "desc": "- Код ошибки: 22\n- Время отклика: 60251 мс"
-  },
-  {
-    "name": "Сайт-визитка",
-    "slug": "server1",
-    "issue_number": 276,
-    "opened": "2026-11-24T21:37:09+00:00",
-    "resolved": "2026-11-24T21:40:48Z",
-    "minutes": 4,
-    "code": 0,
-    "ms": 90143,
-    "maintenance": false,
-    "mode": "incident",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "incident"
-    ],
-    "title": "База знаний — недоступен",
-    "desc": "- Код ошибки: 0\n- Время отклика: 90143 мс"
-  },
-  {
-    "name": "Служба поддержки",
-    "slug": "server6",
-    "issue_number": 276,
-    "opened": "2026-11-24T21:37:09+00:00",
-    "resolved": "2026-11-24T21:40:48Z",
-    "minutes": 4,
-    "code": 0,
-    "ms": 90115,
-    "maintenance": false,
-    "mode": "incident",
-    "annulled": false,
-    "hidden": false,
-    "labels": [
-      "incident"
-    ],
-    "title": "База знаний — недоступен",
-    "desc": "- Код ошибки: 0\n- Время отклика: 90115 мс"
-  }
+ {
+  "name": "База знаний",
+  "slug": "server2",
+  "issue_number": 157,
+  "opened": "2026-09-22T12:59:02Z",
+  "resolved": "2026-09-22T13:00:57Z",
+  "minutes": 2,
+  "code": 0,
+  "ms": 90251,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "База знаний — недоступен",
+  "desc": "- Код ошибки: 0\n- Время отклика: 90251 мс"
+ },
+ {
+  "name": "Подписка",
+  "slug": "server3",
+  "issue_number": 158,
+  "opened": "2026-09-22T12:59:04Z",
+  "resolved": "2026-09-22T13:01:01Z",
+  "minutes": 2,
+  "code": 0,
+  "ms": 1340,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "Подписка — недоступен",
+  "desc": "- Код ошибки: 0\n- Время отклика: 1340 мс"
+ },
+ {
+  "name": "Служба поддержки",
+  "slug": "server6",
+  "issue_number": 159,
+  "opened": "2026-09-22T12:59:17Z",
+  "resolved": "2026-09-22T13:01:07Z",
+  "minutes": 2,
+  "code": 0,
+  "ms": 1367,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "Служба поддержки — недоступен",
+  "desc": "- Код ошибки: 0\n- Время отклика: 1367 мс"
+ },
+ {
+  "name": "Сайт-визитка",
+  "slug": "server1",
+  "issue_number": 160,
+  "opened": "2026-09-22T14:04:43Z",
+  "resolved": "2026-09-22T14:04:45Z",
+  "minutes": 1,
+  "code": 0,
+  "ms": 1367,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "Сайт-визитка — недоступен",
+  "desc": "- Код ошибки: 0\n- Время отклика: 1367 мс"
+ },
+ {
+  "name": "2.1 Стокгольм",
+  "slug": "server10",
+  "issue_number": 161,
+  "opened": "2026-09-26T23:45:42Z",
+  "resolved": "2026-09-26T23:48:17Z",
+  "minutes": 3,
+  "code": 0,
+  "ms": 532,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "2.1 Стокгольм — недоступен",
+  "desc": "- Код ошибки: 0\n- Время отклика: 532 мс"
+ },
+ {
+  "name": "1. Стокгольм",
+  "slug": "server4",
+  "issue_number": 162,
+  "opened": "2026-09-27T12:17:01Z",
+  "resolved": "2026-09-27T12:41:45Z",
+  "minutes": 25,
+  "code": 0,
+  "ms": 0,
+  "maintenance": true,
+  "mode": "maintenance",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "maintenance",
+   "rkn"
+  ],
+  "title": "1. Стокгольм — недоступен",
+  "desc": ""
+ },
+ {
+  "name": "1.2 Стокгольм",
+  "slug": "server9",
+  "issue_number": 163,
+  "opened": "2026-09-27T12:18:32Z",
+  "resolved": "2026-09-27T12:41:45Z",
+  "minutes": 23,
+  "code": 0,
+  "ms": 0,
+  "maintenance": true,
+  "mode": "maintenance",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "maintenance",
+   "rkn"
+  ],
+  "title": "1.2 Стокгольм — недоступен",
+  "desc": ""
+ },
+ {
+  "name": "1.1 Стокгольм",
+  "slug": "server8",
+  "issue_number": 164,
+  "opened": "2026-09-27T12:20:12Z",
+  "resolved": "2026-09-27T12:41:45Z",
+  "minutes": 22,
+  "code": 0,
+  "ms": 0,
+  "maintenance": true,
+  "mode": "maintenance",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "maintenance",
+   "rkn"
+  ],
+  "title": "1.1 Стокгольм — недоступен",
+  "desc": ""
+ },
+ {
+  "name": "База знаний",
+  "slug": "server2",
+  "issue_number": 165,
+  "opened": "2026-10-06T20:55:18Z",
+  "resolved": "2026-10-06T21:20:25Z",
+  "minutes": 25,
+  "code": 0,
+  "ms": 1252,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "База знаний — недоступен",
+  "desc": "- Код ошибки: 0\n- Время отклика: 1252 мс"
+ },
+ {
+  "name": "Сайт-визитка",
+  "slug": "server1",
+  "issue_number": 166,
+  "opened": "2026-10-06T20:55:28Z",
+  "resolved": "2026-10-06T21:01:01Z",
+  "minutes": 6,
+  "code": 200,
+  "ms": 1869,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "Сайт-визитка — недоступен",
+  "desc": "- Код ошибки: 200\n- Время отклика: 1869 мс"
+ },
+ {
+  "name": "Подписка",
+  "slug": "server3",
+  "issue_number": 167,
+  "opened": "2026-10-06T21:00:55Z",
+  "resolved": "2026-10-06T21:20:31Z",
+  "minutes": 20,
+  "code": 0,
+  "ms": 1060,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "Подписка — недоступен",
+  "desc": "- Код ошибки: 0\n- Время отклика: 1060 мс"
+ },
+ {
+  "name": "Сайт-визитка",
+  "slug": "server1",
+  "issue_number": 168,
+  "opened": "2026-10-06T21:10:33Z",
+  "resolved": "2026-10-06T21:20:35Z",
+  "minutes": 10,
+  "code": 200,
+  "ms": 2703,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "Сайт-визитка — недоступен",
+  "desc": "- Код ошибки: 200\n- Время отклика: 2703 мс"
+ },
+ {
+  "name": "1.1 Стокгольм",
+  "slug": "server8",
+  "issue_number": 169,
+  "opened": "2026-10-11T11:50:38Z",
+  "resolved": "2026-10-11T11:55:45Z",
+  "minutes": 5,
+  "code": 0,
+  "ms": 0,
+  "maintenance": false,
+  "mode": "hidden",
+  "annulled": false,
+  "hidden": true,
+  "labels": [
+   "annulled",
+   "incident"
+  ],
+  "title": "1.1 Стокгольм — недоступен",
+  "desc": ""
+ },
+ {
+  "name": "🇷🇺 Москва",
+  "slug": "server7",
+  "issue_number": 170,
+  "opened": "2026-10-13T22:05:09Z",
+  "resolved": "2026-10-13T22:27:26Z",
+  "minutes": 22,
+  "code": 0,
+  "ms": 0,
+  "maintenance": true,
+  "mode": "maintenance",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "maintenance"
+  ],
+  "title": "🇷🇺 Москва,🇸🇪 1. Стокгольм,🇸🇪 2. Стокгольм — Плановое обновление инфраструктуры",
+  "desc": ""
+ },
+ {
+  "name": "🇸🇪 1. Стокгольм",
+  "slug": "server4",
+  "issue_number": 170,
+  "opened": "2026-10-13T22:05:09Z",
+  "resolved": "2026-10-13T22:27:26Z",
+  "minutes": 22,
+  "code": 0,
+  "ms": 0,
+  "maintenance": true,
+  "mode": "maintenance",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "maintenance"
+  ],
+  "title": "🇷🇺 Москва,🇸🇪 1. Стокгольм,🇸🇪 2. Стокгольм — Плановое обновление инфраструктуры",
+  "desc": ""
+ },
+ {
+  "name": "🇸🇪 2. Стокгольм",
+  "slug": "server5",
+  "issue_number": 170,
+  "opened": "2026-10-13T22:05:09Z",
+  "resolved": "2026-10-13T22:27:26Z",
+  "minutes": 22,
+  "code": 0,
+  "ms": 0,
+  "maintenance": true,
+  "mode": "maintenance",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "maintenance"
+  ],
+  "title": "🇷🇺 Москва,🇸🇪 1. Стокгольм,🇸🇪 2. Стокгольм — Плановое обновление инфраструктуры",
+  "desc": ""
+ },
+ {
+  "name": "База знаний",
+  "slug": "server2",
+  "issue_number": 170,
+  "opened": "2026-10-13T22:05:09Z",
+  "resolved": "2026-10-13T22:27:26Z",
+  "minutes": 22,
+  "code": 0,
+  "ms": 0,
+  "maintenance": true,
+  "mode": "maintenance",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "maintenance"
+  ],
+  "title": "🇷🇺 Москва,🇸🇪 1. Стокгольм,🇸🇪 2. Стокгольм — Плановое обновление инфраструктуры",
+  "desc": ""
+ },
+ {
+  "name": "Подписка",
+  "slug": "server3",
+  "issue_number": 170,
+  "opened": "2026-10-13T22:05:09Z",
+  "resolved": "2026-10-13T22:27:26Z",
+  "minutes": 22,
+  "code": 0,
+  "ms": 0,
+  "maintenance": true,
+  "mode": "maintenance",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "maintenance"
+  ],
+  "title": "🇷🇺 Москва,🇸🇪 1. Стокгольм,🇸🇪 2. Стокгольм — Плановое обновление инфраструктуры",
+  "desc": ""
+ },
+ {
+  "name": "Сайт-визитка",
+  "slug": "server1",
+  "issue_number": 170,
+  "opened": "2026-10-13T22:05:09Z",
+  "resolved": "2026-10-13T22:27:26Z",
+  "minutes": 22,
+  "code": 0,
+  "ms": 0,
+  "maintenance": true,
+  "mode": "maintenance",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "maintenance"
+  ],
+  "title": "🇷🇺 Москва,🇸🇪 1. Стокгольм,🇸🇪 2. Стокгольм — Плановое обновление инфраструктуры",
+  "desc": ""
+ },
+ {
+  "name": "Служба поддержки",
+  "slug": "server6",
+  "issue_number": 170,
+  "opened": "2026-10-13T22:05:09Z",
+  "resolved": "2026-10-13T22:27:26Z",
+  "minutes": 22,
+  "code": 0,
+  "ms": 0,
+  "maintenance": true,
+  "mode": "maintenance",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "maintenance"
+  ],
+  "title": "🇷🇺 Москва,🇸🇪 1. Стокгольм,🇸🇪 2. Стокгольм — Плановое обновление инфраструктуры",
+  "desc": ""
+ },
+ {
+  "name": "🇸🇪 1.3 Стокгольм",
+  "slug": "server12",
+  "issue_number": 170,
+  "opened": "2026-10-13T22:05:09Z",
+  "resolved": "2026-10-13T22:27:26Z",
+  "minutes": 22,
+  "code": 0,
+  "ms": 0,
+  "maintenance": true,
+  "mode": "maintenance",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "maintenance"
+  ],
+  "title": "🇷🇺 Москва,🇸🇪 1. Стокгольм,🇸🇪 2. Стокгольм — Плановое обновление инфраструктуры",
+  "desc": ""
+ },
+ {
+  "name": "🇸🇪 1.2 Стокгольм",
+  "slug": "server9",
+  "issue_number": 170,
+  "opened": "2026-10-13T22:05:09Z",
+  "resolved": "2026-10-13T22:27:26Z",
+  "minutes": 22,
+  "code": 0,
+  "ms": 0,
+  "maintenance": true,
+  "mode": "maintenance",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "maintenance"
+  ],
+  "title": "🇷🇺 Москва,🇸🇪 1. Стокгольм,🇸🇪 2. Стокгольм — Плановое обновление инфраструктуры",
+  "desc": ""
+ },
+ {
+  "name": "🇸🇪 1.1 Стокгольм",
+  "slug": "server8",
+  "issue_number": 170,
+  "opened": "2026-10-13T22:05:09Z",
+  "resolved": "2026-10-13T22:27:26Z",
+  "minutes": 22,
+  "code": 0,
+  "ms": 0,
+  "maintenance": true,
+  "mode": "maintenance",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "maintenance"
+  ],
+  "title": "🇷🇺 Москва,🇸🇪 1. Стокгольм,🇸🇪 2. Стокгольм — Плановое обновление инфраструктуры",
+  "desc": ""
+ },
+ {
+  "name": "🇸🇪 2.2 Стокгольм",
+  "slug": "server11",
+  "issue_number": 170,
+  "opened": "2026-10-13T22:05:09Z",
+  "resolved": "2026-10-13T22:27:26Z",
+  "minutes": 22,
+  "code": 0,
+  "ms": 0,
+  "maintenance": true,
+  "mode": "maintenance",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "maintenance"
+  ],
+  "title": "🇷🇺 Москва,🇸🇪 1. Стокгольм,🇸🇪 2. Стокгольм — Плановое обновление инфраструктуры",
+  "desc": ""
+ },
+ {
+  "name": "🇸🇪 2.3 Стокгольм",
+  "slug": "server13",
+  "issue_number": 170,
+  "opened": "2026-10-13T22:05:09Z",
+  "resolved": "2026-10-13T22:27:26Z",
+  "minutes": 22,
+  "code": 0,
+  "ms": 0,
+  "maintenance": true,
+  "mode": "maintenance",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "maintenance"
+  ],
+  "title": "🇷🇺 Москва,🇸🇪 1. Стокгольм,🇸🇪 2. Стокгольм — Плановое обновление инфраструктуры",
+  "desc": ""
+ },
+ {
+  "name": "🇸🇪 2.1 Стокгольм",
+  "slug": "server10",
+  "issue_number": 170,
+  "opened": "2026-10-13T22:05:09Z",
+  "resolved": "2026-10-13T22:27:26Z",
+  "minutes": 22,
+  "code": 0,
+  "ms": 0,
+  "maintenance": true,
+  "mode": "maintenance",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "maintenance"
+  ],
+  "title": "🇷🇺 Москва,🇸🇪 1. Стокгольм,🇸🇪 2. Стокгольм — Плановое обновление инфраструктуры",
+  "desc": ""
+ },
+ {
+  "name": "🇸🇪 1. Стокгольм",
+  "slug": "server4",
+  "issue_number": 172,
+  "opened": "2026-10-17T12:12:54Z",
+  "resolved": "2026-10-17T12:28:03Z",
+  "minutes": 15,
+  "code": 0,
+  "ms": 0,
+  "maintenance": true,
+  "mode": "maintenance",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "maintenance"
+  ],
+  "title": "🇸🇪 1. Стокгольм,🇸🇪 2. Стокгольм — Резервируем новый свободный порт",
+  "desc": ""
+ },
+ {
+  "name": "🇸🇪 2. Стокгольм",
+  "slug": "server5",
+  "issue_number": 172,
+  "opened": "2026-10-17T12:12:54Z",
+  "resolved": "2026-10-17T12:28:03Z",
+  "minutes": 15,
+  "code": 0,
+  "ms": 0,
+  "maintenance": true,
+  "mode": "maintenance",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "maintenance"
+  ],
+  "title": "🇸🇪 1. Стокгольм,🇸🇪 2. Стокгольм — Резервируем новый свободный порт",
+  "desc": ""
+ },
+ {
+  "name": "🇸🇪 1.3 Стокгольм",
+  "slug": "server12",
+  "issue_number": 172,
+  "opened": "2026-10-17T12:12:54Z",
+  "resolved": "2026-10-17T12:28:03Z",
+  "minutes": 15,
+  "code": 0,
+  "ms": 0,
+  "maintenance": true,
+  "mode": "maintenance",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "maintenance"
+  ],
+  "title": "🇸🇪 1. Стокгольм,🇸🇪 2. Стокгольм — Резервируем новый свободный порт",
+  "desc": ""
+ },
+ {
+  "name": "🇸🇪 1.2 Стокгольм",
+  "slug": "server9",
+  "issue_number": 172,
+  "opened": "2026-10-17T12:12:54Z",
+  "resolved": "2026-10-17T12:28:03Z",
+  "minutes": 15,
+  "code": 0,
+  "ms": 0,
+  "maintenance": true,
+  "mode": "maintenance",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "maintenance"
+  ],
+  "title": "🇸🇪 1. Стокгольм,🇸🇪 2. Стокгольм — Резервируем новый свободный порт",
+  "desc": ""
+ },
+ {
+  "name": "🇸🇪 1.1 Стокгольм",
+  "slug": "server8",
+  "issue_number": 172,
+  "opened": "2026-10-17T12:12:54Z",
+  "resolved": "2026-10-17T12:28:03Z",
+  "minutes": 15,
+  "code": 0,
+  "ms": 0,
+  "maintenance": true,
+  "mode": "maintenance",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "maintenance"
+  ],
+  "title": "🇸🇪 1. Стокгольм,🇸🇪 2. Стокгольм — Резервируем новый свободный порт",
+  "desc": ""
+ },
+ {
+  "name": "🇸🇪 2.2 Стокгольм",
+  "slug": "server11",
+  "issue_number": 172,
+  "opened": "2026-10-17T12:12:54Z",
+  "resolved": "2026-10-17T12:28:03Z",
+  "minutes": 15,
+  "code": 0,
+  "ms": 0,
+  "maintenance": true,
+  "mode": "maintenance",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "maintenance"
+  ],
+  "title": "🇸🇪 1. Стокгольм,🇸🇪 2. Стокгольм — Резервируем новый свободный порт",
+  "desc": ""
+ },
+ {
+  "name": "🇸🇪 2.3 Стокгольм",
+  "slug": "server13",
+  "issue_number": 172,
+  "opened": "2026-10-17T12:12:54Z",
+  "resolved": "2026-10-17T12:28:03Z",
+  "minutes": 15,
+  "code": 0,
+  "ms": 0,
+  "maintenance": true,
+  "mode": "maintenance",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "maintenance"
+  ],
+  "title": "🇸🇪 1. Стокгольм,🇸🇪 2. Стокгольм — Резервируем новый свободный порт",
+  "desc": ""
+ },
+ {
+  "name": "🇸🇪 2.1 Стокгольм",
+  "slug": "server10",
+  "issue_number": 172,
+  "opened": "2026-10-17T12:12:54Z",
+  "resolved": "2026-10-17T12:28:03Z",
+  "minutes": 15,
+  "code": 0,
+  "ms": 0,
+  "maintenance": true,
+  "mode": "maintenance",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "maintenance"
+  ],
+  "title": "🇸🇪 1. Стокгольм,🇸🇪 2. Стокгольм — Резервируем новый свободный порт",
+  "desc": ""
+ },
+ {
+  "name": "🇸🇪 1. Стокгольм",
+  "slug": "server4",
+  "issue_number": 173,
+  "opened": "2026-10-21T20:03:51Z",
+  "resolved": "2026-10-21T20:16:26Z",
+  "minutes": 13,
+  "code": 0,
+  "ms": 0,
+  "maintenance": true,
+  "mode": "maintenance",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "maintenance"
+  ],
+  "title": "🇸🇪 1. Стокгольм,🇸🇪 2. Стокгольм — Плановое обновление маршрутизации",
+  "desc": ""
+ },
+ {
+  "name": "🇸🇪 2. Стокгольм",
+  "slug": "server5",
+  "issue_number": 173,
+  "opened": "2026-10-21T20:03:51Z",
+  "resolved": "2026-10-21T20:16:26Z",
+  "minutes": 13,
+  "code": 0,
+  "ms": 0,
+  "maintenance": true,
+  "mode": "maintenance",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "maintenance"
+  ],
+  "title": "🇸🇪 1. Стокгольм,🇸🇪 2. Стокгольм — Плановое обновление маршрутизации",
+  "desc": ""
+ },
+ {
+  "name": "🇸🇪 1.3 Стокгольм",
+  "slug": "server12",
+  "issue_number": 173,
+  "opened": "2026-10-21T20:03:51Z",
+  "resolved": "2026-10-21T20:16:26Z",
+  "minutes": 13,
+  "code": 0,
+  "ms": 0,
+  "maintenance": true,
+  "mode": "maintenance",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "maintenance"
+  ],
+  "title": "🇸🇪 1. Стокгольм,🇸🇪 2. Стокгольм — Плановое обновление маршрутизации",
+  "desc": ""
+ },
+ {
+  "name": "🇸🇪 1.2 Стокгольм",
+  "slug": "server9",
+  "issue_number": 173,
+  "opened": "2026-10-21T20:03:51Z",
+  "resolved": "2026-10-21T20:16:26Z",
+  "minutes": 13,
+  "code": 0,
+  "ms": 0,
+  "maintenance": true,
+  "mode": "maintenance",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "maintenance"
+  ],
+  "title": "🇸🇪 1. Стокгольм,🇸🇪 2. Стокгольм — Плановое обновление маршрутизации",
+  "desc": ""
+ },
+ {
+  "name": "🇸🇪 1.1 Стокгольм",
+  "slug": "server8",
+  "issue_number": 173,
+  "opened": "2026-10-21T20:03:51Z",
+  "resolved": "2026-10-21T20:16:26Z",
+  "minutes": 13,
+  "code": 0,
+  "ms": 0,
+  "maintenance": true,
+  "mode": "maintenance",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "maintenance"
+  ],
+  "title": "🇸🇪 1. Стокгольм,🇸🇪 2. Стокгольм — Плановое обновление маршрутизации",
+  "desc": ""
+ },
+ {
+  "name": "🇸🇪 2.2 Стокгольм",
+  "slug": "server11",
+  "issue_number": 173,
+  "opened": "2026-10-21T20:03:51Z",
+  "resolved": "2026-10-21T20:16:26Z",
+  "minutes": 13,
+  "code": 0,
+  "ms": 0,
+  "maintenance": true,
+  "mode": "maintenance",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "maintenance"
+  ],
+  "title": "🇸🇪 1. Стокгольм,🇸🇪 2. Стокгольм — Плановое обновление маршрутизации",
+  "desc": ""
+ },
+ {
+  "name": "🇸🇪 2.3 Стокгольм",
+  "slug": "server13",
+  "issue_number": 173,
+  "opened": "2026-10-21T20:03:51Z",
+  "resolved": "2026-10-21T20:16:26Z",
+  "minutes": 13,
+  "code": 0,
+  "ms": 0,
+  "maintenance": true,
+  "mode": "maintenance",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "maintenance"
+  ],
+  "title": "🇸🇪 1. Стокгольм,🇸🇪 2. Стокгольм — Плановое обновление маршрутизации",
+  "desc": ""
+ },
+ {
+  "name": "🇸🇪 2.1 Стокгольм",
+  "slug": "server10",
+  "issue_number": 173,
+  "opened": "2026-10-21T20:03:51Z",
+  "resolved": "2026-10-21T20:16:26Z",
+  "minutes": 13,
+  "code": 0,
+  "ms": 0,
+  "maintenance": true,
+  "mode": "maintenance",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "maintenance"
+  ],
+  "title": "🇸🇪 1. Стокгольм,🇸🇪 2. Стокгольм — Плановое обновление маршрутизации",
+  "desc": ""
+ },
+ {
+  "name": "🇸🇪 2. Стокгольм",
+  "slug": "server5",
+  "issue_number": 174,
+  "opened": "2026-10-25T19:52:29Z",
+  "resolved": "2026-10-25T20:14:27Z",
+  "minutes": 22,
+  "code": 0,
+  "ms": 0,
+  "maintenance": true,
+  "mode": "maintenance",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "maintenance"
+  ],
+  "title": "🇸🇪 2. Стокгольм,🇸🇪 1. Стокгольм,🇷🇺 Москва — Плановое обновление инфраструктуры",
+  "desc": ""
+ },
+ {
+  "name": "🇸🇪 1. Стокгольм",
+  "slug": "server4",
+  "issue_number": 174,
+  "opened": "2026-10-25T19:52:29Z",
+  "resolved": "2026-10-25T20:14:27Z",
+  "minutes": 22,
+  "code": 0,
+  "ms": 0,
+  "maintenance": true,
+  "mode": "maintenance",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "maintenance"
+  ],
+  "title": "🇸🇪 2. Стокгольм,🇸🇪 1. Стокгольм,🇷🇺 Москва — Плановое обновление инфраструктуры",
+  "desc": ""
+ },
+ {
+  "name": "🇷🇺 Москва",
+  "slug": "server7",
+  "issue_number": 174,
+  "opened": "2026-10-25T19:52:29Z",
+  "resolved": "2026-10-25T20:14:27Z",
+  "minutes": 22,
+  "code": 0,
+  "ms": 0,
+  "maintenance": true,
+  "mode": "maintenance",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "maintenance"
+  ],
+  "title": "🇸🇪 2. Стокгольм,🇸🇪 1. Стокгольм,🇷🇺 Москва — Плановое обновление инфраструктуры",
+  "desc": ""
+ },
+ {
+  "name": "🇸🇪 2.2 Стокгольм",
+  "slug": "server11",
+  "issue_number": 174,
+  "opened": "2026-10-25T19:52:29Z",
+  "resolved": "2026-10-25T20:14:27Z",
+  "minutes": 22,
+  "code": 0,
+  "ms": 0,
+  "maintenance": true,
+  "mode": "maintenance",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "maintenance"
+  ],
+  "title": "🇸🇪 2. Стокгольм,🇸🇪 1. Стокгольм,🇷🇺 Москва — Плановое обновление инфраструктуры",
+  "desc": ""
+ },
+ {
+  "name": "🇸🇪 2.3 Стокгольм",
+  "slug": "server13",
+  "issue_number": 174,
+  "opened": "2026-10-25T19:52:29Z",
+  "resolved": "2026-10-25T20:14:27Z",
+  "minutes": 22,
+  "code": 0,
+  "ms": 0,
+  "maintenance": true,
+  "mode": "maintenance",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "maintenance"
+  ],
+  "title": "🇸🇪 2. Стокгольм,🇸🇪 1. Стокгольм,🇷🇺 Москва — Плановое обновление инфраструктуры",
+  "desc": ""
+ },
+ {
+  "name": "🇸🇪 2.1 Стокгольм",
+  "slug": "server10",
+  "issue_number": 174,
+  "opened": "2026-10-25T19:52:29Z",
+  "resolved": "2026-10-25T20:14:27Z",
+  "minutes": 22,
+  "code": 0,
+  "ms": 0,
+  "maintenance": true,
+  "mode": "maintenance",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "maintenance"
+  ],
+  "title": "🇸🇪 2. Стокгольм,🇸🇪 1. Стокгольм,🇷🇺 Москва — Плановое обновление инфраструктуры",
+  "desc": ""
+ },
+ {
+  "name": "🇸🇪 1.3 Стокгольм",
+  "slug": "server12",
+  "issue_number": 174,
+  "opened": "2026-10-25T19:52:29Z",
+  "resolved": "2026-10-25T20:14:27Z",
+  "minutes": 22,
+  "code": 0,
+  "ms": 0,
+  "maintenance": true,
+  "mode": "maintenance",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "maintenance"
+  ],
+  "title": "🇸🇪 2. Стокгольм,🇸🇪 1. Стокгольм,🇷🇺 Москва — Плановое обновление инфраструктуры",
+  "desc": ""
+ },
+ {
+  "name": "🇸🇪 1.2 Стокгольм",
+  "slug": "server9",
+  "issue_number": 174,
+  "opened": "2026-10-25T19:52:29Z",
+  "resolved": "2026-10-25T20:14:27Z",
+  "minutes": 22,
+  "code": 0,
+  "ms": 0,
+  "maintenance": true,
+  "mode": "maintenance",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "maintenance"
+  ],
+  "title": "🇸🇪 2. Стокгольм,🇸🇪 1. Стокгольм,🇷🇺 Москва — Плановое обновление инфраструктуры",
+  "desc": ""
+ },
+ {
+  "name": "🇸🇪 1.1 Стокгольм",
+  "slug": "server8",
+  "issue_number": 174,
+  "opened": "2026-10-25T19:52:29Z",
+  "resolved": "2026-10-25T20:14:27Z",
+  "minutes": 22,
+  "code": 0,
+  "ms": 0,
+  "maintenance": true,
+  "mode": "maintenance",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "maintenance"
+  ],
+  "title": "🇸🇪 2. Стокгольм,🇸🇪 1. Стокгольм,🇷🇺 Москва — Плановое обновление инфраструктуры",
+  "desc": ""
+ },
+ {
+  "name": "База знаний",
+  "slug": "server2",
+  "issue_number": 174,
+  "opened": "2026-10-25T19:52:29Z",
+  "resolved": "2026-10-25T20:14:27Z",
+  "minutes": 22,
+  "code": 0,
+  "ms": 0,
+  "maintenance": true,
+  "mode": "maintenance",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "maintenance"
+  ],
+  "title": "🇸🇪 2. Стокгольм,🇸🇪 1. Стокгольм,🇷🇺 Москва — Плановое обновление инфраструктуры",
+  "desc": ""
+ },
+ {
+  "name": "Подписка",
+  "slug": "server3",
+  "issue_number": 174,
+  "opened": "2026-10-25T19:52:29Z",
+  "resolved": "2026-10-25T20:14:27Z",
+  "minutes": 22,
+  "code": 0,
+  "ms": 0,
+  "maintenance": true,
+  "mode": "maintenance",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "maintenance"
+  ],
+  "title": "🇸🇪 2. Стокгольм,🇸🇪 1. Стокгольм,🇷🇺 Москва — Плановое обновление инфраструктуры",
+  "desc": ""
+ },
+ {
+  "name": "Сайт-визитка",
+  "slug": "server1",
+  "issue_number": 174,
+  "opened": "2026-10-25T19:52:29Z",
+  "resolved": "2026-10-25T20:14:27Z",
+  "minutes": 22,
+  "code": 0,
+  "ms": 0,
+  "maintenance": true,
+  "mode": "maintenance",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "maintenance"
+  ],
+  "title": "🇸🇪 2. Стокгольм,🇸🇪 1. Стокгольм,🇷🇺 Москва — Плановое обновление инфраструктуры",
+  "desc": ""
+ },
+ {
+  "name": "Служба поддержки",
+  "slug": "server6",
+  "issue_number": 174,
+  "opened": "2026-10-25T19:52:29Z",
+  "resolved": "2026-10-25T20:14:27Z",
+  "minutes": 22,
+  "code": 0,
+  "ms": 0,
+  "maintenance": true,
+  "mode": "maintenance",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "maintenance"
+  ],
+  "title": "🇸🇪 2. Стокгольм,🇸🇪 1. Стокгольм,🇷🇺 Москва — Плановое обновление инфраструктуры",
+  "desc": ""
+ },
+ {
+  "name": "1.3 Стокгольм",
+  "slug": "server12",
+  "issue_number": 175,
+  "opened": "2026-10-26T19:16:38Z",
+  "resolved": "2026-10-26T19:21:03Z",
+  "minutes": 4,
+  "code": 400,
+  "ms": 67135,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "1.3 Стокгольм — недоступен",
+  "desc": "- Код ошибки: 400\n- Время отклика: 67135 мс"
+ },
+ {
+  "name": "1.2 Стокгольм",
+  "slug": "server9",
+  "issue_number": 176,
+  "opened": "2026-10-26T19:32:54Z",
+  "resolved": "2026-10-26T19:36:35Z",
+  "minutes": 4,
+  "code": 400,
+  "ms": 69497,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "1.2 Стокгольм — недоступен",
+  "desc": "- Код ошибки: 400\n- Время отклика: 69497 мс"
+ },
+ {
+  "name": "1.3 Стокгольм",
+  "slug": "server12",
+  "issue_number": 177,
+  "opened": "2026-10-30T16:27:22Z",
+  "resolved": "2026-10-30T16:35:24Z",
+  "minutes": 8,
+  "code": 400,
+  "ms": 63791,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "1.3 Стокгольм — недоступен",
+  "desc": "- Код ошибки: 400\n- Время отклика: 63791 мс"
+ },
+ {
+  "name": "1.3 Стокгольм",
+  "slug": "server12",
+  "issue_number": 178,
+  "opened": "2026-11-01T13:51:39Z",
+  "resolved": "2026-11-01T13:55:21Z",
+  "minutes": 4,
+  "code": 400,
+  "ms": 73416,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "1.3 Стокгольм — недоступен",
+  "desc": "- Код ошибки: 400\n- Время отклика: 73416 мс"
+ },
+ {
+  "name": "🇸🇪 1. Стокгольм",
+  "slug": "server4",
+  "issue_number": 179,
+  "opened": "2026-11-03T14:45:00Z",
+  "resolved": "2026-11-03T15:04:14Z",
+  "minutes": 19,
+  "code": 0,
+  "ms": 0,
+  "maintenance": true,
+  "mode": "maintenance",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "maintenance"
+  ],
+  "title": "🇸🇪 1. Стокгольм — Внеплановое обновление в связи с активностью РКН",
+  "desc": ""
+ },
+ {
+  "name": "🇸🇪 1.3 Стокгольм",
+  "slug": "server12",
+  "issue_number": 179,
+  "opened": "2026-11-03T14:45:00Z",
+  "resolved": "2026-11-03T15:04:14Z",
+  "minutes": 19,
+  "code": 0,
+  "ms": 0,
+  "maintenance": true,
+  "mode": "maintenance",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "maintenance"
+  ],
+  "title": "🇸🇪 1. Стокгольм — Внеплановое обновление в связи с активностью РКН",
+  "desc": ""
+ },
+ {
+  "name": "🇸🇪 1.2 Стокгольм",
+  "slug": "server9",
+  "issue_number": 179,
+  "opened": "2026-11-03T14:45:00Z",
+  "resolved": "2026-11-03T15:04:14Z",
+  "minutes": 19,
+  "code": 0,
+  "ms": 0,
+  "maintenance": true,
+  "mode": "maintenance",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "maintenance"
+  ],
+  "title": "🇸🇪 1. Стокгольм — Внеплановое обновление в связи с активностью РКН",
+  "desc": ""
+ },
+ {
+  "name": "🇸🇪 1.1 Стокгольм",
+  "slug": "server8",
+  "issue_number": 179,
+  "opened": "2026-11-03T14:45:00Z",
+  "resolved": "2026-11-03T15:04:14Z",
+  "minutes": 19,
+  "code": 0,
+  "ms": 0,
+  "maintenance": true,
+  "mode": "maintenance",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "maintenance"
+  ],
+  "title": "🇸🇪 1. Стокгольм — Внеплановое обновление в связи с активностью РКН",
+  "desc": ""
+ },
+ {
+  "name": "2.1 Стокгольм",
+  "slug": "server10",
+  "issue_number": 180,
+  "opened": "2026-11-05T16:28:14Z",
+  "resolved": "2026-11-05T16:31:20Z",
+  "minutes": 3,
+  "code": 0,
+  "ms": 0,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "2.1 Стокгольм — недоступен",
+  "desc": "- Код ошибки: 0\n- Время отклика: 0 мс"
+ },
+ {
+  "name": "🇸🇪 1. Стокгольм",
+  "slug": "server4",
+  "issue_number": 181,
+  "opened": "2026-11-06T18:47:05Z",
+  "resolved": "2026-11-06T18:48:35Z",
+  "minutes": 2,
+  "code": 0,
+  "ms": 0,
+  "maintenance": true,
+  "mode": "maintenance",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "maintenance"
+  ],
+  "title": "🇸🇪 1. Стокгольм  — Плановое обновление сервера",
+  "desc": ""
+ },
+ {
+  "name": "🇸🇪 1.3 Стокгольм",
+  "slug": "server12",
+  "issue_number": 181,
+  "opened": "2026-11-06T18:47:05Z",
+  "resolved": "2026-11-06T18:48:35Z",
+  "minutes": 2,
+  "code": 0,
+  "ms": 0,
+  "maintenance": true,
+  "mode": "maintenance",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "maintenance"
+  ],
+  "title": "🇸🇪 1. Стокгольм  — Плановое обновление сервера",
+  "desc": ""
+ },
+ {
+  "name": "🇸🇪 1.2 Стокгольм",
+  "slug": "server9",
+  "issue_number": 181,
+  "opened": "2026-11-06T18:47:05Z",
+  "resolved": "2026-11-06T18:48:35Z",
+  "minutes": 2,
+  "code": 0,
+  "ms": 0,
+  "maintenance": true,
+  "mode": "maintenance",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "maintenance"
+  ],
+  "title": "🇸🇪 1. Стокгольм  — Плановое обновление сервера",
+  "desc": ""
+ },
+ {
+  "name": "🇸🇪 1.1 Стокгольм",
+  "slug": "server8",
+  "issue_number": 181,
+  "opened": "2026-11-06T18:47:05Z",
+  "resolved": "2026-11-06T18:48:35Z",
+  "minutes": 2,
+  "code": 0,
+  "ms": 0,
+  "maintenance": true,
+  "mode": "maintenance",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "maintenance"
+  ],
+  "title": "🇸🇪 1. Стокгольм  — Плановое обновление сервера",
+  "desc": ""
+ },
+ {
+  "name": "🇸🇪 2. Стокгольм",
+  "slug": "server5",
+  "issue_number": 182,
+  "opened": "2026-11-08T20:57:44Z",
+  "resolved": "2026-11-08T21:04:30Z",
+  "minutes": 7,
+  "code": 0,
+  "ms": 0,
+  "maintenance": true,
+  "mode": "maintenance",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "maintenance"
+  ],
+  "title": "🇸🇪 2. Стокгольм,🇸🇪 1. Стокгольм — Плановое обновление сервера",
+  "desc": ""
+ },
+ {
+  "name": "🇸🇪 1. Стокгольм",
+  "slug": "server4",
+  "issue_number": 182,
+  "opened": "2026-11-08T20:57:44Z",
+  "resolved": "2026-11-08T21:04:30Z",
+  "minutes": 7,
+  "code": 0,
+  "ms": 0,
+  "maintenance": true,
+  "mode": "maintenance",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "maintenance"
+  ],
+  "title": "🇸🇪 2. Стокгольм,🇸🇪 1. Стокгольм — Плановое обновление сервера",
+  "desc": ""
+ },
+ {
+  "name": "🇸🇪 2.2 Стокгольм",
+  "slug": "server11",
+  "issue_number": 182,
+  "opened": "2026-11-08T20:57:44Z",
+  "resolved": "2026-11-08T21:04:30Z",
+  "minutes": 7,
+  "code": 0,
+  "ms": 0,
+  "maintenance": true,
+  "mode": "maintenance",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "maintenance"
+  ],
+  "title": "🇸🇪 2. Стокгольм,🇸🇪 1. Стокгольм — Плановое обновление сервера",
+  "desc": ""
+ },
+ {
+  "name": "🇸🇪 2.3 Стокгольм",
+  "slug": "server13",
+  "issue_number": 182,
+  "opened": "2026-11-08T20:57:44Z",
+  "resolved": "2026-11-08T21:04:30Z",
+  "minutes": 7,
+  "code": 0,
+  "ms": 0,
+  "maintenance": true,
+  "mode": "maintenance",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "maintenance"
+  ],
+  "title": "🇸🇪 2. Стокгольм,🇸🇪 1. Стокгольм — Плановое обновление сервера",
+  "desc": ""
+ },
+ {
+  "name": "🇸🇪 2.1 Стокгольм",
+  "slug": "server10",
+  "issue_number": 182,
+  "opened": "2026-11-08T20:57:44Z",
+  "resolved": "2026-11-08T21:04:30Z",
+  "minutes": 7,
+  "code": 0,
+  "ms": 0,
+  "maintenance": true,
+  "mode": "maintenance",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "maintenance"
+  ],
+  "title": "🇸🇪 2. Стокгольм,🇸🇪 1. Стокгольм — Плановое обновление сервера",
+  "desc": ""
+ },
+ {
+  "name": "🇸🇪 1.3 Стокгольм",
+  "slug": "server12",
+  "issue_number": 182,
+  "opened": "2026-11-08T20:57:44Z",
+  "resolved": "2026-11-08T21:04:30Z",
+  "minutes": 7,
+  "code": 0,
+  "ms": 0,
+  "maintenance": true,
+  "mode": "maintenance",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "maintenance"
+  ],
+  "title": "🇸🇪 2. Стокгольм,🇸🇪 1. Стокгольм — Плановое обновление сервера",
+  "desc": ""
+ },
+ {
+  "name": "🇸🇪 1.2 Стокгольм",
+  "slug": "server9",
+  "issue_number": 182,
+  "opened": "2026-11-08T20:57:44Z",
+  "resolved": "2026-11-08T21:04:30Z",
+  "minutes": 7,
+  "code": 0,
+  "ms": 0,
+  "maintenance": true,
+  "mode": "maintenance",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "maintenance"
+  ],
+  "title": "🇸🇪 2. Стокгольм,🇸🇪 1. Стокгольм — Плановое обновление сервера",
+  "desc": ""
+ },
+ {
+  "name": "🇸🇪 1.1 Стокгольм",
+  "slug": "server8",
+  "issue_number": 182,
+  "opened": "2026-11-08T20:57:44Z",
+  "resolved": "2026-11-08T21:04:30Z",
+  "minutes": 7,
+  "code": 0,
+  "ms": 0,
+  "maintenance": true,
+  "mode": "maintenance",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "maintenance"
+  ],
+  "title": "🇸🇪 2. Стокгольм,🇸🇪 1. Стокгольм — Плановое обновление сервера",
+  "desc": ""
+ },
+ {
+  "name": "🇸🇪 2. Стокгольм",
+  "slug": "server5",
+  "issue_number": 183,
+  "opened": "2026-11-14T21:13:56Z",
+  "resolved": "2026-11-14T21:20:41Z",
+  "labels": [
+   "maintenance"
+  ],
+  "minutes": 7,
+  "code": 0,
+  "ms": 0,
+  "maintenance": true,
+  "mode": "maintenance",
+  "annulled": false,
+  "hidden": false,
+  "title": "🇸🇪 2. Стокгольм,🇸🇪 1. Стокгольм,🇷🇺 Москва — Бесшовное обновление инфраструктуры",
+  "desc": ""
+ },
+ {
+  "name": "🇸🇪 1. Стокгольм",
+  "slug": "server4",
+  "issue_number": 183,
+  "opened": "2026-11-14T21:13:56Z",
+  "resolved": "2026-11-14T21:20:41Z",
+  "labels": [
+   "maintenance"
+  ],
+  "minutes": 7,
+  "code": 0,
+  "ms": 0,
+  "maintenance": true,
+  "mode": "maintenance",
+  "annulled": false,
+  "hidden": false,
+  "title": "🇸🇪 2. Стокгольм,🇸🇪 1. Стокгольм,🇷🇺 Москва — Бесшовное обновление инфраструктуры",
+  "desc": ""
+ },
+ {
+  "name": "🇷🇺 Москва",
+  "slug": "server7",
+  "issue_number": 183,
+  "opened": "2026-11-14T21:13:56Z",
+  "resolved": "2026-11-14T21:20:41Z",
+  "labels": [
+   "maintenance"
+  ],
+  "minutes": 7,
+  "code": 0,
+  "ms": 0,
+  "maintenance": true,
+  "mode": "maintenance",
+  "annulled": false,
+  "hidden": false,
+  "title": "🇸🇪 2. Стокгольм,🇸🇪 1. Стокгольм,🇷🇺 Москва — Бесшовное обновление инфраструктуры",
+  "desc": ""
+ },
+ {
+  "name": "🇸🇪 2.2 Стокгольм",
+  "slug": "server11",
+  "issue_number": 183,
+  "opened": "2026-11-14T21:13:56Z",
+  "resolved": "2026-11-14T21:20:41Z",
+  "labels": [
+   "maintenance"
+  ],
+  "minutes": 7,
+  "code": 0,
+  "ms": 0,
+  "maintenance": true,
+  "mode": "maintenance",
+  "annulled": false,
+  "hidden": false,
+  "title": "🇸🇪 2. Стокгольм,🇸🇪 1. Стокгольм,🇷🇺 Москва — Бесшовное обновление инфраструктуры",
+  "desc": ""
+ },
+ {
+  "name": "🇸🇪 2.3 Стокгольм",
+  "slug": "server13",
+  "issue_number": 183,
+  "opened": "2026-11-14T21:13:56Z",
+  "resolved": "2026-11-14T21:20:41Z",
+  "labels": [
+   "maintenance"
+  ],
+  "minutes": 7,
+  "code": 0,
+  "ms": 0,
+  "maintenance": true,
+  "mode": "maintenance",
+  "annulled": false,
+  "hidden": false,
+  "title": "🇸🇪 2. Стокгольм,🇸🇪 1. Стокгольм,🇷🇺 Москва — Бесшовное обновление инфраструктуры",
+  "desc": ""
+ },
+ {
+  "name": "🇸🇪 2.1 Стокгольм",
+  "slug": "server10",
+  "issue_number": 183,
+  "opened": "2026-11-14T21:13:56Z",
+  "resolved": "2026-11-14T21:20:41Z",
+  "labels": [
+   "maintenance"
+  ],
+  "minutes": 7,
+  "code": 0,
+  "ms": 0,
+  "maintenance": true,
+  "mode": "maintenance",
+  "annulled": false,
+  "hidden": false,
+  "title": "🇸🇪 2. Стокгольм,🇸🇪 1. Стокгольм,🇷🇺 Москва — Бесшовное обновление инфраструктуры",
+  "desc": ""
+ },
+ {
+  "name": "🇸🇪 1.3 Стокгольм",
+  "slug": "server12",
+  "issue_number": 183,
+  "opened": "2026-11-14T21:13:56Z",
+  "resolved": "2026-11-14T21:20:41Z",
+  "labels": [
+   "maintenance"
+  ],
+  "minutes": 7,
+  "code": 0,
+  "ms": 0,
+  "maintenance": true,
+  "mode": "maintenance",
+  "annulled": false,
+  "hidden": false,
+  "title": "🇸🇪 2. Стокгольм,🇸🇪 1. Стокгольм,🇷🇺 Москва — Бесшовное обновление инфраструктуры",
+  "desc": ""
+ },
+ {
+  "name": "🇸🇪 1.2 Стокгольм",
+  "slug": "server9",
+  "issue_number": 183,
+  "opened": "2026-11-14T21:13:56Z",
+  "resolved": "2026-11-14T21:20:41Z",
+  "labels": [
+   "maintenance"
+  ],
+  "minutes": 7,
+  "code": 0,
+  "ms": 0,
+  "maintenance": true,
+  "mode": "maintenance",
+  "annulled": false,
+  "hidden": false,
+  "title": "🇸🇪 2. Стокгольм,🇸🇪 1. Стокгольм,🇷🇺 Москва — Бесшовное обновление инфраструктуры",
+  "desc": ""
+ },
+ {
+  "name": "🇸🇪 1.1 Стокгольм",
+  "slug": "server8",
+  "issue_number": 183,
+  "opened": "2026-11-14T21:13:56Z",
+  "resolved": "2026-11-14T21:20:41Z",
+  "labels": [
+   "maintenance"
+  ],
+  "minutes": 7,
+  "code": 0,
+  "ms": 0,
+  "maintenance": true,
+  "mode": "maintenance",
+  "annulled": false,
+  "hidden": false,
+  "title": "🇸🇪 2. Стокгольм,🇸🇪 1. Стокгольм,🇷🇺 Москва — Бесшовное обновление инфраструктуры",
+  "desc": ""
+ },
+ {
+  "name": "База знаний",
+  "slug": "server2",
+  "issue_number": 183,
+  "opened": "2026-11-14T21:13:56Z",
+  "resolved": "2026-11-14T21:20:41Z",
+  "labels": [
+   "maintenance"
+  ],
+  "minutes": 7,
+  "code": 0,
+  "ms": 0,
+  "maintenance": true,
+  "mode": "maintenance",
+  "annulled": false,
+  "hidden": false,
+  "title": "🇸🇪 2. Стокгольм,🇸🇪 1. Стокгольм,🇷🇺 Москва — Бесшовное обновление инфраструктуры",
+  "desc": ""
+ },
+ {
+  "name": "Подписка",
+  "slug": "server3",
+  "issue_number": 183,
+  "opened": "2026-11-14T21:13:56Z",
+  "resolved": "2026-11-14T21:20:41Z",
+  "labels": [
+   "maintenance"
+  ],
+  "minutes": 7,
+  "code": 0,
+  "ms": 0,
+  "maintenance": true,
+  "mode": "maintenance",
+  "annulled": false,
+  "hidden": false,
+  "title": "🇸🇪 2. Стокгольм,🇸🇪 1. Стокгольм,🇷🇺 Москва — Бесшовное обновление инфраструктуры",
+  "desc": ""
+ },
+ {
+  "name": "Сайт-визитка",
+  "slug": "server1",
+  "issue_number": 183,
+  "opened": "2026-11-14T21:13:56Z",
+  "resolved": "2026-11-14T21:20:41Z",
+  "labels": [
+   "maintenance"
+  ],
+  "minutes": 7,
+  "code": 0,
+  "ms": 0,
+  "maintenance": true,
+  "mode": "maintenance",
+  "annulled": false,
+  "hidden": false,
+  "title": "🇸🇪 2. Стокгольм,🇸🇪 1. Стокгольм,🇷🇺 Москва — Бесшовное обновление инфраструктуры",
+  "desc": ""
+ },
+ {
+  "name": "Служба поддержки",
+  "slug": "server6",
+  "issue_number": 183,
+  "opened": "2026-11-14T21:13:56Z",
+  "resolved": "2026-11-14T21:20:41Z",
+  "labels": [
+   "maintenance"
+  ],
+  "minutes": 7,
+  "code": 0,
+  "ms": 0,
+  "maintenance": true,
+  "mode": "maintenance",
+  "annulled": false,
+  "hidden": false,
+  "title": "🇸🇪 2. Стокгольм,🇸🇪 1. Стокгольм,🇷🇺 Москва — Бесшовное обновление инфраструктуры",
+  "desc": ""
+ },
+ {
+  "name": "База знаний",
+  "slug": "server2",
+  "issue_number": 184,
+  "opened": "2026-11-16T18:07:00+00:00",
+  "resolved": "2026-11-16T18:13:11Z",
+  "minutes": 6,
+  "code": 0,
+  "ms": 90302,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "База знаний — недоступен",
+  "desc": "- Код ошибки: 0\n- Время отклика: 90302 мс"
+ },
+ {
+  "name": "Подписка",
+  "slug": "server3",
+  "issue_number": 184,
+  "opened": "2026-11-16T18:07:00+00:00",
+  "resolved": "2026-11-16T18:13:11Z",
+  "minutes": 6,
+  "code": 0,
+  "ms": 90290,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "Подписка — недоступен",
+  "desc": "- Код ошибки: 0\n- Время отклика: 90290 мс",
+  "merged_issues": [
+   185
+  ]
+ },
+ {
+  "name": "Москва",
+  "slug": "server7",
+  "issue_number": 184,
+  "opened": "2026-11-16T18:07:00+00:00",
+  "resolved": "2026-11-16T18:13:11Z",
+  "minutes": 6,
+  "code": 22,
+  "ms": 60178,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "Москва — недоступен",
+  "desc": "- Код ошибки: 22\n- Время отклика: 60178 мс",
+  "merged_issues": [
+   186
+  ]
+ },
+ {
+  "name": "Сайт-визитка",
+  "slug": "server1",
+  "issue_number": 184,
+  "opened": "2026-11-16T18:07:00+00:00",
+  "resolved": "2026-11-16T18:13:11Z",
+  "minutes": 6,
+  "code": 0,
+  "ms": 90204,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "Сайт-визитка — недоступен",
+  "desc": "- Код ошибки: 0\n- Время отклика: 90204 мс",
+  "merged_issues": [
+   187
+  ]
+ },
+ {
+  "name": "Служба поддержки",
+  "slug": "server6",
+  "issue_number": 184,
+  "opened": "2026-11-16T18:07:00+00:00",
+  "resolved": "2026-11-16T18:13:11Z",
+  "minutes": 6,
+  "code": 0,
+  "ms": 90283,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "Служба поддержки — недоступен",
+  "desc": "- Код ошибки: 0\n- Время отклика: 90283 мс",
+  "merged_issues": [
+   188
+  ]
+ },
+ {
+  "name": "База знаний",
+  "slug": "server2",
+  "issue_number": 189,
+  "opened": "2026-11-17T13:06:57+00:00",
+  "resolved": "2026-11-17T13:13:38Z",
+  "minutes": 7,
+  "code": 0,
+  "ms": 90226,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "База знаний — недоступен",
+  "desc": "- Код ошибки: 0\n- Время отклика: 90226 мс"
+ },
+ {
+  "name": "Подписка",
+  "slug": "server3",
+  "issue_number": 189,
+  "opened": "2026-11-17T13:06:57+00:00",
+  "resolved": "2026-11-17T13:13:38Z",
+  "minutes": 7,
+  "code": 0,
+  "ms": 90267,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "Подписка — недоступен",
+  "desc": "- Код ошибки: 0\n- Время отклика: 90267 мс",
+  "merged_issues": [
+   190
+  ]
+ },
+ {
+  "name": "Москва",
+  "slug": "server7",
+  "issue_number": 189,
+  "opened": "2026-11-17T13:06:57+00:00",
+  "resolved": "2026-11-17T13:13:38Z",
+  "minutes": 7,
+  "code": 0,
+  "ms": 90082,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "Москва — недоступен",
+  "desc": "- Код ошибки: 0\n- Время отклика: 90082 мс",
+  "merged_issues": [
+   191
+  ]
+ },
+ {
+  "name": "Сайт-визитка",
+  "slug": "server1",
+  "issue_number": 189,
+  "opened": "2026-11-17T13:06:57+00:00",
+  "resolved": "2026-11-17T13:13:38Z",
+  "minutes": 7,
+  "code": 0,
+  "ms": 90614,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "Сайт-визитка — недоступен",
+  "desc": "- Код ошибки: 0\n- Время отклика: 90614 мс",
+  "merged_issues": [
+   192
+  ]
+ },
+ {
+  "name": "Служба поддержки",
+  "slug": "server6",
+  "issue_number": 189,
+  "opened": "2026-11-17T13:06:57+00:00",
+  "resolved": "2026-11-17T13:13:38Z",
+  "minutes": 7,
+  "code": 0,
+  "ms": 90093,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "Служба поддержки — недоступен",
+  "desc": "- Код ошибки: 0\n- Время отклика: 90093 мс",
+  "merged_issues": [
+   193
+  ]
+ },
+ {
+  "name": "База знаний",
+  "slug": "server2",
+  "issue_number": 194,
+  "opened": "2026-11-17T18:42:05+00:00",
+  "resolved": "2026-11-17T18:47:47Z",
+  "minutes": 6,
+  "code": 0,
+  "ms": 91002,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "База знаний — недоступен",
+  "desc": "- Код ошибки: 0\n- Время отклика: 91002 мс"
+ },
+ {
+  "name": "Подписка",
+  "slug": "server3",
+  "issue_number": 194,
+  "opened": "2026-11-17T18:42:05+00:00",
+  "resolved": "2026-11-17T18:47:47Z",
+  "minutes": 6,
+  "code": 0,
+  "ms": 90083,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "Подписка — недоступен",
+  "desc": "- Код ошибки: 0\n- Время отклика: 90083 мс",
+  "merged_issues": [
+   195
+  ]
+ },
+ {
+  "name": "Москва",
+  "slug": "server7",
+  "issue_number": 194,
+  "opened": "2026-11-17T18:42:05+00:00",
+  "resolved": "2026-11-17T18:47:47Z",
+  "minutes": 6,
+  "code": 22,
+  "ms": 60180,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "Москва — недоступен",
+  "desc": "- Код ошибки: 22\n- Время отклика: 60180 мс",
+  "merged_issues": [
+   196
+  ]
+ },
+ {
+  "name": "Сайт-визитка",
+  "slug": "server1",
+  "issue_number": 194,
+  "opened": "2026-11-17T18:42:05+00:00",
+  "resolved": "2026-11-17T18:47:47Z",
+  "minutes": 6,
+  "code": 0,
+  "ms": 90452,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "Сайт-визитка — недоступен",
+  "desc": "- Код ошибки: 0\n- Время отклика: 90452 мс",
+  "merged_issues": [
+   197
+  ]
+ },
+ {
+  "name": "Служба поддержки",
+  "slug": "server6",
+  "issue_number": 194,
+  "opened": "2026-11-17T18:42:05+00:00",
+  "resolved": "2026-11-17T18:47:47Z",
+  "minutes": 6,
+  "code": 200,
+  "ms": 60502,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "Служба поддержки — недоступен",
+  "desc": "- Код ошибки: 200\n- Время отклика: 60502 мс",
+  "merged_issues": [
+   198
+  ]
+ },
+ {
+  "name": "База знаний",
+  "slug": "server2",
+  "issue_number": 199,
+  "opened": "2026-11-18T02:52:02+00:00",
+  "resolved": "2026-11-18T02:58:10Z",
+  "minutes": 6,
+  "code": 0,
+  "ms": 90288,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "База знаний — недоступен",
+  "desc": "- Код ошибки: 0\n- Время отклика: 90288 мс"
+ },
+ {
+  "name": "Подписка",
+  "slug": "server3",
+  "issue_number": 199,
+  "opened": "2026-11-18T02:52:02+00:00",
+  "resolved": "2026-11-18T02:58:10Z",
+  "minutes": 6,
+  "code": 0,
+  "ms": 90265,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "Подписка — недоступен",
+  "desc": "- Код ошибки: 0\n- Время отклика: 90265 мс",
+  "merged_issues": [
+   200
+  ]
+ },
+ {
+  "name": "Москва",
+  "slug": "server7",
+  "issue_number": 199,
+  "opened": "2026-11-18T02:52:02+00:00",
+  "resolved": "2026-11-18T02:58:10Z",
+  "minutes": 6,
+  "code": 0,
+  "ms": 90065,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "Москва — недоступен",
+  "desc": "- Код ошибки: 0\n- Время отклика: 90065 мс",
+  "merged_issues": [
+   201
+  ]
+ },
+ {
+  "name": "Сайт-визитка",
+  "slug": "server1",
+  "issue_number": 199,
+  "opened": "2026-11-18T02:52:02+00:00",
+  "resolved": "2026-11-18T02:58:10Z",
+  "minutes": 6,
+  "code": 0,
+  "ms": 90105,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "Сайт-визитка — недоступен",
+  "desc": "- Код ошибки: 0\n- Время отклика: 90105 мс",
+  "merged_issues": [
+   202
+  ]
+ },
+ {
+  "name": "Служба поддержки",
+  "slug": "server6",
+  "issue_number": 199,
+  "opened": "2026-11-18T02:52:02+00:00",
+  "resolved": "2026-11-18T02:58:10Z",
+  "minutes": 6,
+  "code": 200,
+  "ms": 60734,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "Служба поддержки — недоступен",
+  "desc": "- Код ошибки: 200\n- Время отклика: 60734 мс",
+  "merged_issues": [
+   203
+  ]
+ },
+ {
+  "name": "База знаний",
+  "slug": "server2",
+  "issue_number": 204,
+  "opened": "2026-11-18T09:26:56+00:00",
+  "resolved": "2026-11-18T09:33:38Z",
+  "minutes": 7,
+  "code": 0,
+  "ms": 90307,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "База знаний — недоступен",
+  "desc": "- Код ошибки: 0\n- Время отклика: 90307 мс"
+ },
+ {
+  "name": "Подписка",
+  "slug": "server3",
+  "issue_number": 204,
+  "opened": "2026-11-18T09:26:56+00:00",
+  "resolved": "2026-11-18T09:33:38Z",
+  "minutes": 7,
+  "code": 0,
+  "ms": 90051,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "Подписка — недоступен",
+  "desc": "- Код ошибки: 0\n- Время отклика: 90051 мс",
+  "merged_issues": [
+   205
+  ]
+ },
+ {
+  "name": "Москва",
+  "slug": "server7",
+  "issue_number": 204,
+  "opened": "2026-11-18T09:26:56+00:00",
+  "resolved": "2026-11-18T09:33:38Z",
+  "minutes": 7,
+  "code": 0,
+  "ms": 90081,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "Москва — недоступен",
+  "desc": "- Код ошибки: 0\n- Время отклика: 90081 мс",
+  "merged_issues": [
+   206
+  ]
+ },
+ {
+  "name": "Сайт-визитка",
+  "slug": "server1",
+  "issue_number": 204,
+  "opened": "2026-11-18T09:26:56+00:00",
+  "resolved": "2026-11-18T09:33:38Z",
+  "minutes": 7,
+  "code": 0,
+  "ms": 90280,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "Сайт-визитка — недоступен",
+  "desc": "- Код ошибки: 0\n- Время отклика: 90280 мс",
+  "merged_issues": [
+   207
+  ]
+ },
+ {
+  "name": "Служба поддержки",
+  "slug": "server6",
+  "issue_number": 204,
+  "opened": "2026-11-18T09:26:56+00:00",
+  "resolved": "2026-11-18T09:33:38Z",
+  "minutes": 7,
+  "code": 0,
+  "ms": 90053,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "Служба поддержки — недоступен",
+  "desc": "- Код ошибки: 0\n- Время отклика: 90053 мс",
+  "merged_issues": [
+   208
+  ]
+ },
+ {
+  "name": "1.3 Стокгольм",
+  "slug": "server12",
+  "issue_number": 209,
+  "opened": "2026-11-18T19:02:39+00:00",
+  "resolved": "2026-11-18T19:05:33Z",
+  "minutes": 3,
+  "code": 0,
+  "ms": 95784,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "1.3 Стокгольм — недоступен",
+  "desc": "- Код ошибки: 0\n- Время отклика: 95784 мс"
+ },
+ {
+  "name": "1.3 Стокгольм",
+  "slug": "server12",
+  "issue_number": 210,
+  "opened": "2026-11-18T22:21:24+00:00",
+  "resolved": "2026-11-18T22:25:25Z",
+  "minutes": 4,
+  "code": 400,
+  "ms": 54145,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "1.3 Стокгольм — недоступен",
+  "desc": "- Код ошибки: 400\n- Время отклика: 54145 мс"
+ },
+ {
+  "name": "База знаний",
+  "slug": "server2",
+  "issue_number": 211,
+  "opened": "2026-11-19T20:36:59+00:00",
+  "resolved": "2026-11-19T20:43:39Z",
+  "minutes": 7,
+  "code": 0,
+  "ms": 90292,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "База знаний — недоступен",
+  "desc": "- Код ошибки: 0\n- Время отклика: 90292 мс"
+ },
+ {
+  "name": "Подписка",
+  "slug": "server3",
+  "issue_number": 211,
+  "opened": "2026-11-19T20:36:59+00:00",
+  "resolved": "2026-11-19T20:43:39Z",
+  "minutes": 7,
+  "code": 0,
+  "ms": 90326,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "Подписка — недоступен",
+  "desc": "- Код ошибки: 0\n- Время отклика: 90326 мс",
+  "merged_issues": [
+   212
+  ]
+ },
+ {
+  "name": "Москва",
+  "slug": "server7",
+  "issue_number": 211,
+  "opened": "2026-11-19T20:36:59+00:00",
+  "resolved": "2026-11-19T20:43:39Z",
+  "minutes": 7,
+  "code": 0,
+  "ms": 90066,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "Москва — недоступен",
+  "desc": "- Код ошибки: 0\n- Время отклика: 90066 мс",
+  "merged_issues": [
+   213
+  ]
+ },
+ {
+  "name": "Сайт-визитка",
+  "slug": "server1",
+  "issue_number": 211,
+  "opened": "2026-11-19T20:36:59+00:00",
+  "resolved": "2026-11-19T20:43:39Z",
+  "minutes": 7,
+  "code": 0,
+  "ms": 90725,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "Сайт-визитка — недоступен",
+  "desc": "- Код ошибки: 0\n- Время отклика: 90725 мс",
+  "merged_issues": [
+   214
+  ]
+ },
+ {
+  "name": "Служба поддержки",
+  "slug": "server6",
+  "issue_number": 211,
+  "opened": "2026-11-19T20:36:59+00:00",
+  "resolved": "2026-11-19T20:43:39Z",
+  "minutes": 7,
+  "code": 0,
+  "ms": 90104,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "Служба поддержки — недоступен",
+  "desc": "- Код ошибки: 0\n- Время отклика: 90104 мс",
+  "merged_issues": [
+   215
+  ]
+ },
+ {
+  "name": "База знаний",
+  "slug": "server2",
+  "issue_number": 216,
+  "opened": "2026-11-19T21:26:59+00:00",
+  "resolved": "2026-11-19T21:33:06Z",
+  "minutes": 6,
+  "code": 0,
+  "ms": 90277,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "База знаний — недоступен",
+  "desc": "- Код ошибки: 0\n- Время отклика: 90277 мс"
+ },
+ {
+  "name": "Подписка",
+  "slug": "server3",
+  "issue_number": 216,
+  "opened": "2026-11-19T21:26:59+00:00",
+  "resolved": "2026-11-19T21:33:06Z",
+  "minutes": 6,
+  "code": 200,
+  "ms": 60608,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "Подписка — недоступен",
+  "desc": "- Код ошибки: 200\n- Время отклика: 60608 мс",
+  "merged_issues": [
+   217
+  ]
+ },
+ {
+  "name": "Москва",
+  "slug": "server7",
+  "issue_number": 216,
+  "opened": "2026-11-19T21:26:59+00:00",
+  "resolved": "2026-11-19T21:33:06Z",
+  "minutes": 6,
+  "code": 0,
+  "ms": 90091,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "Москва — недоступен",
+  "desc": "- Код ошибки: 0\n- Время отклика: 90091 мс",
+  "merged_issues": [
+   218
+  ]
+ },
+ {
+  "name": "Сайт-визитка",
+  "slug": "server1",
+  "issue_number": 216,
+  "opened": "2026-11-19T21:26:59+00:00",
+  "resolved": "2026-11-19T21:33:06Z",
+  "minutes": 6,
+  "code": 0,
+  "ms": 90102,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "Сайт-визитка — недоступен",
+  "desc": "- Код ошибки: 0\n- Время отклика: 90102 мс",
+  "merged_issues": [
+   219
+  ]
+ },
+ {
+  "name": "Служба поддержки",
+  "slug": "server6",
+  "issue_number": 216,
+  "opened": "2026-11-19T21:26:59+00:00",
+  "resolved": "2026-11-19T21:33:06Z",
+  "minutes": 6,
+  "code": 0,
+  "ms": 90253,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "Служба поддержки — недоступен",
+  "desc": "- Код ошибки: 0\n- Время отклика: 90253 мс",
+  "merged_issues": [
+   220
+  ]
+ },
+ {
+  "name": "База знаний",
+  "slug": "server2",
+  "issue_number": 221,
+  "opened": "2026-11-20T13:02:42+00:00",
+  "resolved": "2026-11-20T13:08:52Z",
+  "minutes": 6,
+  "code": 0,
+  "ms": 90284,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "База знаний — недоступен",
+  "desc": "- Код ошибки: 0\n- Время отклика: 90284 мс"
+ },
+ {
+  "name": "Подписка",
+  "slug": "server3",
+  "issue_number": 221,
+  "opened": "2026-11-20T13:02:42+00:00",
+  "resolved": "2026-11-20T13:08:52Z",
+  "minutes": 6,
+  "code": 200,
+  "ms": 60630,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "Подписка — недоступен",
+  "desc": "- Код ошибки: 200\n- Время отклика: 60630 мс",
+  "merged_issues": [
+   222
+  ]
+ },
+ {
+  "name": "Москва",
+  "slug": "server7",
+  "issue_number": 221,
+  "opened": "2026-11-20T13:02:42+00:00",
+  "resolved": "2026-11-20T13:08:52Z",
+  "minutes": 6,
+  "code": 0,
+  "ms": 90062,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "Москва — недоступен",
+  "desc": "- Код ошибки: 0\n- Время отклика: 90062 мс",
+  "merged_issues": [
+   223
+  ]
+ },
+ {
+  "name": "Сайт-визитка",
+  "slug": "server1",
+  "issue_number": 221,
+  "opened": "2026-11-20T13:02:42+00:00",
+  "resolved": "2026-11-20T13:08:52Z",
+  "minutes": 6,
+  "code": 0,
+  "ms": 90296,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "Сайт-визитка — недоступен",
+  "desc": "- Код ошибки: 0\n- Время отклика: 90296 мс",
+  "merged_issues": [
+   224
+  ]
+ },
+ {
+  "name": "Служба поддержки",
+  "slug": "server6",
+  "issue_number": 221,
+  "opened": "2026-11-20T13:02:42+00:00",
+  "resolved": "2026-11-20T13:08:52Z",
+  "minutes": 6,
+  "code": 0,
+  "ms": 90081,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "Служба поддержки — недоступен",
+  "desc": "- Код ошибки: 0\n- Время отклика: 90081 мс",
+  "merged_issues": [
+   225
+  ]
+ },
+ {
+  "name": "База знаний",
+  "slug": "server2",
+  "issue_number": 226,
+  "opened": "2026-11-20T18:12:13+00:00",
+  "resolved": "2026-11-20T18:18:52Z",
+  "minutes": 7,
+  "code": 0,
+  "ms": 90177,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "База знаний — недоступен",
+  "desc": "- Код ошибки: 0\n- Время отклика: 90177 мс"
+ },
+ {
+  "name": "Подписка",
+  "slug": "server3",
+  "issue_number": 226,
+  "opened": "2026-11-20T18:12:13+00:00",
+  "resolved": "2026-11-20T18:18:52Z",
+  "minutes": 7,
+  "code": 0,
+  "ms": 90132,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "Подписка — недоступен",
+  "desc": "- Код ошибки: 0\n- Время отклика: 90132 мс",
+  "merged_issues": [
+   227
+  ]
+ },
+ {
+  "name": "Москва",
+  "slug": "server7",
+  "issue_number": 226,
+  "opened": "2026-11-20T18:12:13+00:00",
+  "resolved": "2026-11-20T18:18:52Z",
+  "minutes": 7,
+  "code": 0,
+  "ms": 90091,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "Москва — недоступен",
+  "desc": "- Код ошибки: 0\n- Время отклика: 90091 мс",
+  "merged_issues": [
+   228
+  ]
+ },
+ {
+  "name": "Сайт-визитка",
+  "slug": "server1",
+  "issue_number": 226,
+  "opened": "2026-11-20T18:12:13+00:00",
+  "resolved": "2026-11-20T18:18:52Z",
+  "minutes": 7,
+  "code": 0,
+  "ms": 90516,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "Сайт-визитка — недоступен",
+  "desc": "- Код ошибки: 0\n- Время отклика: 90516 мс",
+  "merged_issues": [
+   229
+  ]
+ },
+ {
+  "name": "Служба поддержки",
+  "slug": "server6",
+  "issue_number": 226,
+  "opened": "2026-11-20T18:12:13+00:00",
+  "resolved": "2026-11-20T18:18:52Z",
+  "minutes": 7,
+  "code": 0,
+  "ms": 90218,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "Служба поддержки — недоступен",
+  "desc": "- Код ошибки: 0\n- Время отклика: 90218 мс",
+  "merged_issues": [
+   230
+  ]
+ },
+ {
+  "name": "База знаний",
+  "slug": "server2",
+  "issue_number": 231,
+  "opened": "2026-11-20T21:47:11+00:00",
+  "resolved": "2026-11-20T21:53:09Z",
+  "minutes": 6,
+  "code": 0,
+  "ms": 90933,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "База знаний — недоступен",
+  "desc": "- Код ошибки: 0\n- Время отклика: 90933 мс"
+ },
+ {
+  "name": "Подписка",
+  "slug": "server3",
+  "issue_number": 231,
+  "opened": "2026-11-20T21:47:11+00:00",
+  "resolved": "2026-11-20T21:53:09Z",
+  "minutes": 6,
+  "code": 0,
+  "ms": 90307,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "Подписка — недоступен",
+  "desc": "- Код ошибки: 0\n- Время отклика: 90307 мс",
+  "merged_issues": [
+   232
+  ]
+ },
+ {
+  "name": "Москва",
+  "slug": "server7",
+  "issue_number": 231,
+  "opened": "2026-11-20T21:47:11+00:00",
+  "resolved": "2026-11-20T21:53:09Z",
+  "minutes": 6,
+  "code": 22,
+  "ms": 60250,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "Москва — недоступен",
+  "desc": "- Код ошибки: 22\n- Время отклика: 60250 мс",
+  "merged_issues": [
+   233
+  ]
+ },
+ {
+  "name": "Сайт-визитка",
+  "slug": "server1",
+  "issue_number": 231,
+  "opened": "2026-11-20T21:47:11+00:00",
+  "resolved": "2026-11-20T21:53:09Z",
+  "minutes": 6,
+  "code": 0,
+  "ms": 90162,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "Сайт-визитка — недоступен",
+  "desc": "- Код ошибки: 0\n- Время отклика: 90162 мс",
+  "merged_issues": [
+   234
+  ]
+ },
+ {
+  "name": "Служба поддержки",
+  "slug": "server6",
+  "issue_number": 231,
+  "opened": "2026-11-20T21:47:11+00:00",
+  "resolved": "2026-11-20T21:53:09Z",
+  "minutes": 6,
+  "code": 200,
+  "ms": 60710,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "Служба поддержки — недоступен",
+  "desc": "- Код ошибки: 200\n- Время отклика: 60710 мс",
+  "merged_issues": [
+   235
+  ]
+ },
+ {
+  "name": "База знаний",
+  "slug": "server2",
+  "issue_number": 236,
+  "opened": "2026-11-20T22:32:27+00:00",
+  "resolved": "2026-11-20T22:39:04Z",
+  "minutes": 7,
+  "code": 0,
+  "ms": 90274,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "База знаний — недоступен",
+  "desc": "- Код ошибки: 0\n- Время отклика: 90274 мс"
+ },
+ {
+  "name": "Подписка",
+  "slug": "server3",
+  "issue_number": 236,
+  "opened": "2026-11-20T22:32:27+00:00",
+  "resolved": "2026-11-20T22:39:04Z",
+  "minutes": 7,
+  "code": 0,
+  "ms": 90280,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "Подписка — недоступен",
+  "desc": "- Код ошибки: 0\n- Время отклика: 90280 мс",
+  "merged_issues": [
+   237
+  ]
+ },
+ {
+  "name": "Москва",
+  "slug": "server7",
+  "issue_number": 236,
+  "opened": "2026-11-20T22:32:27+00:00",
+  "resolved": "2026-11-20T22:39:04Z",
+  "minutes": 7,
+  "code": 0,
+  "ms": 90074,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "Москва — недоступен",
+  "desc": "- Код ошибки: 0\n- Время отклика: 90074 мс",
+  "merged_issues": [
+   238
+  ]
+ },
+ {
+  "name": "Сайт-визитка",
+  "slug": "server1",
+  "issue_number": 236,
+  "opened": "2026-11-20T22:32:27+00:00",
+  "resolved": "2026-11-20T22:39:04Z",
+  "minutes": 7,
+  "code": 0,
+  "ms": 90046,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "Сайт-визитка — недоступен",
+  "desc": "- Код ошибки: 0\n- Время отклика: 90046 мс",
+  "merged_issues": [
+   239
+  ]
+ },
+ {
+  "name": "Служба поддержки",
+  "slug": "server6",
+  "issue_number": 236,
+  "opened": "2026-11-20T22:32:27+00:00",
+  "resolved": "2026-11-20T22:39:04Z",
+  "minutes": 7,
+  "code": 0,
+  "ms": 90122,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "Служба поддержки — недоступен",
+  "desc": "- Код ошибки: 0\n- Время отклика: 90122 мс",
+  "merged_issues": [
+   240
+  ]
+ },
+ {
+  "name": "База знаний",
+  "slug": "server2",
+  "issue_number": 241,
+  "opened": "2026-11-20T22:47:05+00:00",
+  "resolved": "2026-11-20T22:53:21Z",
+  "minutes": 6,
+  "code": 0,
+  "ms": 90376,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "База знаний — недоступен",
+  "desc": "- Код ошибки: 0\n- Время отклика: 90376 мс"
+ },
+ {
+  "name": "Подписка",
+  "slug": "server3",
+  "issue_number": 241,
+  "opened": "2026-11-20T22:47:05+00:00",
+  "resolved": "2026-11-20T22:53:21Z",
+  "minutes": 6,
+  "code": 0,
+  "ms": 90289,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "Подписка — недоступен",
+  "desc": "- Код ошибки: 0\n- Время отклика: 90289 мс",
+  "merged_issues": [
+   242
+  ]
+ },
+ {
+  "name": "Москва",
+  "slug": "server7",
+  "issue_number": 241,
+  "opened": "2026-11-20T22:47:05+00:00",
+  "resolved": "2026-11-20T22:53:21Z",
+  "minutes": 6,
+  "code": 22,
+  "ms": 60182,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "Москва — недоступен",
+  "desc": "- Код ошибки: 22\n- Время отклика: 60182 мс",
+  "merged_issues": [
+   243
+  ]
+ },
+ {
+  "name": "Сайт-визитка",
+  "slug": "server1",
+  "issue_number": 241,
+  "opened": "2026-11-20T22:47:05+00:00",
+  "resolved": "2026-11-20T22:53:21Z",
+  "minutes": 6,
+  "code": 0,
+  "ms": 90468,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "Сайт-визитка — недоступен",
+  "desc": "- Код ошибки: 0\n- Время отклика: 90468 мс",
+  "merged_issues": [
+   244
+  ]
+ },
+ {
+  "name": "Служба поддержки",
+  "slug": "server6",
+  "issue_number": 241,
+  "opened": "2026-11-20T22:47:05+00:00",
+  "resolved": "2026-11-20T22:53:21Z",
+  "minutes": 6,
+  "code": 0,
+  "ms": 90173,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "Служба поддержки — недоступен",
+  "desc": "- Код ошибки: 0\n- Время отклика: 90173 мс",
+  "merged_issues": [
+   245
+  ]
+ },
+ {
+  "name": "База знаний",
+  "slug": "server2",
+  "issue_number": 246,
+  "opened": "2026-11-21T00:27:03+00:00",
+  "resolved": "2026-11-21T00:33:11Z",
+  "minutes": 6,
+  "code": 0,
+  "ms": 90219,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "База знаний — недоступен",
+  "desc": "- Код ошибки: 0\n- Время отклика: 90219 мс"
+ },
+ {
+  "name": "Подписка",
+  "slug": "server3",
+  "issue_number": 246,
+  "opened": "2026-11-21T00:27:03+00:00",
+  "resolved": "2026-11-21T00:33:11Z",
+  "minutes": 6,
+  "code": 200,
+  "ms": 60569,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "Подписка — недоступен",
+  "desc": "- Код ошибки: 200\n- Время отклика: 60569 мс",
+  "merged_issues": [
+   247
+  ]
+ },
+ {
+  "name": "Москва",
+  "slug": "server7",
+  "issue_number": 246,
+  "opened": "2026-11-21T00:27:03+00:00",
+  "resolved": "2026-11-21T00:33:11Z",
+  "minutes": 6,
+  "code": 0,
+  "ms": 90089,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "Москва — недоступен",
+  "desc": "- Код ошибки: 0\n- Время отклика: 90089 мс",
+  "merged_issues": [
+   248
+  ]
+ },
+ {
+  "name": "Сайт-визитка",
+  "slug": "server1",
+  "issue_number": 246,
+  "opened": "2026-11-21T00:27:03+00:00",
+  "resolved": "2026-11-21T00:33:11Z",
+  "minutes": 6,
+  "code": 0,
+  "ms": 90073,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "Сайт-визитка — недоступен",
+  "desc": "- Код ошибки: 0\n- Время отклика: 90073 мс",
+  "merged_issues": [
+   249
+  ]
+ },
+ {
+  "name": "Служба поддержки",
+  "slug": "server6",
+  "issue_number": 246,
+  "opened": "2026-11-21T00:27:03+00:00",
+  "resolved": "2026-11-21T00:33:11Z",
+  "minutes": 6,
+  "code": 0,
+  "ms": 90113,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "Служба поддержки — недоступен",
+  "desc": "- Код ошибки: 0\n- Время отклика: 90113 мс",
+  "merged_issues": [
+   250
+  ]
+ },
+ {
+  "name": "База знаний",
+  "slug": "server2",
+  "issue_number": 251,
+  "opened": "2026-11-21T08:52:10+00:00",
+  "resolved": "2026-11-21T08:58:49Z",
+  "minutes": 7,
+  "code": 0,
+  "ms": 90269,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "База знаний — недоступен",
+  "desc": "- Код ошибки: 0\n- Время отклика: 90269 мс"
+ },
+ {
+  "name": "Подписка",
+  "slug": "server3",
+  "issue_number": 251,
+  "opened": "2026-11-21T08:52:10+00:00",
+  "resolved": "2026-11-21T08:58:49Z",
+  "minutes": 7,
+  "code": 0,
+  "ms": 90271,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "Подписка — недоступен",
+  "desc": "- Код ошибки: 0\n- Время отклика: 90271 мс",
+  "merged_issues": [
+   252
+  ]
+ },
+ {
+  "name": "Москва",
+  "slug": "server7",
+  "issue_number": 251,
+  "opened": "2026-11-21T08:52:10+00:00",
+  "resolved": "2026-11-21T08:58:49Z",
+  "minutes": 7,
+  "code": 0,
+  "ms": 90088,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "Москва — недоступен",
+  "desc": "- Код ошибки: 0\n- Время отклика: 90088 мс",
+  "merged_issues": [
+   253
+  ]
+ },
+ {
+  "name": "Сайт-визитка",
+  "slug": "server1",
+  "issue_number": 251,
+  "opened": "2026-11-21T08:52:10+00:00",
+  "resolved": "2026-11-21T08:58:49Z",
+  "minutes": 7,
+  "code": 0,
+  "ms": 90098,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "Сайт-визитка — недоступен",
+  "desc": "- Код ошибки: 0\n- Время отклика: 90098 мс",
+  "merged_issues": [
+   254
+  ]
+ },
+ {
+  "name": "Служба поддержки",
+  "slug": "server6",
+  "issue_number": 251,
+  "opened": "2026-11-21T08:52:10+00:00",
+  "resolved": "2026-11-21T08:58:49Z",
+  "minutes": 7,
+  "code": 0,
+  "ms": 90091,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "Служба поддержки — недоступен",
+  "desc": "- Код ошибки: 0\n- Время отклика: 90091 мс",
+  "merged_issues": [
+   255
+  ]
+ },
+ {
+  "name": "База знаний",
+  "slug": "server2",
+  "issue_number": 256,
+  "opened": "2026-11-21T09:12:10+00:00",
+  "resolved": "2026-11-21T09:18:47Z",
+  "minutes": 7,
+  "code": 0,
+  "ms": 90283,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "База знаний — недоступен",
+  "desc": "- Код ошибки: 0\n- Время отклика: 90283 мс"
+ },
+ {
+  "name": "Подписка",
+  "slug": "server3",
+  "issue_number": 256,
+  "opened": "2026-11-21T09:12:10+00:00",
+  "resolved": "2026-11-21T09:18:47Z",
+  "minutes": 7,
+  "code": 0,
+  "ms": 90268,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "Подписка — недоступен",
+  "desc": "- Код ошибки: 0\n- Время отклика: 90268 мс",
+  "merged_issues": [
+   257
+  ]
+ },
+ {
+  "name": "Москва",
+  "slug": "server7",
+  "issue_number": 256,
+  "opened": "2026-11-21T09:12:10+00:00",
+  "resolved": "2026-11-21T09:18:47Z",
+  "minutes": 7,
+  "code": 0,
+  "ms": 90091,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "Москва — недоступен",
+  "desc": "- Код ошибки: 0\n- Время отклика: 90091 мс",
+  "merged_issues": [
+   258
+  ]
+ },
+ {
+  "name": "Сайт-визитка",
+  "slug": "server1",
+  "issue_number": 256,
+  "opened": "2026-11-21T09:12:10+00:00",
+  "resolved": "2026-11-21T09:18:47Z",
+  "minutes": 7,
+  "code": 0,
+  "ms": 90100,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "Сайт-визитка — недоступен",
+  "desc": "- Код ошибки: 0\n- Время отклика: 90100 мс",
+  "merged_issues": [
+   259
+  ]
+ },
+ {
+  "name": "Служба поддержки",
+  "slug": "server6",
+  "issue_number": 256,
+  "opened": "2026-11-21T09:12:10+00:00",
+  "resolved": "2026-11-21T09:18:47Z",
+  "minutes": 7,
+  "code": 0,
+  "ms": 90082,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "Служба поддержки — недоступен",
+  "desc": "- Код ошибки: 0\n- Время отклика: 90082 мс",
+  "merged_issues": [
+   260
+  ]
+ },
+ {
+  "name": "База знаний",
+  "slug": "server2",
+  "issue_number": 261,
+  "opened": "2026-11-21T10:12:10+00:00",
+  "resolved": "2026-11-21T10:18:19Z",
+  "minutes": 6,
+  "code": 0,
+  "ms": 90900,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "База знаний — недоступен",
+  "desc": "- Код ошибки: 0\n- Время отклика: 90900 мс"
+ },
+ {
+  "name": "Подписка",
+  "slug": "server3",
+  "issue_number": 261,
+  "opened": "2026-11-21T10:12:10+00:00",
+  "resolved": "2026-11-21T10:18:19Z",
+  "minutes": 6,
+  "code": 0,
+  "ms": 90072,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "Подписка — недоступен",
+  "desc": "- Код ошибки: 0\n- Время отклика: 90072 мс",
+  "merged_issues": [
+   262
+  ]
+ },
+ {
+  "name": "Москва",
+  "slug": "server7",
+  "issue_number": 261,
+  "opened": "2026-11-21T10:12:10+00:00",
+  "resolved": "2026-11-21T10:18:19Z",
+  "minutes": 6,
+  "code": 0,
+  "ms": 90064,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "Москва — недоступен",
+  "desc": "- Код ошибки: 0\n- Время отклика: 90064 мс",
+  "merged_issues": [
+   263
+  ]
+ },
+ {
+  "name": "Сайт-визитка",
+  "slug": "server1",
+  "issue_number": 261,
+  "opened": "2026-11-21T10:12:10+00:00",
+  "resolved": "2026-11-21T10:18:19Z",
+  "minutes": 6,
+  "code": 0,
+  "ms": 90448,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "Сайт-визитка — недоступен",
+  "desc": "- Код ошибки: 0\n- Время отклика: 90448 мс",
+  "merged_issues": [
+   264
+  ]
+ },
+ {
+  "name": "Служба поддержки",
+  "slug": "server6",
+  "issue_number": 261,
+  "opened": "2026-11-21T10:12:10+00:00",
+  "resolved": "2026-11-21T10:18:19Z",
+  "minutes": 6,
+  "code": 200,
+  "ms": 60469,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "Служба поддержки — недоступен",
+  "desc": "- Код ошибки: 200\n- Время отклика: 60469 мс",
+  "merged_issues": [
+   265
+  ]
+ },
+ {
+  "name": "База знаний",
+  "slug": "server2",
+  "issue_number": 266,
+  "opened": "2026-11-21T15:22:13+00:00",
+  "resolved": "2026-11-21T15:29:23Z",
+  "minutes": 7,
+  "code": 0,
+  "ms": 90250,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "База знаний — недоступен",
+  "desc": "- Код ошибки: 0\n- Время отклика: 90250 мс"
+ },
+ {
+  "name": "Подписка",
+  "slug": "server3",
+  "issue_number": 266,
+  "opened": "2026-11-21T15:22:13+00:00",
+  "resolved": "2026-11-21T15:29:23Z",
+  "minutes": 7,
+  "code": 0,
+  "ms": 90086,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "Подписка — недоступен",
+  "desc": "- Код ошибки: 0\n- Время отклика: 90086 мс",
+  "merged_issues": [
+   267
+  ]
+ },
+ {
+  "name": "Москва",
+  "slug": "server7",
+  "issue_number": 266,
+  "opened": "2026-11-21T15:22:13+00:00",
+  "resolved": "2026-11-21T15:29:23Z",
+  "minutes": 7,
+  "code": 0,
+  "ms": 90091,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "Москва — недоступен",
+  "desc": "- Код ошибки: 0\n- Время отклика: 90091 мс",
+  "merged_issues": [
+   268
+  ]
+ },
+ {
+  "name": "Сайт-визитка",
+  "slug": "server1",
+  "issue_number": 266,
+  "opened": "2026-11-21T15:22:13+00:00",
+  "resolved": "2026-11-21T15:29:23Z",
+  "minutes": 7,
+  "code": 0,
+  "ms": 90217,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "Сайт-визитка — недоступен",
+  "desc": "- Код ошибки: 0\n- Время отклика: 90217 мс",
+  "merged_issues": [
+   269
+  ]
+ },
+ {
+  "name": "Служба поддержки",
+  "slug": "server6",
+  "issue_number": 266,
+  "opened": "2026-11-21T15:22:13+00:00",
+  "resolved": "2026-11-21T15:29:23Z",
+  "minutes": 7,
+  "code": 0,
+  "ms": 90100,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "Служба поддержки — недоступен",
+  "desc": "- Код ошибки: 0\n- Время отклика: 90100 мс",
+  "merged_issues": [
+   270
+  ]
+ },
+ {
+  "name": "База знаний",
+  "slug": "server2",
+  "issue_number": 271,
+  "opened": "2026-11-21T20:12:07+00:00",
+  "resolved": "2026-11-21T20:15:40Z",
+  "minutes": 4,
+  "code": 0,
+  "ms": 90245,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "База знаний — недоступен",
+  "desc": "- Код ошибки: 0\n- Время отклика: 90245 мс"
+ },
+ {
+  "name": "Подписка",
+  "slug": "server3",
+  "issue_number": 271,
+  "opened": "2026-11-21T20:12:07+00:00",
+  "resolved": "2026-11-21T20:15:40Z",
+  "minutes": 4,
+  "code": 0,
+  "ms": 90088,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "База знаний — недоступен",
+  "desc": "- Код ошибки: 0\n- Время отклика: 90088 мс"
+ },
+ {
+  "name": "Москва",
+  "slug": "server7",
+  "issue_number": 271,
+  "opened": "2026-11-21T20:12:07+00:00",
+  "resolved": "2026-11-21T20:15:40Z",
+  "minutes": 4,
+  "code": 0,
+  "ms": 90063,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "База знаний — недоступен",
+  "desc": "- Код ошибки: 0\n- Время отклика: 90063 мс"
+ },
+ {
+  "name": "Сайт-визитка",
+  "slug": "server1",
+  "issue_number": 271,
+  "opened": "2026-11-21T20:12:07+00:00",
+  "resolved": "2026-11-21T20:15:40Z",
+  "minutes": 4,
+  "code": 0,
+  "ms": 90248,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "База знаний — недоступен",
+  "desc": "- Код ошибки: 0\n- Время отклика: 90248 мс"
+ },
+ {
+  "name": "Служба поддержки",
+  "slug": "server6",
+  "issue_number": 271,
+  "opened": "2026-11-21T20:12:07+00:00",
+  "resolved": "2026-11-21T20:15:40Z",
+  "minutes": 4,
+  "code": 200,
+  "ms": 89050,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "База знаний — недоступен",
+  "desc": "- Код ошибки: 200\n- Время отклика: 89050 мс"
+ },
+ {
+  "name": "База знаний",
+  "slug": "server2",
+  "issue_number": 272,
+  "opened": "2026-11-22T01:47:08+00:00",
+  "resolved": "2026-11-22T01:50:44Z",
+  "minutes": 4,
+  "code": 0,
+  "ms": 90288,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "База знаний — недоступен",
+  "desc": "- Код ошибки: 0\n- Время отклика: 90288 мс"
+ },
+ {
+  "name": "Подписка",
+  "slug": "server3",
+  "issue_number": 272,
+  "opened": "2026-11-22T01:47:08+00:00",
+  "resolved": "2026-11-22T01:50:44Z",
+  "minutes": 4,
+  "code": 0,
+  "ms": 90273,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "База знаний — недоступен",
+  "desc": "- Код ошибки: 0\n- Время отклика: 90273 мс"
+ },
+ {
+  "name": "Москва",
+  "slug": "server7",
+  "issue_number": 272,
+  "opened": "2026-11-22T01:47:08+00:00",
+  "resolved": "2026-11-22T01:50:44Z",
+  "minutes": 4,
+  "code": 22,
+  "ms": 60169,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "База знаний — недоступен",
+  "desc": "- Код ошибки: 22\n- Время отклика: 60169 мс"
+ },
+ {
+  "name": "Сайт-визитка",
+  "slug": "server1",
+  "issue_number": 272,
+  "opened": "2026-11-22T01:47:08+00:00",
+  "resolved": "2026-11-22T01:50:44Z",
+  "minutes": 4,
+  "code": 0,
+  "ms": 90280,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "База знаний — недоступен",
+  "desc": "- Код ошибки: 0\n- Время отклика: 90280 мс"
+ },
+ {
+  "name": "Служба поддержки",
+  "slug": "server6",
+  "issue_number": 272,
+  "opened": "2026-11-22T01:47:08+00:00",
+  "resolved": "2026-11-22T01:50:44Z",
+  "minutes": 4,
+  "code": 0,
+  "ms": 90285,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "База знаний — недоступен",
+  "desc": "- Код ошибки: 0\n- Время отклика: 90285 мс"
+ },
+ {
+  "name": "База знаний",
+  "slug": "server2",
+  "issue_number": 273,
+  "opened": "2026-11-22T05:32:27+00:00",
+  "resolved": "2026-11-22T05:35:31Z",
+  "minutes": 3,
+  "code": 0,
+  "ms": 90650,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "База знаний — недоступен",
+  "desc": "- Код ошибки: 0\n- Время отклика: 90650 мс"
+ },
+ {
+  "name": "Подписка",
+  "slug": "server3",
+  "issue_number": 273,
+  "opened": "2026-11-22T05:32:27+00:00",
+  "resolved": "2026-11-22T05:35:31Z",
+  "minutes": 3,
+  "code": 0,
+  "ms": 90291,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "База знаний — недоступен",
+  "desc": "- Код ошибки: 0\n- Время отклика: 90291 мс"
+ },
+ {
+  "name": "Москва",
+  "slug": "server7",
+  "issue_number": 273,
+  "opened": "2026-11-22T05:32:27+00:00",
+  "resolved": "2026-11-22T05:35:31Z",
+  "minutes": 3,
+  "code": 0,
+  "ms": 90091,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "База знаний — недоступен",
+  "desc": "- Код ошибки: 0\n- Время отклика: 90091 мс"
+ },
+ {
+  "name": "Сайт-визитка",
+  "slug": "server1",
+  "issue_number": 273,
+  "opened": "2026-11-22T05:32:27+00:00",
+  "resolved": "2026-11-22T05:35:31Z",
+  "minutes": 3,
+  "code": 0,
+  "ms": 90282,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "База знаний — недоступен",
+  "desc": "- Код ошибки: 0\n- Время отклика: 90282 мс"
+ },
+ {
+  "name": "Служба поддержки",
+  "slug": "server6",
+  "issue_number": 273,
+  "opened": "2026-11-22T05:32:27+00:00",
+  "resolved": "2026-11-22T05:35:31Z",
+  "minutes": 3,
+  "code": 0,
+  "ms": 90282,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "База знаний — недоступен",
+  "desc": "- Код ошибки: 0\n- Время отклика: 90282 мс"
+ },
+ {
+  "name": "База знаний",
+  "slug": "server2",
+  "issue_number": 274,
+  "opened": "2026-11-22T22:27:04+00:00",
+  "resolved": "2026-11-22T22:30:57Z",
+  "minutes": 4,
+  "code": 0,
+  "ms": 90282,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "База знаний — недоступен",
+  "desc": "- Код ошибки: 0\n- Время отклика: 90282 мс"
+ },
+ {
+  "name": "Подписка",
+  "slug": "server3",
+  "issue_number": 274,
+  "opened": "2026-11-22T22:27:04+00:00",
+  "resolved": "2026-11-22T22:30:57Z",
+  "minutes": 4,
+  "code": 0,
+  "ms": 90143,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "База знаний — недоступен",
+  "desc": "- Код ошибки: 0\n- Время отклика: 90143 мс"
+ },
+ {
+  "name": "Москва",
+  "slug": "server7",
+  "issue_number": 274,
+  "opened": "2026-11-22T22:27:04+00:00",
+  "resolved": "2026-11-22T22:30:57Z",
+  "minutes": 4,
+  "code": 22,
+  "ms": 60248,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "База знаний — недоступен",
+  "desc": "- Код ошибки: 22\n- Время отклика: 60248 мс"
+ },
+ {
+  "name": "Сайт-визитка",
+  "slug": "server1",
+  "issue_number": 274,
+  "opened": "2026-11-22T22:27:04+00:00",
+  "resolved": "2026-11-22T22:30:57Z",
+  "minutes": 4,
+  "code": 0,
+  "ms": 90272,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "База знаний — недоступен",
+  "desc": "- Код ошибки: 0\n- Время отклика: 90272 мс"
+ },
+ {
+  "name": "Служба поддержки",
+  "slug": "server6",
+  "issue_number": 274,
+  "opened": "2026-11-22T22:27:04+00:00",
+  "resolved": "2026-11-22T22:30:57Z",
+  "minutes": 4,
+  "code": 200,
+  "ms": 60755,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "База знаний — недоступен",
+  "desc": "- Код ошибки: 200\n- Время отклика: 60755 мс"
+ },
+ {
+  "name": "База знаний",
+  "slug": "server2",
+  "issue_number": 275,
+  "opened": "2026-11-24T01:36:32+00:00",
+  "resolved": "2026-11-24T01:40:41Z",
+  "minutes": 4,
+  "code": 200,
+  "ms": 61918,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "База знаний — недоступен",
+  "desc": "- Код ошибки: 200\n- Время отклика: 61918 мс"
+ },
+ {
+  "name": "Подписка",
+  "slug": "server3",
+  "issue_number": 275,
+  "opened": "2026-11-24T01:36:32+00:00",
+  "resolved": "2026-11-24T01:40:41Z",
+  "minutes": 4,
+  "code": 0,
+  "ms": 90257,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "База знаний — недоступен",
+  "desc": "- Код ошибки: 0\n- Время отклика: 90257 мс"
+ },
+ {
+  "name": "Москва",
+  "slug": "server7",
+  "issue_number": 275,
+  "opened": "2026-11-24T01:36:32+00:00",
+  "resolved": "2026-11-24T01:40:41Z",
+  "minutes": 4,
+  "code": 0,
+  "ms": 90048,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "База знаний — недоступен",
+  "desc": "- Код ошибки: 0\n- Время отклика: 90048 мс"
+ },
+ {
+  "name": "Сайт-визитка",
+  "slug": "server1",
+  "issue_number": 275,
+  "opened": "2026-11-24T01:36:32+00:00",
+  "resolved": "2026-11-24T01:40:41Z",
+  "minutes": 4,
+  "code": 0,
+  "ms": 90117,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "База знаний — недоступен",
+  "desc": "- Код ошибки: 0\n- Время отклика: 90117 мс"
+ },
+ {
+  "name": "Служба поддержки",
+  "slug": "server6",
+  "issue_number": 275,
+  "opened": "2026-11-24T01:36:32+00:00",
+  "resolved": "2026-11-24T01:40:41Z",
+  "minutes": 4,
+  "code": 0,
+  "ms": 90289,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "База знаний — недоступен",
+  "desc": "- Код ошибки: 0\n- Время отклика: 90289 мс"
+ },
+ {
+  "name": "База знаний",
+  "slug": "server2",
+  "issue_number": 276,
+  "opened": "2026-11-24T21:37:09+00:00",
+  "resolved": "2026-11-24T21:40:48Z",
+  "minutes": 4,
+  "code": 0,
+  "ms": 90118,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "База знаний — недоступен",
+  "desc": "- Код ошибки: 0\n- Время отклика: 90118 мс"
+ },
+ {
+  "name": "Подписка",
+  "slug": "server3",
+  "issue_number": 276,
+  "opened": "2026-11-24T21:37:09+00:00",
+  "resolved": "2026-11-24T21:40:48Z",
+  "minutes": 4,
+  "code": 0,
+  "ms": 90116,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "База знаний — недоступен",
+  "desc": "- Код ошибки: 0\n- Время отклика: 90116 мс"
+ },
+ {
+  "name": "Москва",
+  "slug": "server7",
+  "issue_number": 276,
+  "opened": "2026-11-24T21:37:09+00:00",
+  "resolved": "2026-11-24T21:40:48Z",
+  "minutes": 4,
+  "code": 22,
+  "ms": 60251,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "База знаний — недоступен",
+  "desc": "- Код ошибки: 22\n- Время отклика: 60251 мс"
+ },
+ {
+  "name": "Сайт-визитка",
+  "slug": "server1",
+  "issue_number": 276,
+  "opened": "2026-11-24T21:37:09+00:00",
+  "resolved": "2026-11-24T21:40:48Z",
+  "minutes": 4,
+  "code": 0,
+  "ms": 90143,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "База знаний — недоступен",
+  "desc": "- Код ошибки: 0\n- Время отклика: 90143 мс"
+ },
+ {
+  "name": "Служба поддержки",
+  "slug": "server6",
+  "issue_number": 276,
+  "opened": "2026-11-24T21:37:09+00:00",
+  "resolved": "2026-11-24T21:40:48Z",
+  "minutes": 4,
+  "code": 0,
+  "ms": 90115,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "База знаний — недоступен",
+  "desc": "- Код ошибки: 0\n- Время отклика: 90115 мс"
+ },
+ {
+  "name": "База знаний",
+  "slug": "server2",
+  "issue_number": 277,
+  "opened": "2026-11-27T19:07:03+00:00",
+  "resolved": "2026-11-27T19:10:44+00:00",
+  "minutes": 4,
+  "code": 0,
+  "ms": 90128,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "База знаний — недоступен",
+  "desc": "- Код ошибки: 0\n- Время отклика: 90128 мс"
+ },
+ {
+  "name": "Подписка",
+  "slug": "server3",
+  "issue_number": 277,
+  "opened": "2026-11-27T19:07:03+00:00",
+  "resolved": "2026-11-27T19:10:43+00:00",
+  "minutes": 4,
+  "code": 0,
+  "ms": 90378,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "База знаний — недоступен",
+  "desc": "- Код ошибки: 0\n- Время отклика: 90128 мс"
+ },
+ {
+  "name": "Москва",
+  "slug": "server7",
+  "issue_number": 277,
+  "opened": "2026-11-27T19:07:03+00:00",
+  "resolved": "2026-11-27T19:10:42+00:00",
+  "minutes": 4,
+  "code": 22,
+  "ms": 60222,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "База знаний — недоступен",
+  "desc": "- Код ошибки: 0\n- Время отклика: 90128 мс"
+ },
+ {
+  "name": "Сайт-визитка",
+  "slug": "server1",
+  "issue_number": 277,
+  "opened": "2026-11-27T19:07:03+00:00",
+  "resolved": "2026-11-27T19:10:44+00:00",
+  "minutes": 4,
+  "code": 0,
+  "ms": 90117,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "База знаний — недоступен",
+  "desc": "- Код ошибки: 0\n- Время отклика: 90128 мс"
+ },
+ {
+  "name": "Служба поддержки",
+  "slug": "server6",
+  "issue_number": 277,
+  "opened": "2026-11-27T19:07:03+00:00",
+  "resolved": "2026-11-27T19:10:43+00:00",
+  "minutes": 4,
+  "code": 0,
+  "ms": 90113,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "База знаний — недоступен",
+  "desc": "- Код ошибки: 0\n- Время отклика: 90128 мс"
+ }
 ]
