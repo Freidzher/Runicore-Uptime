@@ -4405,5 +4405,100 @@
   ],
   "title": "База знаний — недоступен",
   "desc": "- Код ошибки: 0\n- Время отклика: 90780 мс"
+ },
+ {
+  "name": "База знаний",
+  "slug": "server2",
+  "issue_number": 280,
+  "opened": "2026-11-28T01:07:02+00:00",
+  "resolved": "2026-11-28T01:10:39+00:00",
+  "minutes": 4,
+  "code": 0,
+  "ms": 90103,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "База знаний — недоступен",
+  "desc": "- Код ошибки: 0\n- Время отклика: 90103 мс"
+ },
+ {
+  "name": "Подписка",
+  "slug": "server3",
+  "issue_number": 280,
+  "opened": "2026-11-28T01:07:02+00:00",
+  "resolved": "2026-11-28T01:10:38+00:00",
+  "minutes": 4,
+  "code": 0,
+  "ms": 90101,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "База знаний — недоступен",
+  "desc": "- Код ошибки: 0\n- Время отклика: 90103 мс"
+ },
+ {
+  "name": "Москва",
+  "slug": "server7",
+  "issue_number": 280,
+  "opened": "2026-11-28T01:07:02+00:00",
+  "resolved": "2026-11-28T01:10:37+00:00",
+  "minutes": 4,
+  "code": 22,
+  "ms": 60245,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "База знаний — недоступен",
+  "desc": "- Код ошибки: 0\n- Время отклика: 90103 мс"
+ },
+ {
+  "name": "Сайт-визитка",
+  "slug": "server1",
+  "issue_number": 280,
+  "opened": "2026-11-28T01:07:02+00:00",
+  "resolved": "2026-11-28T01:10:39+00:00",
+  "minutes": 4,
+  "code": 0,
+  "ms": 90100,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "База знаний — недоступен",
+  "desc": "- Код ошибки: 0\n- Время отклика: 90103 мс"
+ },
+ {
+  "name": "Служба поддержки",
+  "slug": "server6",
+  "issue_number": 280,
+  "opened": "2026-11-28T01:07:02+00:00",
+  "resolved": "2026-11-28T01:10:38+00:00",
+  "minutes": 4,
+  "code": 0,
+  "ms": 90100,
+  "maintenance": false,
+  "mode": "incident",
+  "annulled": false,
+  "hidden": false,
+  "labels": [
+   "incident"
+  ],
+  "title": "База знаний — недоступен",
+  "desc": "- Код ошибки: 0\n- Время отклика: 90103 мс"
  }
 ]
